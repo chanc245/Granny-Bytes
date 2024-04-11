@@ -1,0 +1,14 @@
+{
+  "name": "ai-grandma",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "gemini.js",
+  "scripts": {
+    "start": "node gemini.js"
+  },
+  "author": "chrissy",
+  "dependencies": {
+    "@google/generative-ai": "^0.5.0",
+    "dotenv": "^16.4.5"
+  }
+}
