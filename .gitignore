@@ -3,3 +3,7 @@ package-lock.json
 
 .env
 .env.local
+
+# other gemini try out want to keep local files 
+/gemini-testing/ars-try.js
+/img/monaLisa_nightshade3_1.jpeg
