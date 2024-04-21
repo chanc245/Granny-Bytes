@@ -80,152 +80,123 @@ const recipes = {
 };
 
 let currentRecipe = recipes.Taiwan;
+let userAsking = true;
 
-// ---------- GRANDMA BRAIN ---------- //
-// ---------- GRANDMA BRAIN ---------- //
-// ---------- GRANDMA BRAIN ---------- //
-// ---------- GRANDMA BRAIN ---------- //
-// ---------- GRANDMA BRAIN ---------- //
+// ---------- TERMINAL ---------- //
+// ---------- TERMINAL ---------- //
+// ---------- TERMINAL ---------- //
+// ---------- TERMINAL ---------- //
+// ---------- TERMINAL ---------- //
 
-async function recipeStep() {
-  console.log(`\nToday's Recipe: ${currentRecipe.name}`);
-  console.log('\nIngredients needed:');
+function showIngredients(currentRecipe, terminal) {
+  terminal.echo(`\nToday's Recipe: ${currentRecipe.name}\n`);
   currentRecipe.ingredients.forEach((ingredient, index) => {
-    console.log(`${index + 1}. ${ingredient}`);
+    terminal.echo(`${index + 1}. ${ingredient}`);
   });
+  terminal.echo("");
+  askStep(currentRecipe, terminal, 0);  // Start first step
+}
 
-  for (let i = 0; i < currentRecipe.steps.length; i++) {
-    console.log(`\nStep ${i + 1}: ${currentRecipe.steps[i]}`);
-
-    //question asking loop
-    const handleQuestions = async () => {
-      return new Promise(resolveStep => rl.question('\nDo you have any questions about this step? (y/n) ', async (ans) => {
-        if (ans.toLowerCase() === 'y') {
-          rl.question('\nPlease ask your question: ', async (question) => {
-            const prompt = `Based on the step: '${currentRecipe.steps[i]}' in the recipe for '${currentRecipe.name}', a user asked: '${question}'. Please provide simple guidance or clarification.`;
-            const answer = await ask(prompt);
-            console.log(`\nGrandma: ${answer}`);
-            resolveStep(handleQuestions()); 
-          });
+$(document).ready(function() {
+  $('#commandDiv').terminal(function(command, term) {
+    if (command.match(/hungry|start|yes|y/i)) {
+      term.push(function(command, term) {
+        if (command.match(/1|Taiwan/i)) {
+          currentRecipe = recipes.Taiwan;
+          showIngredients(currentRecipe, term);
+        } else if (command.match(/2|Jewish/i)) {
+          currentRecipe = recipes.Jewish;
+          showIngredients(currentRecipe, term);
+        } else if (command.match(/3|Korea/i)) {
+          currentRecipe = recipes.Korea;
+          showIngredients(currentRecipe, term);
+        } else if (command.match(/4|India/i)) {
+          currentRecipe = recipes.India;
+          showIngredients(currentRecipe, term);
         } else {
-          console.log('\nNo questions. Moving to the next step.');
-          resolveStep();
+          term.echo("Please enter a valid option (1-4):");
         }
-      }));
-    };
-
-    await handleQuestions();
-  }
-  // rl.close(); 
-}
-
-async function grandmaAI() {
-  console.log("\nHello my grandkid! Are you hungry? (y/n)");
-
-  const getResponse = (prompt) => {
-    return new Promise(resolve => rl.question(prompt, resolve));
-  };
-
-  let hungry = await getResponse("\nAre you hungry? (y/n) ");
-
-  if (hungry.toLowerCase() !== 'y') {
-    console.log("\nOk, come back if you are ever hungry!");
-    rl.close();
-    return;
-  }
-
-  async function recipeSelection() {
-    console.log("\nThere are four dishes you can pick from:");
-    console.log("1. Taiwanese Food");
-    console.log("2. Jewish Food"); 
-    console.log("3. Korean Food");
-    console.log("4. Indian Food");
-
-    let choice = await getResponse("\nWhich one would you like to cook? Enter the number: ");
-    choice = parseInt(choice, 10);
-
-    while (![1, 2, 3, 4].includes(choice)) {
-      choice = await getResponse("\nPlease enter a number (1-4): ");
-      choice = parseInt(choice, 10);
+      }, {
+        prompt: 'Select a recipe:\n1. Taiwan\n2. Jewish\n3. Korea\n4. India\nWhich one would you like to cook? ',
+        greetings: "There are four dishes you can pick from:"
+      });
+    } else if (command.match(/no|n/i)) {
+      term.echo("Ok, come back if you ever get hungry!");
+      term.pop();
+    } else {
+      term.echo("Are you hungry? (yes or no)");
     }
-
-    switch (choice) {
-      case 1:
-        currentRecipe = recipes.Taiwan;
-        break;
-      case 2:
-        currentRecipe = recipes.Jewish; 
-        break;
-      case 3:
-        currentRecipe = recipes.Korea;
-        break;
-      case 4:
-        currentRecipe = recipes.India;
-        break;
-      default:
-        currentRecipe = recipes.Taiwan; 
-    }
-    
-    await recipeStep(currentRecipe);
-  }
-
-  await recipeSelection();
-
-  let showCooking = await getResponse("\nDo you want to show grandma your cooking? (y/n) ");
-
-  if (showCooking.toLowerCase() === 'y') {
-    console.log("\nUploaded your cooking, grandma approved!");
-  } else {
-    console.log("\nAlright! Good day!");
-  }
-
-  rl.close();
-}
-
-// ---------- TERMINAL ---------- //
-// ---------- TERMINAL ---------- //
-// ---------- TERMINAL ---------- //
-// ---------- TERMINAL ---------- //
-// ---------- TERMINAL ---------- //
-
-document.fonts.ready.then(() => {
-  const term = 
-  $('#commandDiv').terminal({
-
-
   }, {
-    
-  greetings: `Welcome welcome!!`});
+    greetings: "Hello my grandkid! Are you hungry? (yes or no)"
+  });
 });
 
+function askStep(currentRecipe, terminal, stepIndex) {
+  if (stepIndex < currentRecipe.steps.length) {
+    const currentStep = currentRecipe.steps[stepIndex];
+    terminal.echo(`Step ${stepIndex + 1}: ${currentStep}`);
+    terminal.push(function(command) {
+      if (command.match(/yes|y/i)) {
+        terminal.echo("Please type your question:");
+        terminal.push(function(userInput) {
+          requestAI(currentRecipe.name, currentStep, userInput).then(aiResponse => {
+            terminal.echo(`\nGrandma: ${aiResponse}`);
+            terminal.pop();  //end terminal
+          });
+        }, {
+          prompt: 'Your question> '
+        });
+      } else if (command.match(/no|n/i)) {
+        terminal.pop(); 
+        askStep(currentRecipe, terminal, stepIndex + 1); 
+      } else {
+        terminal.echo("Please answer 'yes' or 'no'.");
+      }
+    }, {
+      prompt: 'Do you have any questions about this step? (y/n) ',
+      greetings: ""
+    });
+  } else {
+    terminal.echo("\nYou've completed all the steps of the recipe!");
+    terminal.pop(); 
+  }
+}
+
 // ---------- AI ---------- //
 // ---------- AI ---------- //
 // ---------- AI ---------- //
 // ---------- AI ---------- //
 // ---------- AI ---------- //
 
-async function requestAI(input) {
-  console.log(`--requestAI started --input: ${input}`);
-
-  const prompt = evaluationPrompt(input);
-
-  // Make the POST request
+async function requestAI(dish, currentStep, userQues) {
+  const prompt = evaluationPrompt(dish, currentStep, userQues);
   const response = await fetch('/submit', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ input: prompt }) 
+    body: JSON.stringify({ input: prompt })
   });
 
   if (response.ok) {
-    console.log("--AI response OK");
     const jsonData = await response.json();
-    const aiModResponse = jsonData.ai; 
-    console.log(aiModResponse);
-    return aiModResponse;
+    return jsonData.ai;
   } else {
     console.error("Error in submitting data.");
     return "Error in submitting data.";
   }
+}
+
+function evaluationPrompt(dish, currentStep, userQues) {
+  return `
+    You are a grandma assisting your grandchild in cooking. 
+    Speak in a calm, warm, and caring manner.
+
+    The current recipe is: ${dish}
+    The current step is: ${currentStep}
+
+    Your grandkid's question about this recipe is: ${userQues}
+    
+    Please provide short, concise, and simple guidance or clarification.
+  `;
 }

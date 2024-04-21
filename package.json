@@ -5,7 +5,6 @@
   "main": "ai-grandma-v2.js",
   "scripts": {
     "start": "node gemini.js",
-
     "granny": "nodemon ai-grandma-v2.js"
   },
   "author": "chrissy",
@@ -15,5 +14,8 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "nodemon": "^3.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }
