@@ -1,35 +1,3 @@
-// Gemini Base code from youtube https://www.youtube.com/watch?v=Z8F6FvMrN4o 
-// Master the Gemini API: A Node.js tutorial with real examples, Google for developer 
-
-// * AI quantum grandma v1 
-// * chat bot + img analyzer
-// * running in terminal -- conecpt proven stage 
-
-// node ai-grandma-v1.js
-
-import dotenv from "dotenv";
-import readline from "readline";
-import * as fs from "fs";
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
-dotenv.config();
-
-const genAI = new GoogleGenerativeAI(process.env.GOOGLEAPIKEY);
-
-function fileToGenerativePart(path, mimeType) {
-  return {
-    inlineData: {
-      data: Buffer.from(fs.readFileSync(path)).toString("base64"),
-      mimeType,
-    },
-  };
-}
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-})
-
 const recipes = {
   Taiwan: {
     name: "Braised Pork Belly (焢肉 Kong Rou)",
@@ -113,60 +81,11 @@ const recipes = {
 
 let currentRecipe = recipes.Taiwan;
 
-async function imgAnalyser() {
-  const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" })
-
-  const prompt = "Based on the image, please judege if this dish is well cooked, what can I do to make this dish better(be as speicifc as you can)"
-
-  const imageParts = [fileToGenerativePart("img/burnt-dish.jpg", "image/jpeg")];
-
-  const result = await model.generateContent([prompt, ...imageParts]);
-  const response = await result.response;
-  const text = response.text();
-  
-  console.log(text);
-}
-
-async function chat() {
-  // console.log("--GEMINI START RUNNING")
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
-  const chat = model.startChat({
-    history:[],
-    generationConfig: {
-      maxOutputTokens: 500,
-    },
-  })
-
-  async function askAndRespond(){
-    rl.question("You: ", async (msg) => {
-      if (msg.toLowerCase() === "exit") {
-        rl.close()
-      } else {
-        const result = await chat.sendMessage(msg);
-        const response = await result.response;
-        const text = await response.text();
-        console.log("AI: ", text);
-        askAndRespond();
-      }
-    })
-
-  }
-
-  askAndRespond();
-}
-
-async function ask(prompt) {
-  const model = genAI.getGenerativeModel({ model: "gemini-pro"});
-
-  // const prompt = 
-  //   "";
-
-  const result = await model.generateContent(prompt);
-  const response = await result.response;
-  const text = response.text();
-  return text
-}
+// ---------- GRANDMA BRAIN ---------- //
+// ---------- GRANDMA BRAIN ---------- //
+// ---------- GRANDMA BRAIN ---------- //
+// ---------- GRANDMA BRAIN ---------- //
+// ---------- GRANDMA BRAIN ---------- //
 
 async function recipeStep() {
   console.log(`\nToday's Recipe: ${currentRecipe.name}`);
@@ -263,8 +182,50 @@ async function grandmaAI() {
   rl.close();
 }
 
-// imgAnalyser()
-// chat()
-// recipeStep()
+// ---------- TERMINAL ---------- //
+// ---------- TERMINAL ---------- //
+// ---------- TERMINAL ---------- //
+// ---------- TERMINAL ---------- //
+// ---------- TERMINAL ---------- //
 
-grandmaAI()
+document.fonts.ready.then(() => {
+  const term = 
+  $('#commandDiv').terminal({
+
+
+  }, {
+    
+  greetings: `Welcome welcome!!`});
+});
+
+// ---------- AI ---------- //
+// ---------- AI ---------- //
+// ---------- AI ---------- //
+// ---------- AI ---------- //
+// ---------- AI ---------- //
+
+async function requestAI(input) {
+  console.log(`--requestAI started --input: ${input}`);
+
+  const prompt = evaluationPrompt(input);
+
+  // Make the POST request
+  const response = await fetch('/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ input: prompt }) 
+  });
+
+  if (response.ok) {
+    console.log("--AI response OK");
+    const jsonData = await response.json();
+    const aiModResponse = jsonData.ai; 
+    console.log(aiModResponse);
+    return aiModResponse;
+  } else {
+    console.error("Error in submitting data.");
+    return "Error in submitting data.";
+  }
+}
