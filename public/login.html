@@ -6,8 +6,43 @@
     <title>Are you Hungry?</title>
   </head>
   <body>
-    <div class="welcomebox"></div>
-    <div class="loginbox"></div>
+    <div class="loginbox">
+      <div class="topbar">
+        <img src="./assets/login-topbar.png" />
+      </div>
+      <div id="login-controls">
+        <div class="login-username">
+          <label for="uname"><b>Username</b></label>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="uname"
+            required
+          />
+        </div>
+        <div class="login-psw">
+          <label for="psw"><b>Password</b></label>
+
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            required
+          />
+        </div>
+
+        <!-- <button type="submit" class="btn">Login</button> -->
+        <a href="recipe.html" id="login-btn"
+          ><img src="./assets/login-btn.png"
+        /></a>
+      </div>
+    </div>
+
+    <div class="welcomebox">
+      <div class="topbar">
+        <img src="./assets/welcome-topbar.png" />
+      </div>
+    </div>
   </body>
 
   <footer>
