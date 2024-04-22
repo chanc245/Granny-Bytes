@@ -3,14 +3,59 @@
 <head>
 	<title>Choose Your Recipe!</title>
 	<style>
+
+		@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
 		
 		body {
 			background-color: #FEF2EB;
 		}
 
+		.recipebox{
+			background-color: #EBDFD9;
+			width: 500px;
+			height: 300px;
+			margin: 2em auto;
+			box-shadow:	-10px 0 0 0 #936B57,
+		                10px 0 0 0 #936B57,
+		                0 -10px 0 0 #936B57,
+		                0 10px 0 0 #936B57;
+		}
+
+		.topbar img{
+			width: 100%;
+		}
+
+		.recipeholder{
+			background-color: #FEF2EB;
+			height: 65%;
+			margin: 2%;
+		}
+
+		.bottombar{
+			background-color: #936B57;
+			width: 96%;
+			height: 30px;
+			margin: 2%;
+			font-family: "Silkscreen", sans-serif;
+			color: #EBDFD9;
+			display: flex;
+			align-items: center; /* Vertically center */
+		}
+
+		.bottombar p{
+		}
+
 	</style>
 </head>
 <body>
-	Content goes here.
+	<div class="recipebox">
+		<div class="topbar"><img src="assets/recipe_topbar.png"/></div>
+		<div class="recipeholder"></div>
+		<div class="bottombar">
+			<p>&nbsp;4 OBJECT(S)</p>
+		</div>
+	</div>
+
+	<div class="bottom"></div>
 </body>
 </html>
