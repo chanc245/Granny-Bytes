@@ -1,3 +1,5 @@
+// In this version, only the terminal library work 
+
 const recipes = {
   Taiwan: {
     name: "Braised Pork Belly (焢肉 Kong Rou)",
@@ -81,7 +83,6 @@ const recipes = {
 
 let currentRecipe;
 let userAsking = true;
-let term;
 
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
@@ -99,7 +100,7 @@ function showIngredients(currentRecipe, terminal) {
 }
 
 $(document).ready(function() {
-  term = $('#commandDiv').terminal(function(command, term) {
+  $('#commandDiv').terminal(function(command, term) {
     if (command.match(/hungry|start|yes|y/i)) {
       term.push(function(command, term) {
         if (command.match(/1|Taiwan/i)) {
@@ -128,8 +129,7 @@ $(document).ready(function() {
       term.echo("Are you hungry? (yes or no)");
     }
   }, {
-    greetings: "Hello my grandkid! Are you hungry? (yes or no)",
-    prompt: ' '
+    greetings: "Hello my grandkid! Are you hungry? (yes or no)"
   });
 });
 
@@ -146,7 +146,7 @@ function askStep(currentRecipe, terminal, stepIndex) {
             terminal.pop();  //end terminal
           });
         }, {
-          prompt: ' '
+          prompt: 'Your question> '
         });
       } else if (command.match(/no|n/i)) {
         terminal.pop(); 
@@ -210,13 +210,13 @@ function evaluationPrompt(dish, currentStep, userQues) {
 // ---------- BUTTON ---------- //
 
 function sendInput() {
-  var input = document.getElementById("user_input").value; // Get the user input
-  term.exec(input);  // Execute the input as a terminal command
-  document.getElementById("user_input").value = ''; // Clear the input field
+  var userInput = document.getElementById("inputBox").value;  
+  console.log(userInput);  // Log the value to the console
+  document.getElementById("inputBox").value = '';  // Clear the input box
 }
 
 function checkEnterKey(event) {
-  if (event.keyCode === 13) { 
-      sendInput();  
+  if (event.keyCode === 13) {  // Check if the key pressed was 'Enter' (keyCode 13)
+      sendInput();  // Call the sendInput function
   }
 }
