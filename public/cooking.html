@@ -23,6 +23,17 @@
 		                0 10px 0 0 #936B57;
 		}
 
+		.inner-box{
+			background-color: #EBDFD9;
+			width: 500px;
+			height: 300px;
+			margin: 0px;
+			box-shadow:	-7px 0 0 0 #936B57,
+		                7px 0 0 0 #936B57,
+		                0 -7px 0 0 #936B57,
+		                0 7px 0 0 #936B57;
+		}
+
 		.container{
 			display: flex;
 			flex-direction: row;
@@ -67,9 +78,48 @@
 		.grandma-ui{
 			margin: 20px;
 			margin-right: 30px;
+			margin-left: 0px;
 			width: 70%;
 			height: 80vh;
-			margin-left: 0px;
+		}
+
+		.grandma-ui img{
+			width: 100%;
+		}
+
+		.inner-container{
+			display: flex;
+			flex-direction: row;
+			height: 88%;
+			width: 100%;
+		}
+
+		.inner-container div{
+			margin: 0px;
+		}
+
+		.left{
+			display: flex;
+			flex-direction: column;
+			height: 90%;
+			width: 50%;
+			margin: 0px
+		}
+
+		.left div{
+			margin: 10px;
+		}
+
+		.right{
+			display: flex;
+			flex-direction: column;
+			height: 90%;
+			width: 40%;
+			margin: 0px
+		}
+
+		.right div{
+			margin: 10px;
 		}
 
 		.footer {
@@ -126,7 +176,20 @@
 			</div>
 		</div>
 
-		<div class="grandma-ui box"></div>
+		<div class="grandma-ui box">
+			<img src="assets/grandma-ui.png"/>
+			<div class="inner-container">
+				<div class="left">
+					<div class="terminal inner-box"></div>
+					<div class="text-input inner-box"></div>
+				</div>
+				<div class="right">
+					<div class="environment inner-box"></div>
+					<div class="cooking inner-box"></div>
+					<div class="upload inner-box"></div>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	<div class="footer">
