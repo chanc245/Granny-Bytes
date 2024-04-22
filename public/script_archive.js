@@ -54,7 +54,7 @@ const recipes = {
       "Serve on a plate and enjoy!",
     ],
   },
-  Jewish: {
+  CentralEurope: {
     name: "Sweet Noodle Kugel (לאָקשן קוגל Lokshen Kugel)",
     ingredients: [
       "4 eggs medium",
@@ -106,8 +106,8 @@ $(document).ready(function() {
         if (command.match(/1|Taiwan/i)) {
           currentRecipe = recipes.Taiwan;
           showIngredients(currentRecipe, term);
-        } else if (command.match(/2|Jewish/i)) {
-          currentRecipe = recipes.Jewish;
+        } else if (command.match(/2|CentralEurope/i)) {
+          currentRecipe = recipes.CentralEurope;
           showIngredients(currentRecipe, term);
         } else if (command.match(/3|Korea/i)) {
           currentRecipe = recipes.Korea;
@@ -119,7 +119,7 @@ $(document).ready(function() {
           term.echo("Please enter a valid option (1-4):");
         }
       }, {
-        prompt: 'Select a recipe:\n1. Taiwan\n2. Jewish\n3. Korea\n4. India\nWhich one would you like to cook? ',
+        prompt: 'Select a recipe:\n1. Taiwan\n2. Central Europe\n3. Korea\n4. India\nWhich one would you like to cook? ',
         greetings: "There are four dishes you can pick from:"
       });
     } else if (command.match(/no|n/i)) {
@@ -201,22 +201,4 @@ function evaluationPrompt(dish, currentStep, userQues) {
     
     Please provide short, concise, and simple guidance or clarification.
   `;
-}
-
-// ---------- BUTTON ---------- //
-// ---------- BUTTON ---------- //
-// ---------- BUTTON ---------- //
-// ---------- BUTTON ---------- //
-// ---------- BUTTON ---------- //
-
-function sendInput() {
-  var userInput = document.getElementById("inputBox").value;  
-  console.log(userInput);  // Log the value to the console
-  document.getElementById("inputBox").value = '';  // Clear the input box
-}
-
-function checkEnterKey(event) {
-  if (event.keyCode === 13) {  // Check if the key pressed was 'Enter' (keyCode 13)
-      sendInput();  // Call the sendInput function
-  }
 }

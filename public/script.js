@@ -52,7 +52,7 @@ const recipes = {
       "Serve on a plate and enjoy!",
     ],
   },
-  Jewish: {
+  CentralEurope: {
     name: "Sweet Noodle Kugel (לאָקשן קוגל Lokshen Kugel)",
     ingredients: [
       "4 eggs medium",

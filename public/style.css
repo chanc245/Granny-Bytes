@@ -138,7 +138,7 @@ label {
   display: block;
   margin-bottom: 5px; /* Adjust as needed to add space between labels */
 }
-=======
+
 body {
   display: flex;
   flex-direction: column;
@@ -213,19 +213,19 @@ body {
 /* TERMAL FONT */
 /* TERMAL FONT */
 /* TERMAL FONT */
-/* 
+
 :root {
   --size: 1.4;
-  --font: msdos;
+  --font: "Half Bold Pixel-7";
 }
 
 @font-face {
-  font-family: msdos;
-  src: url("https://cdn.jsdelivr.net/gh/jcubic/static/assets/dos-vga.ttf");
+  font-family: "Half Bold Pixel-7";
+  src: url("./assets/font/half_bold_pixel-7.ttf");
 }
 
 .preloader {
-  font-family: msdos;
+  font-family: "Half Bold Pixel-7", sans-serif;
 }
 
 .visually-hidden {
@@ -238,4 +238,4 @@ body {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
-} */
+}
