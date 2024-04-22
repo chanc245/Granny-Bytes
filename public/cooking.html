@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+	<title>COOK WITH GRANDMA!</title>
+	<style>
+
+		@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+		body{
+			background-color: #FEF2EB;
+			font-family: "Silkscreen", sans-serif;
+		}
+
+		.box{
+			background-color: #EBDFD9;
+			width: 500px;
+			height: 300px;
+			margin: 2em auto;
+			margin-top: 100px;
+			box-shadow:	-10px 0 0 0 #936B57,
+		                10px 0 0 0 #936B57,
+		                0 -10px 0 0 #936B57,
+		                0 10px 0 0 #936B57;
+		}
+
+		.container{
+			display: flex;
+			flex-direction: row;
+			margin: 0px;
+		}
+
+		.left-column{
+			display: flex;
+			flex-direction: column;
+			margin: 20px;
+			margin-right: 5px;
+			margin-left: 30px;
+			width: 30%
+		}
+
+		.empty{
+			width: 90%;
+			height: 20vh;
+			color: #936B57;
+			font-size: 2vh;
+			margin: 0px;
+			margin-bottom: 30px;
+		}
+
+		.ingredients{
+			width: 90%;
+			height: 55vh;
+			color: #936B57;
+			font-size: 2vh;
+			margin: 0px;
+			overflow: scroll;
+		}
+
+		.ingredients img{
+			width: 100%;
+		}
+
+		.ingredients p{
+			margin: 10px;
+		}
+
+		.grandma-ui{
+			margin: 20px;
+			margin-right: 30px;
+			width: 70%;
+			height: 80vh;
+			margin-left: 0px;
+		}
+
+		.footer {
+		    background-color: #EBDFD9;
+		    color: #EBDFD9;
+		    display: flex;
+		    justify-content: space-between;
+		    position: fixed;
+		    left: 0;
+		    bottom: 0;
+		    width: 100%;
+		    height: 56px;
+		}
+
+		.footer p{
+			font-size: 30px;
+			margin: 5px;
+			padding-left: 5px;
+			padding-right: 5px;
+			background-color: #936B57;
+			justify-content: center;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="left-column">
+			<div class="empty box">
+			</div>
+
+			<div class="ingredients box">
+				<img src="assets/ingredients.png"/>
+				<p>
+					焢肉 Kong Rou<br><br>
+					Ingredients:<br>
+					Cubed pork belly: 1 lb<br>
+					Garlic: around 4 piece <br>
+					Sugar: 1 Spoon <br>
+					Green Onion: 2 piece<br>
+					Soy Sauce: half a bowl <br>
+					Water: 3 bowl <br><br>
+
+					Steps: <br>
+					1. Medium Heat, Fry the pork belly to golden brown (skin first), put it aside <br>
+					2. Medium Heat, Garlic and Green fry to golden brown, put it aside <br>
+					3. Low Heat, heat sugar til it turns golden, add in the meat, soy sauce, water <br>
+					4. Low Heat, cook until the water almost all evaporates (almost no water)
+
+
+				</p>
+			</div>
+		</div>
+
+		<div class="grandma-ui box"></div>
+	</div>
+	
+	<div class="footer">
+	    <p class="scene-info">■COOKING WITH GRANDMA</p>
+	    <p class="scene-info">12:00PM</p>
+  	</div>
+
+
+</body>
+</html>
