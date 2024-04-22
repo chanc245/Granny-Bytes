@@ -138,3 +138,104 @@ label {
   display: block;
   margin-bottom: 5px; /* Adjust as needed to add space between labels */
 }
+=======
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 95vh;
+
+}
+
+#main {
+  /* display: none; */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+}
+
+/* TERMINAL SETUP */
+/* TERMINAL SETUP */
+/* TERMINAL SETUP */
+/* TERMINAL SETUP */
+/* TERMINAL SETUP */
+
+.inter {
+  border: 5px solid #936B57;
+  padding: 20px;
+}
+
+#commandDiv {
+  height: 80vh;
+  width: 80vw;
+  overflow-x: auto;
+  overflow-y: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  /* justify-content: center; */
+
+  background-color: #FCF5F1;
+}
+
+/* TERMINAL COLOR */
+/* TERMINAL COLOR */
+/* TERMINAL COLOR */
+/* TERMINAL COLOR */
+/* TERMINAL COLOR */
+
+:root {
+  /* Text size */
+  --size: 2.0;
+}
+
+.terminal {
+  /* inside text color */
+  --color: #674E41;
+}
+
+.cmd {
+  /* user input color */
+  --color: #946E5A;
+}
+
+.cmd-prompt {
+  /* blinking input color */
+  --color: #674E41;
+}
+
+/* TERMAL FONT */
+/* TERMAL FONT */
+/* TERMAL FONT */
+/* TERMAL FONT */
+/* TERMAL FONT */
+/* 
+:root {
+  --size: 1.4;
+  --font: msdos;
+}
+
+@font-face {
+  font-family: msdos;
+  src: url("https://cdn.jsdelivr.net/gh/jcubic/static/assets/dos-vga.ttf");
+}
+
+.preloader {
+  font-family: msdos;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+} */

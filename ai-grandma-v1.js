@@ -1,8 +1,11 @@
-// Base code from youtube https://www.youtube.com/watch?v=Z8F6FvMrN4o
-// Master the Gemini API: A Node.js tutorial with real examples, Google for developer
+// Gemini Base code from youtube https://www.youtube.com/watch?v=Z8F6FvMrN4o 
+// Master the Gemini API: A Node.js tutorial with real examples, Google for developer 
 
-// * AI quantum grandma v1
+// * AI quantum grandma v1 
 // * chat bot + img analyzer
+// * running in terminal -- conecpt proven stage 
+
+// node ai-grandma-v1.js
 
 import dotenv from "dotenv";
 import readline from "readline";
@@ -82,9 +85,29 @@ const recipes = {
     ],
   },
   Jewish: {
-    name: "-",
-    ingredients: ["-"],
-    steps: ["Placeholder"],
+    name: "Sweet Noodle Kugel (לאָקשן קוגל Lokshen Kugel)",
+    ingredients: [
+      "4 eggs medium",
+      "1/2 cup granulated sugar",
+      "1 cup cottage cheese",
+      "2 cups heavy cream",
+      "2 cups wide noodles uncooked",
+      "1 stick of butter melted",
+      "2/3 cup raisins",
+      "2 tsp vanilla extract",
+      "1 tsp salt",
+      "6 butter cookies",
+    ],
+    steps: [
+      "Cook wide noodles as indicated on the package.",
+      "Mix/beat together eggs with sugar.",
+      "Mix in cottage cheese, heavy cream, melted butter, vanilla, salt and raisins.",
+      "Pour drained noodles over the egg mixture.",
+      "Grease a baking dish then pour the noodle mix into the dish.",
+      "Mix crumbled cookies with butter then sprinkle over the noodles.",
+      "Bake in the oven (350°F) until the top is golden brown, approximately an hour.",
+      "Serve warm or from the fridge.",
+    ],
   },
 };
 
