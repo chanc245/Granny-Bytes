@@ -1,3 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+
+.silkscreen-regular {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.silkscreen-bold {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
   background-color: #fef2eb;
+}
+
+footer {
+  background-color: #ebdfd9;
+  font-family: "Silkscreen", sans-serif;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.scene-info {
+  background-color: #946e5a;
+  color: #ebdfd9;
+}
+
+.recipebox {
+  width: 50%;
+  height: 50vh;
+  margin: 2em auto;
+  box-shadow: -15px 0 0 0 #946e5a, 15px 0 0 0 #946e5a, 0 -15px 0 0 #946e5a,
+    0 15px 0 0 #946e5a;
+}
+
+.welcomebox {
+  width: 50%;
+  height: 50vh;
+  margin: 2em auto;
+  box-shadow: -15px 0 0 0 #946e5a, 15px 0 0 0 #946e5a, 0 -15px 0 0 #946e5a,
+    0 15px 0 0 #946e5a;
+}
+
+.loginbox {
+  width: 50%;
+  height: 50vh;
+  margin: 2em auto;
+  box-shadow: -15px 0 0 0 #946e5a, 15px 0 0 0 #946e5a, 0 -15px 0 0 #946e5a,
+    0 15px 0 0 #946e5a;
 }
