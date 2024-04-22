@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+	<title>Choose Your Recipe!</title>
+	<style>
+
+		@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+		
+		body {
+			background-color: #FEF2EB;
+			font-family: "Silkscreen", sans-serif;
+		}
+
+		.recipebox{
+			background-color: #EBDFD9;
+			width: 500px;
+			height: 300px;
+			margin: 2em auto;
+			margin-top: 100px;
+			box-shadow:	-10px 0 0 0 #936B57,
+		                10px 0 0 0 #936B57,
+		                0 -10px 0 0 #936B57,
+		                0 10px 0 0 #936B57;
+		}
+
+		.topbar img{
+			width: 100%;
+		}
+
+		.recipeholder{
+			background-color: #FEF2EB;
+			height: 65%;
+			margin: 2%;
+			color: #674E41;
+			text-align: center;
+			display: flex;
+			flex-direction: row;
+			font-size: 2vh;
+		}
+
+		.recipeholder div{
+			margin: 10px;
+		}
+
+		.recipeholder p{
+			margin: 0px;
+		}
+
+		.foodicon{
+			width: 50px;
+		}
+
+		.bottombar{
+			background-color: #936B57;
+			width: 96%;
+			height: 30px;
+			margin: 2%;
+			color: #EBDFD9;
+			display: flex;
+			align-items: center;
+		}
+
+		.footer {
+		    background-color: #EBDFD9;
+		    color: #EBDFD9;
+		    display: flex;
+		    justify-content: space-between;
+		    position: fixed;
+		    left: 0;
+		    bottom: 0;
+		    width: 100%;
+		    height: 56px;
+		}
+
+		.footer p{
+			font-size: 30px;
+			margin: 5px;
+			padding-left: 5px;
+			padding-right: 5px;
+			background-color: #936B57;
+			justify-content: center;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="recipebox">
+		<div class="topbar"><img src="assets/recipe_topbar.png"/></div>
+		<div class="recipeholder">
+			<div><img class="foodicon" src="assets/food-test.jpg"/><p>Kong Rou<br>焢肉</p></div>
+			<div><img class="foodicon" src="assets/food-test.jpg"/><p>Kimchi Jeon<br>김치 전</p></div>
+			<div><img class="foodicon" src="assets/food-test.jpg"/><p>Kugel<br>לאָקשן קוגל</p></div>
+			<div><img class="foodicon" src="assets/food-test.jpg"/><p>Kheer<br>खीर</p></div>
+		</div>
+		<div class="bottombar">
+			<p>&nbsp;4 OBJECT(S)</p>
+		</div>
+	</div>
+
+	<div class="footer">
+	    <p class="scene-info">■RECIPE SELECTION</p>
+	    <p class="scene-info">12:00PM</p>
+  	</div>
+</body>
+</html>

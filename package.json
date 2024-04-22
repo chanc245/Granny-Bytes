@@ -4,7 +4,7 @@
   "type": "module",
   "main": "ai-grandma-v2.js",
   "scripts": {
-    "start": "node gemini.js",
+    "start": "node ai-grandma-v1.js"
     "granny": "nodemon ai-grandma-v2.js"
   },
   "author": "chrissy",
