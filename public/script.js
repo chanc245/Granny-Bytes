@@ -79,7 +79,7 @@ const recipes = {
   },
 };
 
-let currentRecipe = recipes.Taiwan; 
+let currentRecipe = recipes.Taiwan;
 let userAsking = true;
 let term;
 
@@ -89,22 +89,25 @@ let term;
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
 
-$(document).ready(function() {
-  term = $('#commandDiv').terminal(function(command) {
-    if (command !== '') {
-      try {
-        var result = window.eval(command);
-        if (result !== undefined) {
-          this.echo(new String(result));
+$(document).ready(function () {
+  term = $("#commandDiv").terminal(
+    function (command) {
+      if (command !== "") {
+        try {
+          var result = window.eval(command);
+          if (result !== undefined) {
+            this.echo(new String(result));
+          }
+        } catch (e) {
+          this.error(new String(e));
         }
-      } catch (e) {
-        this.error(new String(e));
       }
+    },
+    {
+      greetings: `Today's Recipe: ${currentRecipe.name}\n\nStarting the cooking steps:\n`,
+      prompt: " ",
     }
-  }, {
-    greetings: `Today's Recipe: ${currentRecipe.name}\n\nStarting the cooking steps:\n`,
-    prompt: ' '
-  });
+  );
 
   // showIngredients(currentRecipe, term);
   askStep(currentRecipe, term, 0);
@@ -120,37 +123,45 @@ function showIngredients(currentRecipe, terminal) {
   currentRecipe.ingredients.forEach((ingredient, index) => {
     terminal.echo(`${index + 1}. ${ingredient}`);
   });
-  terminal.echo(""); 
+  terminal.echo("");
 }
 
 function askStep(currentRecipe, terminal, stepIndex) {
   if (stepIndex < currentRecipe.steps.length) {
     const currentStep = currentRecipe.steps[stepIndex];
     terminal.echo(`\nStep ${stepIndex + 1}: ${currentStep}`);
-    terminal.push(function(command) {
-      if (command.match(/no|n/i)) {
-        terminal.echo(`\nIf you have any question, ask away!`);
-        terminal.push(function(userInput) {
-          requestAI(currentRecipe.name, currentStep, userInput).then(aiResponse => {
-            terminal.echo(`\nGrandma:\n   ${aiResponse}`);
-            terminal.pop(); 
-          });
-        }, {
-          prompt: '   '
-        });
-      } else if (command.match(/yes|y/i)) {
-        terminal.pop();
-        askStep(currentRecipe, terminal, stepIndex + 1); // Move to the next step
-      } else {
-        terminal.echo("\nPlease answer 'yes' or 'no'.");
+    terminal.push(
+      function (command) {
+        if (command.match(/no|n/i)) {
+          terminal.echo(`\nIf you have any question, ask away!`);
+          terminal.push(
+            function (userInput) {
+              requestAI(currentRecipe.name, currentStep, userInput).then(
+                (aiResponse) => {
+                  terminal.echo(`\nGrandma:\n   ${aiResponse}`);
+                  terminal.pop();
+                }
+              );
+            },
+            {
+              prompt: "   ",
+            }
+          );
+        } else if (command.match(/yes|y/i)) {
+          terminal.pop();
+          askStep(currentRecipe, terminal, stepIndex + 1); // Move to the next step
+        } else {
+          terminal.echo("\nPlease answer 'yes' or 'no'.");
+        }
+      },
+      {
+        prompt: "\nDo you want to move to next step? (y/n) ",
+        greetings: "",
       }
-    }, {
-      prompt: '\nDo you want to move to next step? (y/n) ',
-      greetings: ""
-    });
+    );
   } else {
     terminal.echo("\nYou've completed all the steps of the recipe!");
-    terminal.pop(); 
+    terminal.pop();
   }
 }
 
@@ -162,12 +173,12 @@ function askStep(currentRecipe, terminal, stepIndex) {
 
 async function requestAI(dish, currentStep, userQues) {
   const prompt = evaluationPrompt(dish, currentStep, userQues);
-  const response = await fetch('/submit', {
-    method: 'POST',
+  const response = await fetch("/submit", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ input: prompt })
+    body: JSON.stringify({ input: prompt }),
   });
 
   if (response.ok) {
@@ -202,12 +213,12 @@ function evaluationPrompt(dish, currentStep, userQues) {
 function sendInput() {
   var input = document.getElementById("user_input").value; // Get user input
   // term.echo(`\nYou:`)
-  term.exec(input);  // Execute the input as a terminal command
-  document.getElementById("user_input").value = ''; // Clear input 
+  term.exec(input); // Execute the input as a terminal command
+  document.getElementById("user_input").value = ""; // Clear input
 }
 
 function checkEnterKey(event) {
-  if (event.keyCode === 13) { 
-      sendInput();  
+  if (event.keyCode === 13) {
+    sendInput();
   }
 }
