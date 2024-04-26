@@ -1,4 +1,5 @@
 <html lang="en">
+<body onload="formatAMPM()">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,11 +24,11 @@
         <div class="login-psw">
           <label for="psw"><b>Password</b></label>
 
-          <input
+          <input id="password" style="pointer-events:none;"
             type="password"
-            placeholder="Enter Password"
+            placeholder="********"
             name="psw"
-            required
+            readonly
           />
         </div>
 
@@ -47,6 +48,7 @@
 
   <footer>
     <p class="scene-info">👩🏻‍🍳Welcome to Granny bytes</p>
-    <p class="scene-info">12:00PM</p>
+    <p class="scene-info" id="time">12:00PM</p>
   </footer>
+  <script src="time.js"></script>
 </html>

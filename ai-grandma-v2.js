@@ -37,7 +37,7 @@ const __dirname = dirname(__filename);
 app.use(express.static(join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-  res.sendFile(join(__dirname, "index.html"));
+  res.sendFile(join(__dirname, "public/welcome.html"));
 });
 
 app.post("/submit", async (req, res) => {

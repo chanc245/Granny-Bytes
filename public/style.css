@@ -75,10 +75,10 @@ footer p {
   height: 50vh;
   margin: 2em auto;
   box-shadow:
-    -15px 0 0 0 #946e5a,
-    15px 0 0 0 #946e5a,
-    0 -15px 0 0 #946e5a,
-    0 15px 0 0 #946e5a;
+    -10px 0 0 0 #946e5a,
+    10px 0 0 0 #946e5a,
+    0 -10px 0 0 #946e5a,
+    0 10px 0 0 #946e5a;
 }
 
 .welcomebox {
@@ -89,10 +89,10 @@ footer p {
   left: 200px;
   margin: 1em auto;
   box-shadow:
-    -15px 0 0 0 #946e5a,
-    15px 0 0 0 #946e5a,
-    0 -15px 0 0 #946e5a,
-    0 15px 0 0 #946e5a;
+    -10px 0 0 0 #946e5a,
+    10px 0 0 0 #946e5a,
+    0 -10px 0 0 #946e5a,
+    0 10px 0 0 #946e5a;
   z-index: -1;
 }
 
@@ -104,10 +104,18 @@ footer p {
   margin: 2em auto;
   background-color: #ebdfd9;
   box-shadow:
-    -15px 0 0 0 #946e5a,
-    15px 0 0 0 #946e5a,
-    0 -15px 0 0 #946e5a,
-    0 15px 0 0 #946e5a;
+    -10px 0 0 0 #946e5a,
+    10px 0 0 0 #946e5a,
+    0 -10px 0 0 #946e5a,
+    0 10px 0 0 #946e5a;
+}
+
+::placeholder {
+  font-family: "Silkscreen", sans-serif;
+}
+
+#password::placeholder {
+  color: #946e5a;
 }
 
 .popup-background {
