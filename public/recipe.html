@@ -3,6 +3,7 @@
 <body onload="formatAMPM()">
   <head>
     <title>Choose Your Recipe!</title>
+    <link rel="stylesheet" href="./style.css">
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
 
@@ -61,7 +62,7 @@
         align-items: center;
       }
 
-      .footer {
+      /* .footer {
         background-color: #ebdfd9;
         color: #ebdfd9;
         display: flex;
@@ -80,39 +81,40 @@
         padding-right: 5px;
         background-color: #936b57;
         justify-content: center;
-      }
+      } */
     </style>
   </head>
   <body>
-    <div class="recipebox">
-      <div class="topbar"><img src="assets/img/UI/recipe_topbar.png" /></div>
-      <div class="recipeholder">
-        <div>
-          <img class="foodicon" src="assets/img/Food/food-test.jpg" />
-          <p>Taiwan<br />焢肉</p>
+    <div class="main-container">
+      <div class="recipebox">
+        <div class="topbar"><img src="assets/img/UI/recipe_topbar.png" /></div>
+        <div class="recipeholder">
+          <div>
+            <img class="foodicon" src="assets/img/Food/food-test.jpg" />
+            <p>Taiwan</p>
+          </div>
+          <div>
+            <img class="foodicon" src="assets/img/Food/food-test.jpg" />
+            <p>South<br />Korea</p>
+          </div>
+          <div>
+            <img class="foodicon" src="assets/img/Food/food-test.jpg" />
+            <p>Central<br />Europe</p>
+          </div>
+          <div>
+            <img class="foodicon" src="assets/img/Food/food-test.jpg" />
+            <p>India</p>
+          </div>
         </div>
-        <div>
-          <img class="foodicon" src="assets/img/Food/food-test.jpg" />
-          <p>South Korea<br />김치 전</p>
+        <div class="bottombar">
+          <p>&nbsp;4 OBJECT(S)</p>
         </div>
-        <div>
-          <img class="foodicon" src="assets/img/Food/food-test.jpg" />
-          <p>Central Europe<br />לאָקשן קוגל</p>
-        </div>
-        <div>
-          <img class="foodicon" src="assets/img/Food/food-test.jpg" />
-          <p>India<br />खीर</p>
-        </div>
-      </div>
-      <div class="bottombar">
-        <p>&nbsp;4 OBJECT(S)</p>
-      </div>
-    </div>
 
-    <div class="footer">
-      <p class="scene-info">■RECIPE SELECTION</p>
-      <p class="scene-info" id="time">12:00PM</p>
-    </div>
+      <div class="footer">
+        <p class="scene-info">■RECIPE SELECTION</p>
+        <p class="scene-info" id="time">12:00PM</p>
+      </div>
+  </div>
   </body>
   <script src="time.js"></script>
 </html>

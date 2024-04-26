@@ -7,48 +7,51 @@
     <title>Are you Hungry?</title>
   </head>
   <body>
-    <div class="loginbox">
-      <div class="topbar">
-        <img src="./assets/img/UI/login-topbar.png" />
-      </div>
-      <div id="login-controls">
-        <div class="login-username">
-          <label for="uname"><b>Username</b></label>
-          <input
-            type="text"
-            placeholder="Enter Username"
-            name="uname"
-            required
-          />
+    <div class="main-container">
+      <div class="loginbox">
+        <div class="topbar">
+          <img src="./assets/img/UI/login-topbar.png" />
         </div>
-        <div class="login-psw">
-          <label for="psw"><b>Password</b></label>
+        <div id="login-controls">
+          <div class="login-username">
+            <label for="uname"><b>Username</b></label>
+            <input
+              type="text"
+              placeholder="Enter Username"
+              name="uname"
+              required
+            />
+          </div>
+          <div class="login-psw">
+            <label for="psw"><b>Password</b></label>
 
-          <input id="password" style="pointer-events:none;"
-            type="password"
-            placeholder="********"
-            name="psw"
-            readonly
-          />
+            <input id="password" style="pointer-events:none;"
+              type="password"
+              placeholder="********"
+              name="psw"
+              readonly
+            />
+          </div>
+
+          <!-- <button type="submit" class="btn">Login</button> -->
+          <a href="recipe.html" id="login-btn"
+            ><img src="./assets/img/ui/login-btn.png"
+          /></a>
         </div>
-
-        <!-- <button type="submit" class="btn">Login</button> -->
-        <a href="recipe.html" id="login-btn"
-          ><img src="./assets/img/ui/login-btn.png"
-        /></a>
       </div>
+
+      <div class="welcomebox">
+        <div class="topbar">
+          <img src="./assets/img/ui/welcome-topbar.png" />
+        </div>
+      </div>
+    </body>
+
+    <div class="footer">
+      <p class="scene-info">■Welcome to Granny Bytes</p>
+      <p class="scene-info" id="time">12:00PM</p>
     </div>
 
-    <div class="welcomebox">
-      <div class="topbar">
-        <img src="./assets/img/ui/welcome-topbar.png" />
-      </div>
-    </div>
-  </body>
-
-  <footer>
-    <p class="scene-info">👩🏻‍🍳Welcome to Granny bytes</p>
-    <p class="scene-info" id="time">12:00PM</p>
-  </footer>
+</div>
   <script src="time.js"></script>
 </html>

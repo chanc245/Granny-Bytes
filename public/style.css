@@ -46,9 +46,8 @@ body {
   font-size: 30px;
   margin: 5px;
   padding: 0 5px;
-  background-color: #936B57;
+  background-color: #936b57;
 }
-
 
 /*footer {
   background-color: #ebdfd9;
@@ -74,9 +73,9 @@ footer p {
 
 .grandma-app img {
   position: relative;
-  top: 20vw;
-  left: 40vw;
-  height: 15%;
+  top: 14vw;
+  left: 38vw;
+  height: 20%;
 }
 
 .grandma-app p {
@@ -262,4 +261,3 @@ label {
   white-space: nowrap !important;
   border: 0 !important;
 }
-
