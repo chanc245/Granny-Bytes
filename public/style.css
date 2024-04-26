@@ -1,5 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
 
+@font-face {
+  font-family: "Hardpixel";
+  src: url("./assets/font/Hardpixel.OTF") format("opentype");
+}
+
+@font-face {
+  font-family: "Halfpix";
+  src: url("./assets/font/half_bold_pixel-7.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bulkypix";
+  src: url("./assets/font/BULKYPIX.TTF") format("truetype");
+}
+
 .silkscreen-regular {
   font-family: "Silkscreen", sans-serif;
   font-weight: 400;
@@ -98,21 +113,23 @@ footer p {
 
 .welcomebox {
   position: absolute;
-  width: 350px;
-  height: 400px;
-  top: 50px;
-  left: 200px;
+  background-color: #ebdfd9;
+  width: 15vw;
+  height: 35vh;
+  top: 100;
+  left: 30vw;
   margin: 1em auto;
   box-shadow:
-    -10px 0 0 0 #946e5a,
-    10px 0 0 0 #946e5a,
-    0 -10px 0 0 #946e5a,
-    0 10px 0 0 #946e5a;
-  z-index: -1;
+    -10px 0 0 0 #ba7a70,
+    10px 0 0 0 #ba7a70,
+    0 -10px 0 0 #ba7a70,
+    0 10px 0 0 #ba7a70;
+  /* z-index: -1; */
 }
 
 .loginbox {
   position: relative;
+  font-family: "Hardpixel";
   width: 400px;
   height: 200px;
   top: 250;

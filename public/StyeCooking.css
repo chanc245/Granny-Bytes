@@ -19,12 +19,25 @@ body {
     0 10px 0 0 #936b57;
 }
 
+.app {
+  background-color: #ebdfd9;
+  width: 500px;
+  height: 300px;
+  margin: 2em auto;
+  margin-top: 100px;
+  box-shadow:
+    -10px 0 0 0 #9ab190,
+    10px 0 0 0 #9ab190,
+    0 -10px 0 0 #9ab190,
+    0 10px 0 0 #9ab190;
+}
+
 .inner-box {
   background-color: #ebdfd9;
   margin: 2em auto;
   box-shadow:
-    -3px 0 0 0 #936b57,
-    3px 0 0 0 #936b57,
+    -4px 0 0 0 #936b57,
+    4px 0 0 0 #936b57,
     0 -3px 0 0 #936b57,
     0 3px 0 0 #936b57;
 }
@@ -55,9 +68,10 @@ body {
 }
 
 .ingredients {
+  background-color: #dee7db;
   width: 90%;
   height: 55vh;
-  color: #936b57;
+  color: #dee7db;
   font-size: 2vh;
   margin: 0px;
   overflow: scroll;
@@ -69,6 +83,13 @@ body {
 
 .ingredients p {
   margin: 10px;
+  color: #5a7152;
+}
+
+.ingredients-container {
+  background-color: #fafff8;
+  margin: 2%;
+  padding: 1%;
 }
 
 .grandma-ui {
