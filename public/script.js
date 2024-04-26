@@ -1,3 +1,12 @@
+// Apr26 -- Most current version, 
+// add in randomize granny talk
+
+// ---------- VARIABLES ---------- //
+// ---------- VARIABLES ---------- //
+// ---------- VARIABLES ---------- //
+// ---------- VARIABLES ---------- //
+// ---------- VARIABLES ---------- //
+
 const recipes = {
   Taiwan: {
     name: "Braised Pork Belly (焢肉 Kong Rou)",
@@ -79,6 +88,93 @@ const recipes = {
   },
 };
 
+const granny = {
+  StartDishFront : [
+    `\nToday's special from Granny's kitchen is `,
+    `\nAlright my lovely, today we're whipping up `,
+    `\nWell, today Granny has `,
+    `\nGather around, children! Today we're making `,
+    `\nIt's a fine day for cooking, isn't it? Today's dish is `,
+    `\nHello my darling, ready to cook? Today we're tackling `,
+    `\nToday, Granny's got a special treat—`,
+    `\nMy dear, today we're cooking up something wonderful: `,
+    `\nLook what we have on the agenda today—it’s `,
+    `\nToday's delicious endeavor is `
+  ],
+  StartDishEnd : [
+    ` Let's roll up our sleeves and get cooking, my dear!`,
+    ` Let's begin with the first step, shall we?`,
+    ` Let's get started on those cooking steps, sweetheart.`,
+    ` Let me show you how it's done.`,
+    ` Let's dive into the cooking steps together, my love.`,
+    ` Here’s how we start...`,
+    ` Let's get started with our cooking steps, shall we?`,
+    ` Follow along with me now.`,
+    ` Ready to start the adventure in Granny's kitchen?`,
+    ` Let's begin our culinary journey together.`
+  ],
+  Step : [
+    "Now, for Step ",
+    "Moving on to Step ",
+    "Next up, we have Step ",
+    "Alright, sweetheart, let's get to Step ",
+    "Onward to Step ", 
+    "Let’s gently step into ",
+    "For our next trick, Step ",
+    "Now, my dear one, let’s ease into Step ",
+    "Ah, Step "
+  ],
+  Ask : [
+    "My dear, is there anything about this step that you'd like to ask your old granny?",
+    "Sweetheart, do you need granny to explain this step a bit more?",
+    "Are you all clear on this step, or is there something you'd like to ask me, dear?",
+    "Do you have any little doubts about this part, my love?",
+    "Anything puzzling you about this step, darling? Just ask your granny!",
+    "Is there anything about this step that's troubling you, my dear?",
+    "Can granny help clarify this part for you, honey?",
+    "Do you need me to explain this step once more, love?",
+    "Is there anything you're unsure about here, darling?",
+    "Any wrinkles here you need granny to smooth out, dear?"
+  ],
+  Ques : [
+    "If there's anything on your mind, don't hesitate to ask your granny, dear!",
+    "Go ahead and ask granny anything you're wondering about, my love!",
+    "If there's something you need to know, just speak up, sweetheart!",
+    "Feel free to ask your old granny any questions, dearie!",
+    "Anything puzzling you? Granny's here to help, just ask away, child!",
+    "My dear, if anything's unclear, I'm all ears—what do you need to know?",
+    "Granny's here to answer any of your questions, so don't be shy, ask away!",
+    "If you have questions, my darling, you just ask them, okay?",
+    "Let me know if there's anything on your mind, sweet pea!",
+    "Any questions? Granny can help clear things up, just tell me what you need.",
+    "If there's anything you're curious about, just holler at your granny, darling!"
+  ],
+  YesNo : [
+    "Just tell Granny, yes or no, dear.",
+    "Can you give me a yes or no, sweetheart?",
+    "My darling, is it a yes or a no?",
+    "Kindly let me know, yes or no, love.",
+    "A simple yes or no will do, my dear.",
+    "Would it be a yes or a no, my precious?",
+    "All I need is a yes or no, child.",
+    "Yes or no, honey, what will it be?",
+    "Give Granny your answer, yes or no, please.",
+    "Can you tell me, yes or no, darling?"
+  ],
+  Complete : [
+    "Of course, my dear! You've completed all the steps of the recipe.",
+    "Oh, my stars! Look at you, finishing all the recipe steps like a pro.",
+    "Bravo, sweetheart! All the steps are complete—Granny is so proud.",
+    "You've done it, darling! Every single step is checked off, just splendid.",
+    "My dear, you've gone and completed all the steps! What a wonderful job. ",
+    "Look at that, my precious! All the steps are done and dusted. ",
+    "Oh, I'm just tickled pink! You've completed all the steps of the recipe. ",
+    "You've wrapped up all the steps, love! Marvelous work indeed. ",
+    "All done, my child! Every single step—Granny couldn't be happier. ",
+    "There we go, all the steps finished! You've really outdone yourself, dear."
+  ]
+}
+
 let currentRecipe = recipes.Taiwan;
 let userAsking = true;
 let term;
@@ -104,8 +200,10 @@ $(document).ready(function () {
       }
     },
     {
-      greetings: `Today's Recipe: ${currentRecipe.name}\n\nStarting the cooking steps:\n`,
-      prompt: " ",
+      greetings: `*Never give out your password or crefit card number in an instant message conversation!
+______  
+${grannyStartDishLoop(currentRecipe.name)}\n`, //grannyStart.Dish
+      prompt: "  \n",
     }
   );
 
@@ -119,21 +217,34 @@ $(document).ready(function () {
 // ---------- FUNCTIONS ---------- //
 // ---------- FUNCTIONS ---------- //
 
+function grannyStartDishLoop(recipeName) {
+  let grannyStartDishCount = Math.floor(Math.random() * granny.StartDishFront.length)
+  let currentConversation =`${granny.StartDishFront[grannyStartDishCount]}${recipeName}!${granny.StartDishEnd[grannyStartDishCount]}`;
+  return currentConversation;
+}
+
+function randomGrannyConversation(grannyArray){
+  let grannyNum = Math.floor(Math.random() * grannyArray.length)
+  let currentConversation = grannyArray[grannyNum];
+  return currentConversation;
+}
+
 function showIngredients(currentRecipe, terminal) {
   currentRecipe.ingredients.forEach((ingredient, index) => {
     terminal.echo(`${index + 1}. ${ingredient}`);
   });
-  terminal.echo("");
+  terminal.echo(randomGrannyConversation(granny.StartDish)); //granny.StartDish
 }
 
 function askStep(currentRecipe, terminal, stepIndex) {
   if (stepIndex < currentRecipe.steps.length) {
     const currentStep = currentRecipe.steps[stepIndex];
-    terminal.echo(`\nStep ${stepIndex + 1}: ${currentStep}`);
+    terminal.echo(`\n${randomGrannyConversation(granny.Step)}${stepIndex + 1}: ${currentStep}`); //granny.Step
     terminal.push(
-      function (command) {
-        if (command.match(/no|n/i)) {
-          terminal.echo(`\nIf you have any question, ask away!`);
+      async function (command) {
+      console.log(await yesNoAnalyzer(command))
+        if (command.match(/yes|y/i)) {
+          terminal.echo(`\n${randomGrannyConversation(granny.Ques)}`); //granny.Ques
           terminal.push(
             function (userInput) {
               requestAI(currentRecipe.name, currentStep, userInput).then(
@@ -144,23 +255,23 @@ function askStep(currentRecipe, terminal, stepIndex) {
               );
             },
             {
-              prompt: "   ",
+              prompt: " ",
             }
           );
-        } else if (command.match(/yes|y/i)) {
+        } else if (command.match(/no|n/i)) {
           terminal.pop();
           askStep(currentRecipe, terminal, stepIndex + 1); // Move to the next step
         } else {
-          terminal.echo("\nPlease answer 'yes' or 'no'.");
+          terminal.echo(`\n${randomGrannyConversation(granny.YesNo)}`); //granny.YesNoLoop
         }
       },
       {
-        prompt: "\nDo you want to move to next step? (y/n) ",
+        prompt: `\n${randomGrannyConversation(granny.Ask)}`, //granny.Ask
         greetings: "",
       }
     );
   } else {
-    terminal.echo("\nYou've completed all the steps of the recipe!");
+    terminal.echo(`\n${randomGrannyConversation(grannyComplete)}`);
     terminal.pop();
   }
 }
@@ -170,6 +281,33 @@ function askStep(currentRecipe, terminal, stepIndex) {
 // ---------- AI ---------- //
 // ---------- AI ---------- //
 // ---------- AI ---------- //
+
+async function yesNoAnalyzer(input) {
+  const prompt = `
+  Based on this user input: ${input}, please analyze whether the user's answer is more aligned with 'yes' or 'no'.
+
+  If the answer leans more towards yes, respond with yes.
+  If the answer leans more towards no, respond with no.
+
+  Please answer only with yes or no.`;
+
+  const response = await fetch("/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ input: prompt }),
+  });
+
+  if (response.ok) {
+    const jsonData = await response.json();
+    return jsonData.ai;
+    console.log(jsonData.ai)
+  } else {
+    console.error("Error in submitting data.");
+    return "Error in submitting data.";
+  }
+}
 
 async function requestAI(dish, currentStep, userQues) {
   const prompt = evaluationPrompt(dish, currentStep, userQues);
