@@ -1,161 +1,20 @@
 <!doctype html>
 <html>
   <head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+      <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"
+      />
+      <link rel="stylesheet" href="./StyeCooking.css" />
+
+      <title>Grandma.AI</title>
+    </head>
     <title>COOK WITH GRANDMA!</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
-
-      body {
-        background-color: #fef2eb;
-        font-family: "Silkscreen", sans-serif;
-        display: flex;
-      }
-
-      .box {
-        background-color: #ebdfd9;
-        width: 500px;
-        height: 300px;
-        margin: 2em auto;
-        margin-top: 100px;
-        box-shadow:
-          -10px 0 0 0 #936b57,
-          10px 0 0 0 #936b57,
-          0 -10px 0 0 #936b57,
-          0 10px 0 0 #936b57;
-      }
-
-      .inner-box {
-        background-color: #ebdfd9;
-        margin: 2em auto;
-        box-shadow:
-          -3px 0 0 0 #936b57,
-          3px 0 0 0 #936b57,
-          0 -3px 0 0 #936b57,
-          0 3px 0 0 #936b57;
-      }
-
-      .container {
-        display: flex;
-        flex-direction: row;
-        margin: 0 auto;
-        width: 95%;
-      }
-
-      .left-column {
-        display: flex;
-        flex-direction: column;
-        margin: 20px;
-        margin-right: 5px;
-        margin-left: 30px;
-        width: 30%;
-      }
-
-      .empty {
-        width: 90%;
-        height: 20vh;
-        color: #936b57;
-        font-size: 2vh;
-        margin: 0px;
-        margin-bottom: 30px;
-      }
-
-      .ingredients {
-        width: 90%;
-        height: 55vh;
-        color: #936b57;
-        font-size: 2vh;
-        margin: 0px;
-        overflow: scroll;
-      }
-
-      .ingredients img {
-        width: 100%;
-      }
-
-      .ingredients p {
-        margin: 10px;
-      }
-
-      .grandma-ui {
-        display: flex;
-        flex-direction: column;
-        margin: 20px;
-        margin-right: 30px;
-        margin-left: 0px;
-        width: 70%;
-        height: 80vh;
-        overflow: hidden;
-      }
-
-      .grandma-ui img {
-        width: 100%;
-      }
-
-      .inner-container {
-        display: flex;
-        flex-direction: row;
-        height: 88%;
-        width: 110%;
-      }
-
-      .inner-container div {
-        margin: 0px;
-      }
-
-      .left {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 60%;
-        margin: 0px;
-      }
-
-      .left div {
-        margin: 10px;
-      }
-
-      .terminal {
-        height: 60%;
-      }
-
-      .text-input {
-        height: 40%;
-      }
-
-      .right {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 30%;
-        margin: 0px;
-      }
-
-      .right div {
-        margin: 10px;
-        height: 30%;
-      }
-
-      .footer {
-        background-color: #ebdfd9;
-        color: #ebdfd9;
-        display: flex;
-        justify-content: space-between;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 56px;
-      }
-
-      .footer p {
-        font-size: 30px;
-        margin: 5px;
-        padding-left: 5px;
-        padding-right: 5px;
-        background-color: #936b57;
-        justify-content: center;
-      }
-    </style>
   </head>
   <body>
     <div class="container">
@@ -191,9 +50,21 @@
         <img src="assets/img/UI/grandma-ui.png" />
         <div class="inner-container">
           <div class="left">
-            <div class="terminal inner-box"></div>
+            <div class="terminal inner-box">
+              <div class="preloader visually-hidden"></div>
+              <div class="inter" id="commandDiv"></div>
+            </div>
             <div class="text-input inner-box">
               <img src="assets/img/ui/input.png" />
+              <div>
+                <input
+                  type="text"
+                  id="user_input"
+                  onkeypress="checkEnterKey(event)"
+                  placeholder="Type here..."
+                />
+                <button onclick="sendInput()">Share</button>
+              </div>
             </div>
           </div>
           <div class="right">
@@ -210,4 +81,5 @@
       <p class="scene-info">12:00PM</p>
     </div>
   </body>
+  <script src="script.js"></script>
 </html>
