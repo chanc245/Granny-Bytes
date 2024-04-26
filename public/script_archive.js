@@ -1,4 +1,5 @@
-// In this version, only the terminal library work
+// Archived in Apr22 -- 
+// In this version, only the terminal library work (pure terminal)
 
 const recipes = {
   Taiwan: {
