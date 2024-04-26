@@ -13,28 +13,44 @@
 }
 
 body {
+  display: flex;
   background-color: #fef2eb;
   font-family: "Silkscreen", sans-serif;
 }
 
-/* footer {
-  background-color: #ebdfd9;
-  font-family: "Silkscreen", sans-serif;
-  font-size: 30px;
+.main-container {
+  position: relative; /* Set position to relative */
   display: flex;
-  justify-content: space-between;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  margin: auto;
+  width: 810px;
+  height: 576px;
+  background-image: url("assets/img/Environment/kitchen.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  border: 1px solid #ebdfd9;
 }
 
-.scene-info {
-  background-color: #946e5a;
-  color: #ebdfd9;
-} */
+.footer {
+  position: absolute; /* Set position to absolute */
+  bottom: 0; /* Position at the bottom of the .main-container */
+  left: 0; /* Align to the left */
+  width: 100%;
+  height: 56px;
+  background-color: #ebdfd9;
+  color: #ebdfd9; /* Change text color */
+  display: flex;
+  justify-content: space-between;
+}
 
-footer {
+.footer p {
+  font-size: 30px;
+  margin: 5px;
+  padding: 0 5px;
+  background-color: #936B57;
+}
+
+
+/*footer {
   background-color: #ebdfd9;
   color: #ebdfd9;
   display: flex;
@@ -54,7 +70,7 @@ footer p {
   padding-right: 5px;
   background-color: #936b57;
   justify-content: center;
-}
+}*/
 
 .grandma-app img {
   position: relative;
@@ -246,3 +262,4 @@ label {
   white-space: nowrap !important;
   border: 0 !important;
 }
+
