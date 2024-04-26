@@ -110,6 +110,14 @@ footer p {
     0 15px 0 0 #946e5a;
 }
 
+::placeholder {
+  font-family: "Silkscreen", sans-serif;
+}
+
+#password::placeholder {
+  color: #946e5a;
+}
+
 .popup-background {
   position: absolute;
   top: 0;
