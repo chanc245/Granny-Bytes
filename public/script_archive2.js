@@ -1,5 +1,5 @@
-// Archived in Apr22 -- 
-// In this version, only the terminal library work (pure terminal)
+// Archived in Apr26 -- 
+// In this version, only the "chat bot" part still feel a little bit more ai 
 
 const recipes = {
   Taiwan: {
@@ -82,95 +82,83 @@ const recipes = {
   },
 };
 
-let currentRecipe;
+let currentRecipe = recipes.Taiwan;
 let userAsking = true;
+let term;
 
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
+
+$(document).ready(function () {
+  term = $("#commandDiv").terminal(
+    function (command) {
+      if (command !== "") {
+        try {
+          var result = window.eval(command);
+          if (result !== undefined) {
+            this.echo(new String(result));
+          }
+        } catch (e) {
+          this.error(new String(e));
+        }
+      }
+    },
+    {
+      greetings: `Today's Recipe: ${currentRecipe.name}\n\nStarting the cooking steps:\n`,
+      prompt: " ",
+    }
+  );
+
+  // showIngredients(currentRecipe, term);
+  askStep(currentRecipe, term, 0);
+});
+
+// ---------- FUNCTIONS ---------- //
+// ---------- FUNCTIONS ---------- //
+// ---------- FUNCTIONS ---------- //
+// ---------- FUNCTIONS ---------- //
+// ---------- FUNCTIONS ---------- //
 
 function showIngredients(currentRecipe, terminal) {
-  terminal.echo(`\nToday's Recipe: ${currentRecipe.name}\n`);
   currentRecipe.ingredients.forEach((ingredient, index) => {
     terminal.echo(`${index + 1}. ${ingredient}`);
   });
   terminal.echo("");
-  askStep(currentRecipe, terminal, 0); // Start first step
 }
-
-$(document).ready(function () {
-  $("#commandDiv").terminal(
-    function (command, term) {
-      if (command.match(/hungry|start|yes|y/i)) {
-        term.push(
-          function (command, term) {
-            if (command.match(/1|Taiwan/i)) {
-              currentRecipe = recipes.Taiwan;
-              showIngredients(currentRecipe, term);
-            } else if (command.match(/2|CentralEurope/i)) {
-              currentRecipe = recipes.CentralEurope;
-              showIngredients(currentRecipe, term);
-            } else if (command.match(/3|Korea/i)) {
-              currentRecipe = recipes.Korea;
-              showIngredients(currentRecipe, term);
-            } else if (command.match(/4|India/i)) {
-              currentRecipe = recipes.India;
-              showIngredients(currentRecipe, term);
-            } else {
-              term.echo("Please enter a valid option (1-4):");
-            }
-          },
-          {
-            prompt:
-              "Select a recipe:\n1. Taiwan\n2. Central Europe\n3. Korea\n4. India\nWhich one would you like to cook? ",
-            greetings: "There are four dishes you can pick from:",
-          }
-        );
-      } else if (command.match(/no|n/i)) {
-        term.echo("Ok, come back if you ever get hungry!");
-        term.pop();
-      } else {
-        term.echo("Are you hungry? (yes or no)");
-      }
-    },
-    {
-      greetings: "Hello my grandkid! Are you hungry? (yes or no)",
-    }
-  );
-});
 
 function askStep(currentRecipe, terminal, stepIndex) {
   if (stepIndex < currentRecipe.steps.length) {
     const currentStep = currentRecipe.steps[stepIndex];
-    terminal.echo(`Step ${stepIndex + 1}: ${currentStep}`);
+    terminal.echo(`\nStep ${stepIndex + 1}: ${currentStep}`);
     terminal.push(
       function (command) {
-        if (command.match(/yes|y/i)) {
-          terminal.echo("Please type your question:");
+        if (command.match(/no|n/i)) {
+          terminal.echo(`\nIf you have any question, ask away!`);
           terminal.push(
             function (userInput) {
               requestAI(currentRecipe.name, currentStep, userInput).then(
                 (aiResponse) => {
-                  terminal.echo(`\nGrandma: ${aiResponse}`);
-                  terminal.pop(); //end terminal
+                  terminal.echo(`\nGrandma:\n   ${aiResponse}`);
+                  terminal.pop();
                 }
               );
             },
             {
-              prompt: "Your question> ",
+              prompt: "   ",
             }
           );
-        } else if (command.match(/no|n/i)) {
+        } else if (command.match(/yes|y/i)) {
           terminal.pop();
-          askStep(currentRecipe, terminal, stepIndex + 1);
+          askStep(currentRecipe, terminal, stepIndex + 1); // Move to the next step
         } else {
-          terminal.echo("Please answer 'yes' or 'no'.");
+          terminal.echo("\nPlease answer 'yes' or 'no'.");
         }
       },
       {
-        prompt: "Do you have any questions about this step? (y/n) ",
+        prompt: "\nDo you want to move to next step? (y/n) ",
         greetings: "",
       }
     );
@@ -217,4 +205,23 @@ function evaluationPrompt(dish, currentStep, userQues) {
     
     Please provide short, concise, and simple guidance or clarification.
   `;
+}
+
+// ---------- BUTTON ---------- //
+// ---------- BUTTON ---------- //
+// ---------- BUTTON ---------- //
+// ---------- BUTTON ---------- //
+// ---------- BUTTON ---------- //
+
+function sendInput() {
+  var input = document.getElementById("user_input").value; // Get user input
+  // term.echo(`\nYou:`)
+  term.exec(input); // Execute the input as a terminal command
+  document.getElementById("user_input").value = ""; // Clear input
+}
+
+function checkEnterKey(event) {
+  if (event.keyCode === 13) {
+    sendInput();
+  }
 }
