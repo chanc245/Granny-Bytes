@@ -1,12 +1,12 @@
 function formatAMPM(date) {
   var hours = date.getHours();
   var minutes = date.getMinutes();
-  var ampm = hours >= 12 ? 'pm' : 'am';
+  var ampm = hours >= 12 ? "pm" : "am";
   hours = hours % 12;
   hours = hours ? hours : 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? '0'+minutes : minutes;
-  var strTime = hours + ':' + minutes + ' ' + ampm;
-  document.getElementById('time').innerHTML =  strTime;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  var strTime = hours + ":" + minutes + " " + ampm;
+  document.getElementById("time").innerHTML = strTime;
   return strTime;
 }
 
@@ -14,6 +14,15 @@ function formatAMPM(date) {
 formatAMPM(new Date());
 
 // Call formatAMPM every second to update the time
-setInterval(function() {
+setInterval(function () {
   formatAMPM(new Date());
 }, 1000);
+
+function toggleRecipe() {
+  var recipe = document.getElementById("recipe");
+  if (recipe.style.display === "none") {
+    recipe.style.display = "block";
+  } else {
+    recipe.style.display = "none";
+  }
+}

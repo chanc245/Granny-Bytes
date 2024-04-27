@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
 
 body {
-  background-color: #fef2eb;
+  /* background-color: #fef2eb; */
+  background-image: url(./assets/img/Environment/kitchen.png);
   font-family: "Silkscreen", sans-serif;
   display: flex;
 }
