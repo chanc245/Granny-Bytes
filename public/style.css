@@ -78,6 +78,22 @@ body {
   color: #946e5a;
 }
 
+.open-app {
+  position: relative;
+  top: 130;
+  left: 500;
+  width: 100px;
+  height: 25%;
+  margin: 50px;
+  background-image: url("./assets/img/UI/icons/Recipe_icon.png");
+  background-size: cover;
+  transition: background-image 0.3s ease-in-out;
+}
+
+.open-app:hover {
+  background-image: url("./assets/img/UI/icons/Recipe_icon_hover.png");
+}
+
 .recipebox {
   width: 50%;
   height: 50vh;
