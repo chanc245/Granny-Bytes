@@ -252,14 +252,14 @@ body {
 
 :root {
   --size: 1;
-/*  --font: "Half Bold Pixel-7";*/
+  --font: "Half Bold Pixel-7";
 }
 
-/*@font-face {
+@font-face {
   font-family: "Half Bold Pixel-7";
   src: url("./assets/font/half_bold_pixel-7.ttf");
 }
-*/
+
 .preloader {
   font-family: "Half Bold Pixel-7", sans-serif;
 }
