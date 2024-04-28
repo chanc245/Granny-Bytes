@@ -45,6 +45,24 @@ body {
   border: 1px solid #ebdfd9;
 }
 
+.mitty-container{
+  position: absolute;
+  margin: 30px;
+  width: 230px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+}
+
+.mitty{
+  width: 50px;
+  height: 50px;
+}
+
+.speechbubble{
+  width: 175px;
+}
+
 .footer {
   position: absolute; /* Set position to absolute */
   bottom: 0; /* Position at the bottom of the .main-container */
