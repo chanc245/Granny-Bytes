@@ -38,8 +38,11 @@ a{
 }
 
 .main-container {
-  position: relative;
-  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   margin: auto;
   width: 810px;
   height: 576px;
@@ -219,6 +222,56 @@ label {
   user-select: none;
   /* Standard syntax */
 }
+
+
+.recipebox {
+  background-color: #DEE7DB;
+  width: 500px;
+  height: 300px;
+  margin-top: 100px;
+  box-shadow:
+    -10px 0 0 0 #9AB190,
+    10px 0 0 0 #9AB190,
+    0 -10px 0 0 #9AB190,
+    0 10px 0 0 #9AB190;
+}
+
+.topbar img {
+  width: 100%;
+}
+
+.recipeholder {
+  background-color: #FAFFF8;
+  height: 65%;
+  color: #674e41;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 2vh;
+}
+
+.recipeholder div {
+  margin: 10px;
+}
+
+.recipeholder p {
+  margin: 0px;
+}
+
+.foodicon {
+  width: 50px;
+}
+
+.bottombar {
+  background-color: #9AB190;
+  width: 96%;
+  height: 30px;
+  margin: 2%;
+  color: #ebdfd9;
+  display: flex;
+  align-items: center;
+}
+
 
 /* TERMINAL SETUP */
 /* TERMINAL SETUP */
