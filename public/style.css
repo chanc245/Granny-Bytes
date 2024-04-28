@@ -38,8 +38,11 @@ a{
 }
 
 .main-container {
-  position: relative;
-  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   margin: auto;
   width: 810px;
   height: 576px;
@@ -220,83 +223,51 @@ label {
   /* Standard syntax */
 }
 
-/* TERMINAL SETUP */
-/* TERMINAL SETUP */
-/* TERMINAL SETUP */
-/* TERMINAL SETUP */
-/* TERMINAL SETUP */
 
-.inter {
-  border: 5px solid #936b57;
-  padding: 20px;
+.recipebox {
+  background-color: #DEE7DB;
+  width: 500px;
+  height: 300px;
+  margin-top: 100px;
+  box-shadow:
+    -10px 0 0 0 #9AB190,
+    10px 0 0 0 #9AB190,
+    0 -10px 0 0 #9AB190,
+    0 10px 0 0 #9AB190;
 }
 
-#commandDiv {
-  height: 80vh;
-  width: 80vw;
-  overflow-x: auto;
-  overflow-y: auto;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  /* justify-content: center; */
-
-  background-color: #fcf5f1;
+.topbar img {
+  width: 100%;
 }
 
-/* TERMINAL COLOR */
-/* TERMINAL COLOR */
-/* TERMINAL COLOR */
-/* TERMINAL COLOR */
-/* TERMINAL COLOR */
-
-:root {
-  /* Text size */
-  --size: 2;
+.recipeholder {
+  background-color: #FAFFF8;
+  height: 65%;
+  color: #674e41;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 2vh;
 }
 
-.terminal {
-  /* inside text color */
-  --color: #674e41;
+.recipeholder div {
+  margin: 10px;
 }
 
-.cmd {
-  /* user input color */
-  --color: #946e5a;
+.recipeholder p {
+  margin: 0px;
 }
 
-.cmd-prompt {
-  /* blinking input color */
-  --color: #674e41;
+.foodicon {
+  width: 50px;
 }
 
-/* TERMAL FONT */
-/* TERMAL FONT */
-/* TERMAL FONT */
-/* TERMAL FONT */
-/* TERMAL FONT */
-
-:root {
-  --size: 1.4;
-  --font: "Half Bold Pixel-7";
-}
-
-@font-face {
-  font-family: "Half Bold Pixel-7";
-  src: url("./assets/font/half_bold_pixel-7.ttf");
-}
-
-.preloader {
-  font-family: "Half Bold Pixel-7", sans-serif;
-}
-
-.visually-hidden {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
+.bottombar {
+  background-color: #9AB190;
+  width: 96%;
+  height: 30px;
+  margin: 2%;
+  color: #ebdfd9;
+  display: flex;
+  align-items: center;
 }
