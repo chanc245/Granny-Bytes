@@ -33,8 +33,12 @@ body {
   font-family: "Silkscreen", sans-serif;
 }
 
+a{
+  color: #946e5a;
+}
+
 .main-container {
-  position: relative; /* Set position to relative */
+  position: relative;
   display: flex;
   margin: auto;
   width: 810px;
@@ -61,6 +65,7 @@ body {
 
 .speechbubble{
   width: 175px;
+  height: 170px;
 }
 
 .footer {
@@ -126,10 +131,10 @@ body {
 .welcomebox {
   position: absolute;
   background-color: #ebdfd9;
-  width: 15vw;
-  height: 35vh;
-  top: 100;
-  left: 30vw;
+  width: 250px;
+  height: 250px;
+  top: 70;
+  left: 450px;
   margin: 1em auto;
   box-shadow:
     -10px 0 0 0 #ba7a70,
@@ -144,7 +149,7 @@ body {
   font-family: "Hardpixel";
   width: 400px;
   height: 200px;
-  top: 250;
+  top: 180;
   margin: 2em auto;
   background-color: #ebdfd9;
   box-shadow:
@@ -160,6 +165,12 @@ body {
 
 #password::placeholder {
   color: #946e5a;
+}
+
+#user{
+  color: #946e5a;
+  font-family: "Silkscreen", sans-serif;
+  width: 147px;
 }
 
 .popup-background {
@@ -190,9 +201,8 @@ body {
 }
 
 #login-btn {
-  background-color: #fef2eb;
-  top: 0;
-  margin: 5%;
+  transform: scale(0.6);
+  margin-left: -35px;
 }
 
 label {
