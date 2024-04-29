@@ -21,7 +21,7 @@
     <div class="main-container">
       <div class="mitty-container">
         <img class="mitty" src="assets/img/UI/icons/icon_Mitty.png"/>
-        <img class="speechbubble" src="assets/img/UI/icons/speech-bubble.png"/>
+        <img class="speechbubble" style="height: 125px;" src="assets/img/UI/icons/speech-bubble.png"/>
       </div>
 
     <div class="container">
@@ -33,7 +33,7 @@
             <img src="assets/img/UI/topbar/ingredients_topbar.png" />
           </div>
           <div class="ingredients-container">
-            <p>
+            <p id="recipe-text">
               焢肉 Kong Rou<br /><br />
               Ingredients:<br />
               Cubed pork belly: 1 lb<br />
@@ -83,17 +83,17 @@
 
           <div class="right">
             <div class="environment inner-box"></div>
-            <div class="cooking inner-box">
-              
-            </div>
-            <div class="upload inner-box">
-              <form class="dropzone" id="my-form" action="/">
+            <div class="cooking inner-box"></div>
+
+            <div style="box-shadow: -4px 0 0 0 #9AB190, 4px 0 0 0 #9AB190, 0 -3px 0 0 #9AB190, 0 3px 0 0 #9AB190;" class="upload inner-box">
               <img src="assets/img/UI/topbar/upload_topbar.png" />
+              <form class="dropzone" id="my-form" action="/">
               <!-- <P>Drop in your img file</P> -->
                 <small>Drop in your img file</small>
-                ></form>
+              </form>
                 <pre id="output"></pre>
             </div>
+
           </div>
 
         </div>

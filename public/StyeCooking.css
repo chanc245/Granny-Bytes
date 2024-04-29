@@ -335,7 +335,10 @@ main {
 .dropzone {
   background-color: transparent;
   color: #9ab190;
+  height: 10px;
+  border: 1px solid red;
 }
+
 small {
   display: block;
   text-align: center;
