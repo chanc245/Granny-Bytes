@@ -334,6 +334,14 @@ main {
 }
 
 .upload{
+  background-color: #DEE7DB;
+  background-image: url('assets/img/UI/buttons/upload-all.png');
+  background-size: 140px 111px;
+  box-shadow: 
+    -4px 0 0 0 #9AB190,
+    4px 0 0 0 #9AB190,
+    0 -3px 0 0 #9AB190,
+    0 3px 0 0 #9AB190;
   overflow: hidden;
 }
 
