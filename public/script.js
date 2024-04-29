@@ -201,6 +201,8 @@ let currentRecipe = JSON.parse(localStorage.getItem("recipe"));
 let userAsking = true;
 let term;
 
+document.getElementById('recipe-text').innerHTML = currentRecipe.name + "<br><br>" + currentRecipe.ingredients;
+
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
