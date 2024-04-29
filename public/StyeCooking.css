@@ -270,7 +270,7 @@ body {
 
 #commandDiv {
   height: 100%;
-  width: 100%;
+  width: 95%;
   overflow-x: auto;
   overflow-y: auto;
   word-wrap: break-word;
@@ -358,6 +358,38 @@ main {
   background-color: transparent;
   color: #9ab190;
   height: 10px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.dz-preview {
+  background-color: #DEE7DB;
+  padding: 0px;
+  margin: 0px;
+}
+
+.dz-processing{
+  background-color: #DEE7DB;
+  padding: 0px;
+  margin: 0px;
+}
+
+.dz-error{
+  background-color: #DEE7DB;
+  padding: 0px;
+  margin: 0px;
+}
+
+.dz-complete{
+  background-color: #DEE7DB;
+  padding: 0px;
+  margin: 0px;
+}
+
+.dz-image-preview{
+  background-color: #DEE7DB;
+  padding: 0px;
+  margin: 0px;
 }
 
 small {
