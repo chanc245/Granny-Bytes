@@ -1,4 +1,5 @@
 // Import the selectRecipe function from script.js
+import { getElement } from "dropzone";
 import { selectRecipe } from "./selection.js";
 console.log("debug");
 let currentRecipe;
@@ -15,6 +16,7 @@ recipeLinks.forEach((link) => {
     currentRecipe = selectedRecipe;
     console.log("debug again and again");
     console.log(currentRecipe);
+    // var recipeName = document.getElementById("ingredients");
     console.log(currentRecipe.name);
     console.log(currentRecipe.ingredients);
     console.log(currentRecipe.steps);

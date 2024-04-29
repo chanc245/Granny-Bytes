@@ -196,7 +196,6 @@ let storedRecipe = JSON.parse(localStorage.getItem("recipe"));
 let recipeName = storedRecipe.name;
 console.log(recipeName); // Output: The name of the recipe
 
-
 let currentRecipe = JSON.parse(localStorage.getItem("recipe"));
 let userAsking = true;
 let term;
