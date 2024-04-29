@@ -332,11 +332,15 @@ main {
   max-width: 20vw;
   margin: 0 auto;
 }
+
+.upload{
+  overflow: hidden;
+}
+
 .dropzone {
   background-color: transparent;
   color: #9ab190;
   height: 10px;
-  border: 1px solid red;
 }
 
 small {
