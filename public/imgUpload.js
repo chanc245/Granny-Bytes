@@ -12,3 +12,12 @@ let myDropzone = new Dropzone("#my-form");
 myDropzone.on("addedfile", (file) => {
   console.log(`File added: ${file.name}`);
 });
+
+console.log("???");
+Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+    paramName: "file", // The name that will be used to transfer the file
+    maxFilesize: 2, // MB
+    accept: function(file, done) {
+      console.log(file.name);
+    }
+  };
