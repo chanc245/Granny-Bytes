@@ -86,18 +86,22 @@ export function selectRecipe(cuisine) {
   if (cuisine === "Taiwanese") {
     console.log("t");
     currentRecipe = recipes.Taiwan;
+    localStorage.setItem("recipe", JSON.stringify(recipes.Taiwan));
     return currentRecipe;
   } else if (cuisine === "SouthKorean") {
     console.log("s");
     currentRecipe = recipes.Korea;
+    localStorage.setItem("recipe", JSON.stringify(recipes.Korea));
     return currentRecipe;
   } else if (cuisine === "CentralEuropean") {
     console.log("e");
     currentRecipe = recipes.CentralEurope;
+    localStorage.setItem("recipe", JSON.stringify(recipes.CentralEurope));
     return currentRecipe;
   } else if (cuisine === "Indian") {
     console.log("i");
     currentRecipe = recipes.India;
+    localStorage.setItem("recipe", JSON.stringify(recipes.India));
     return currentRecipe;
   }
 }

@@ -187,7 +187,17 @@ const granny = {
 //   console.log(currentRecipe);
 // });
 
-let currentRecipe = recipes.India;
+console.log("RECIPE: " + localStorage.getItem("recipe")); // Check if the value is retrieved properly
+
+// Assuming the retrieved value is a JSON string representing an object
+let storedRecipe = JSON.parse(localStorage.getItem("recipe"));
+
+// Access the 'name' property of the stored recipe object
+let recipeName = storedRecipe.name;
+console.log(recipeName); // Output: The name of the recipe
+
+
+let currentRecipe = JSON.parse(localStorage.getItem("recipe"));
 let userAsking = true;
 let term;
 
