@@ -18,7 +18,6 @@ recipeLinks.forEach((link) => {
     console.log(currentRecipe.name);
     console.log(currentRecipe.ingredients);
     console.log(currentRecipe.steps);
-    localStorage.setItem("currentRecipe", currentRecipe);
     // Open cooking.html
     window.location.href = this.getAttribute("href");
   });

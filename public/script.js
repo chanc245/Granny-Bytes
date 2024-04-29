@@ -7,12 +7,12 @@
 // ---------- VARIABLES ---------- //
 // ---------- VARIABLES ---------- //
 
-import { currentRecipe, selectedRecipePromise } from "./dish.js";
-console.log("entered script.js");
+// import { currentRecipe, selectedRecipePromise } from "./dish.js";
+// console.log("entered script.js");
 
 // import { currentRecipe, selectedRecipe } from "./dish.js";
 // console.log("hi hi");
-console.log(currentRecipe);
+// console.log(currentRecipe);
 // console.log(selectedRecipe);
 const recipes = {
   Taiwan: {
@@ -182,13 +182,12 @@ const granny = {
   ],
 };
 
-selectedRecipePromise.then((currentRecipe) => {
-  console.log("hi hi");
-  console.log(currentRecipe);
-});
+// selectedRecipePromise.then((currentRecipe) => {
+//   console.log("hi hi");
+//   console.log(currentRecipe);
+// });
 
-// let dishName = currentRecipe.name;
-// console.log(dishName);
+let currentRecipe = recipes.India;
 let userAsking = true;
 let term;
 
