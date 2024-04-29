@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
 
 body {
-  background-color: #fef2eb; 
+  background-color: #fef2eb;
   font-family: "Silkscreen", sans-serif;
   display: flex;
 }
@@ -19,6 +19,30 @@ body {
   background-size: cover;
   background-position: 50% 50%;
   border: 1px solid #ebdfd9;
+}
+
+.btn img {
+  width: 10px; /* Set the desired width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.mitty-container {
+  position: absolute;
+  margin: 30px;
+  width: 230px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+}
+
+.mitty {
+  width: 50px;
+  height: 50px;
+}
+
+.speechbubble {
+  width: 175px;
+  height: 170px;
 }
 
 .footer {
@@ -104,7 +128,7 @@ body {
   width: 90%;
   height: 200px;
   color: #dee7db;
-  font-size: 2vh;
+  font-size: 1.5vh;
   margin: 0px;
   overflow: scroll;
 }
@@ -172,7 +196,30 @@ body {
 }
 
 .text-input {
-  height: 60%;
+  height: 35%;
+}
+
+.user-chat-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.user-chat-container input[type="text"] {
+  font-family: "Half Bold Pixel-7", sans-serif;
+  background-color: #fcf5f1;
+  color: #674e41;
+  height: 10vh;
+  width: auto;
+  flex: 1;
+}
+
+.user-chat-container button {
+  background-color: transparent;
+  border: none;
+  width: 25%;
+  cursor: pointer;
 }
 
 .right {
@@ -187,7 +234,6 @@ body {
   margin: 10px;
   height: 30%;
 }
-
 
 #main {
   /* display: none; */
@@ -209,9 +255,13 @@ body {
   padding: 0px;
 }
 
+.terminal.inner-box {
+  position: relative;
+}
+
 #commandDiv {
-  height: 210px;
-  width: 280px;
+  height: 100%;
+  width: 100%;
   overflow-x: auto;
   overflow-y: auto;
   word-wrap: break-word;
@@ -234,8 +284,6 @@ body {
   word-wrap: break-word;
   overflow-wrap: break-word;
   --color: #674e41;
-  padding: 0px;
-  margin: 0px;
 }
 
 .cmd {
@@ -274,8 +322,21 @@ body {
   height: 1px !important;
   padding: 0 !important;
   margin: -1px !important;
-  overflow: hidden !important;
+  /* overflow: hidden !important; */
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+
+main {
+  max-width: 20vw;
+  margin: 0 auto;
+}
+.dropzone {
+  background-color: transparent;
+  color: #9ab190;
+}
+small {
+  display: block;
+  text-align: center;
 }

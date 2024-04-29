@@ -10,6 +10,7 @@
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
       <link rel="stylesheet" href="./StyeCooking.css" />
       <title>Grandma.AI</title>
     </head>
@@ -18,13 +19,19 @@
   <body>
 
     <div class="main-container">
+      <div class="mitty-container">
+        <img class="mitty" src="assets/img/UI/icons/icon_Mitty.png"/>
+        <img class="speechbubble" src="assets/img/UI/icons/speech-bubble.png"/>
+      </div>
 
     <div class="container">
       <div class="left-column">
         <div class="empty"></div>
-        <button id="toggle-button" onclick="toggleRecipe()"></button>
+        <!-- <button id="toggle-button" onclick="toggleRecipe()"></button> -->
         <div class="ingredients app">
-          <img src="assets/img/UI/topbar/ingredients_topbar.png" />
+          <div class="topbar_scroll">
+            <img src="assets/img/UI/topbar/ingredients_topbar.png" />
+          </div>
           <div class="ingredients-container">
             <p>
               焢肉 Kong Rou<br /><br />
@@ -36,7 +43,7 @@
               Soy Sauce: half a bowl <br />
               Water: 3 bowl <br /><br />
 
-              Steps: <br />
+              <!-- Steps: <br />
               1. Medium Heat, Fry the pork belly to golden brown (skin first), put
               it aside <br />
               2. Medium Heat, Garlic and Green fry to golden brown, put it aside
@@ -44,7 +51,7 @@
               3. Low Heat, heat sugar til it turns golden, add in the meat, soy
               sauce, water <br />
               4. Low Heat, cook until the water almost all evaporates (almost no
-              water)
+              water) -->
             </p>
         </div>
         </div>
@@ -62,24 +69,30 @@
             </div>
             <div class="text-input inner-box">
               <img src="assets/img/UI/topbar/input_topbar.png" />
-              <div>
+              <div class="user-chat-container">
                 <input
                   type="text"
                   id="user_input"
                   onkeypress="checkEnterKey(event)"
-                  placeholder="Type here..."
+                  placeholder="chat with grandma..."
                 />
-                <button onclick="sendInput()">Share</button>
+                <button onclick="sendInput()"><img class="btn" src="./assets/img/UI/buttons/chat_send.png"></button>
               </div>
             </div>
           </div>
 
           <div class="right">
             <div class="environment inner-box"></div>
-            <div class="cooking inner-box"></div>
+            <div class="cooking inner-box">
+              
+            </div>
             <div class="upload inner-box">
+              <form class="dropzone" id="my-form" action="/">
               <img src="assets/img/UI/topbar/upload_topbar.png" />
-              <P>Drop in your img file</P>
+              <!-- <P>Drop in your img file</P> -->
+                <small>Drop in your img file</small>
+                ></form>
+                <pre id="output"></pre>
             </div>
           </div>
 
@@ -93,8 +106,13 @@
     </div>
 
   </div>
-
-  </body>
-  <script src="script.js"></script>
+  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script> 
+  <script type="module" src="imgUpload.js"></script>
+  <script type="module" src="dish.js"></script>
+  <script type="module" src="script.js"></script>
   <script src="time.js"></script>
+  <script>
+    console.log(localStorage.getItem("currentRecipe"))
+  </script>
+  </body>
 </html>

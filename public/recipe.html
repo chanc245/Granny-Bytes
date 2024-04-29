@@ -7,26 +7,42 @@
   </head>
   <body>
     <div class="main-container">
-
       <div class="recipebox">
         <div class="topbar"><img src="assets/img/UI/topbar/recipe_topbar.png" /></div>
         <div class="recipeholder">
           <div>
+          <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_Taiwan.png" />
+          <a href="./cooking.html" data-cuisine="Taiwanese"><p>Taiwan </p></a>
+        </div>
+        <div>
+          <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_SouthKorea.png" />
+          <a href="./cooking.html" data-cuisine="SouthKorean"><p>South<br />Korea</p></a>
+        </div>
+        <div>
+          <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_CentralEurope.png" />
+          <a href="./cooking.html" data-cuisine="CentralEuropean"><p>Central<br />Europe</p></a>
+        </div>
+        <div>
+          <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_India.png" />
+          <a href="./cooking.html" data-cuisine="Indian"><p>India</p></a>
+        </div>
+
+          <!-- <div>
             <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_Taiwan.png" />
-            <a href="./cooking.html"><P>Taiwan </P></a>
+            <a href="./cooking.html" onclick="selectRecipe('Taiwanese')"><P>Taiwan </P></a>
           </div>
           <div>
             <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_SouthKorea.png" />
-            <a href="./cooking.html"><p>South<br />Korea</p></a>
+            <a href="./cooking.html" onclick="selectRecipe('SouthKorean')"><p>South<br />Korea</p></a>
           </div>
           <div>
             <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_CentralEurope.png" />
-            <a href="./cooking.html"><p>Central<br />Europe</p></a>
+            <a href="./cooking.html" onclick="selectRecipe('CentralEuropean')"><p>Central<br />Europe</p></a>
           </div>
           <div>
             <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_India.png" />
-            <a href="./cooking.html"><p>India</p></a>
-          </div>
+            <a href="./cooking.html" onclick="selectRecipe('Indian')"><p>India</p></a>
+          </div> -->
         </div>
         <div class="bottombar">
           <p>&nbsp;4 OBJECT(S)</p>
@@ -39,6 +55,8 @@
     </div>
     
   </div>
-  </body>
+  <script type="module" src="selection.js"></script>
+  <script type="module" src="dish.js"></script>
   <script src="time.js"></script>
+  </body>
 </html>
