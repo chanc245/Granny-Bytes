@@ -168,6 +168,7 @@ body {
   flex-direction: row;
   height: 88%;
   width: 110%;
+  margin: 2%;
 }
 
 .inner-container div {
@@ -183,7 +184,7 @@ body {
 }
 
 .left div {
-  margin: 10px;
+  margin: 5px;
 }
 
 .user_input {
@@ -216,7 +217,15 @@ body {
 }
 
 .user-chat-container button {
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-image: url(./assets/img/UI/buttons/send_hover.png);
+  border: none;
+  width: 25%;
+  cursor: pointer;
+}
+
+.user-chat-container button:hover {
+  background-image: url(./assets/img/UI/buttons/send_hover.png);
   border: none;
   width: 25%;
   cursor: pointer;
@@ -252,7 +261,7 @@ body {
 /* TERMINAL SETUP */
 
 .inter {
-  padding: 0px;
+  padding: 20px;
 }
 
 .terminal.inner-box {

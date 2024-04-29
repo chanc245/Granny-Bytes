@@ -76,7 +76,8 @@
                   onkeypress="checkEnterKey(event)"
                   placeholder="chat with grandma..."
                 />
-                <button onclick="sendInput()"><img class="btn" src="./assets/img/UI/buttons/chat_send.png"></button>
+                <!-- <button onclick="sendInput()"><img class="btn" src="./assets/img/UI/buttons/chat_send.png"></button> -->
+                <button onclick="sendInput()" id="user_input">Send</button>
               </div>
             </div>
           </div>
@@ -89,7 +90,6 @@
             <div class="upload inner-box">
               <form class="dropzone" id="my-form" action="/">
               <img src="assets/img/UI/topbar/upload_topbar.png" />
-              <!-- <P>Drop in your img file</P> -->
                 <small>Drop in your img file</small>
                 ></form>
                 <pre id="output"></pre>
