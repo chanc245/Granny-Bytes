@@ -21,7 +21,7 @@
     <div class="main-container">
       <div class="mitty-container">
         <img class="mitty" src="assets/img/UI/icons/icon_Mitty.png"/>
-        <img class="speechbubble" src="assets/img/UI/icons/speech-bubble.png"/>
+        <img class="speechbubble" style="height: 125px;" src="assets/img/UI/icons/speech-bubble.png"/>
       </div>
 
     <div class="container">
@@ -33,7 +33,7 @@
             <img src="assets/img/UI/topbar/ingredients_topbar.png" />
           </div>
           <div class="ingredients-container">
-            <p>
+            <p id="recipe-text">
               焢肉 Kong Rou<br /><br />
               Ingredients:<br />
               Cubed pork belly: 1 lb<br />
@@ -84,16 +84,16 @@
 
           <div class="right">
             <div class="environment inner-box"></div>
-            <div class="cooking inner-box">
-              
-            </div>
+            <div class="cooking inner-box"></div>
+
             <div class="upload inner-box">
               <form class="dropzone" id="my-form" action="/">
-              <img src="assets/img/UI/topbar/upload_topbar.png" />
-                <small>Drop in your img file</small>
-                ></form>
-                <pre id="output"></pre>
+                <div class="dz-message" data-dz-message><span></span></div>
+              </form>
+
+              <pre id="output"></pre>
             </div>
+
           </div>
 
         </div>
@@ -112,7 +112,7 @@
   <script type="module" src="script.js"></script>
   <script src="time.js"></script>
   <script>
-    console.log(localStorage.getItem("currentRecipe"))
+    
   </script>
   </body>
 </html>

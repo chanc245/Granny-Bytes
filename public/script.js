@@ -386,3 +386,5 @@ function checkEnterKey(event) {
     sendInput();
   }
 }
+
+// No
