@@ -5,6 +5,7 @@ Dropzone.options.myform = {
   accept: function(file, done) {
     document.getElementById("upload").style.backgroundImage = "url(" + URL.createObjectURL(file) + ")";
     console.log(file);
+    
     done();
   }
 };
