@@ -1,28 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" />
-  <link rel="stylesheet" href="style.css" />
+    <title>Grandma.AI</title>
+  </head>
 
-  <title>Grandma.AI</title>
-</head>
+  <body>
+    <div class="preloader visually-hidden"></div>
+    <div class="inter" id="commandDiv"></div>
 
-<body>
+    <div>
+      <input
+        type="text"
+        id="user_input"
+        onkeypress="checkEnterKey(event)"
+        placeholder="Type here..."
+      />
+      <button onclick="sendInput()">Send</button>
+    </div>
 
-  <div class="preloader visually-hidden"></div>
-  <div class="inter" id="commandDiv"></div>
-
-  <div>
-    <input type="text" id="user_input" onkeypress="checkEnterKey(event)" placeholder="Type here...">
-    <button onclick="sendInput()">Send</button>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
