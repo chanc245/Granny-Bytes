@@ -1,5 +1,4 @@
 // Apr26 -- Most current version,
-// add in randomize granny talk
 
 // ---------- VARIABLES ---------- //
 // ---------- VARIABLES ---------- //
@@ -7,13 +6,6 @@
 // ---------- VARIABLES ---------- //
 // ---------- VARIABLES ---------- //
 
-// import { currentRecipe, selectedRecipePromise } from "./dish.js";
-// console.log("entered script.js");
-
-// import { currentRecipe, selectedRecipe } from "./dish.js";
-// console.log("hi hi");
-// console.log(currentRecipe);
-// console.log(selectedRecipe);
 const recipes = {
   Taiwan: {
     name: "Braised Pork Belly (焢肉 Kong Rou)",
@@ -31,6 +23,14 @@ const recipes = {
       "Low Heat, heat sugar until it turns golden, add in the meat, soy sauce, water",
       "Low Heat, cook until the water almost all evaporates (almost dry)",
       "Plate and serve!",
+    ],
+
+    stepsImg: [
+      {
+        imageName: "step1.jpg",
+        description:
+          "Medium Heat, Fry the pork belly to golden brown (skin first), set it aside",
+      },
     ],
   },
   India: {
@@ -184,15 +184,11 @@ const granny = {
 
 console.log("RECIPE: " + localStorage.getItem("recipe")); // Check if the value is retrieved properly
 
-// // Assuming the retrieved value is a JSON string representing an object
 let storedRecipe = JSON.parse(localStorage.getItem("recipe"));
 
-// // Access the 'name' property of the stored recipe object
 let currentRecipe = storedRecipe;
-console.log(currentRecipe); // Output: The name of the recipe
+console.log(currentRecipe);
 
-// let currentRecipe = JSON.parse(localStorage.getItem("recipe"));
-// let currentRecipe = recipes.Taiwan;
 let userAsking = true;
 let term;
 
