@@ -45,6 +45,24 @@ body {
   height: 170px;
 }
 
+
+.mitty-bar{
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  width: 60%;
+}
+
+.mitty-text{
+  position: absolute;
+  text-align: right;
+  right: 17px;
+  top: 35px;
+  font-size: 10px;
+  width: 55%;
+  color: #868E94;
+}
+
 .footer {
   position: absolute; /* Set position to absolute */
   bottom: 0; /* Position at the bottom of the .main-container */
@@ -116,7 +134,7 @@ body {
 
 .empty {
   width: 90%;
-  height: 20vh;
+  height: 190px;
   color: #936b57;
   font-size: 2vh;
   margin: 0px;
