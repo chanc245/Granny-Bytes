@@ -18,10 +18,16 @@
   </head>
   <body>
 
+    <img class="overlay" src="assets/img/noiseoverlay.png"/>
+
+    <audio src="assets/audio/grannyai.mp3"></audio>
+
     <div class="main-container">
-      <div class="mitty-container">
+      <div class="mitty-container hidden" id="appear">
         <img class="mitty" src="assets/img/UI/icons/icon_Mitty.png"/>
-        <img class="speechbubble" style="height: 125px;" src="assets/img/UI/icons/speech-bubble.png"/>
+        <img class="speechbubble" src="assets/img/UI/icons/speech-bubble.png"/>
+        <img class="mitty-bar" src="assets/img/UI/topbar/mitty_hints_topbar.png"/>
+        <p class="mitty-text">Begin cooking with Granny! Refer the recipe below. If you have any questions, just ask Grandma by sending her a message!</p>
       </div>
 
     <div class="container">
@@ -77,7 +83,7 @@
                   placeholder="Chat with Grandma..."
                 />
                 <!-- <button onclick="sendInput()"><img class="btn" src="./assets/img/UI/buttons/chat_send.png"></button> -->
-                <button onclick="sendInput()" id="user_input">Send</button>
+                <button onclick="sendInput()" id="user_input" class="sendBtn">Send</button>
               </div>
             </div>
           </div>
@@ -115,4 +121,10 @@
     
   </script>
   </body>
+  <script>
+    window.addEventListener("click", event => {
+      const audio = document.querySelector("audio");
+      audio.volume = 0.2;
+      audio.play();
+    });</script>
 </html>

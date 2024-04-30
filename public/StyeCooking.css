@@ -6,6 +6,17 @@ body {
   display: flex;
 }
 
+.overlay{
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: overlay;
+  opacity: 70%;
+}
+
 .main-container {
   position: absolute;
   left: 0;
@@ -43,6 +54,23 @@ body {
 .speechbubble {
   width: 175px;
   height: 170px;
+}
+
+
+.mitty-bar{
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  width: 60%;
+}
+
+.mitty-text{
+  position: absolute;
+  right: 17px;
+  top: 35px;
+  font-size: 10px;
+  width: 55%;
+  color: #868E94;
 }
 
 .footer {
@@ -116,7 +144,7 @@ body {
 
 .empty {
   width: 90%;
-  height: 20vh;
+  height: 190px;
   color: #936b57;
   font-size: 2vh;
   margin: 0px;
@@ -152,9 +180,9 @@ body {
   display: flex;
   flex-direction: column;
   margin: 20px;
-  margin-right: 30px;
+  margin-right: 10px;
   margin-left: 0px;
-  width: 80%;
+  width: 85%;
   height: 460px;
   overflow: hidden;
 }
@@ -200,6 +228,10 @@ body {
   height: 35%;
 }
 
+#user_input{
+  border: none;
+}
+
 .user-chat-container {
   display: flex;
   align-items: center;
@@ -217,16 +249,28 @@ body {
 }
 
 .user-chat-container button {
-  /* background-color: transparent; */
-  background-image: url(./assets/img/UI/buttons/send_hover.png);
+  font-family: "Half Bold Pixel-7", sans-serif;
+  background-color: #936B57;
+  color: #EADED8;
   border: none;
   width: 25%;
+  margin-left: 10px;
+  height: 70px;
   cursor: pointer;
+  box-shadow:
+    -3px 0 0 0 #674E41,
+    3px 0 0 0 #674E41,
+    0 -3px 0 0 #674E41,
+    0 3px 0 0 #674E41;
 }
 
 .user-chat-container button:hover {
-  background-image: url(./assets/img/UI/buttons/send_hover.png);
-  border: none;
+  background-color: #5A7152;
+  box-shadow:
+    -3px 0 0 0 #9AB190,
+    3px 0 0 0 #9AB190,
+    0 -3px 0 0 #9AB190,
+    0 3px 0 0 #9AB190;
   width: 25%;
   cursor: pointer;
 }
@@ -235,7 +279,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 30%;
+  width: 29%;
   margin: 0px;
 }
 
@@ -278,6 +322,10 @@ body {
   background-color: #fcf5f1;
   padding: 0px;
   line-height: -0.5px;
+}
+
+.sendBtn{
+  width: 10px;
 }
 
 /* TERMINAL COLOR */
