@@ -6,6 +6,17 @@ body {
   display: flex;
 }
 
+.overlay{
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: overlay;
+  opacity: 70%;
+}
+
 .main-container {
   position: absolute;
   left: 0;

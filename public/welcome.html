@@ -8,6 +8,10 @@
   </head>
   <body>
 
+    <img class="overlay" src="assets/img/noiseoverlay.png"/>
+
+    <audio src="assets/audio/sizzle.wav"></audio>
+
     <div class="main-container">
       <div class="mitty-container hidden" id="appear">
         <img class="mitty" src="assets/img/UI/icons/icon_Mitty.png"/>
@@ -29,4 +33,10 @@
    </div>
   </body>
   <script src="time.js"></script>
+  <script>
+  window.addEventListener("click", event => {
+    const audio = document.querySelector("audio");
+    audio.volume = 0.2;
+    audio.play();
+  });</script>
   </html>
