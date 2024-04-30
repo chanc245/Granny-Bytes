@@ -184,14 +184,15 @@ const granny = {
 
 console.log("RECIPE: " + localStorage.getItem("recipe")); // Check if the value is retrieved properly
 
-// Assuming the retrieved value is a JSON string representing an object
+// // Assuming the retrieved value is a JSON string representing an object
 let storedRecipe = JSON.parse(localStorage.getItem("recipe"));
 
-// Access the 'name' property of the stored recipe object
-let recipeName = storedRecipe.name;
-console.log(recipeName); // Output: The name of the recipe
+// // Access the 'name' property of the stored recipe object
+let currentRecipe = storedRecipe;
+console.log(currentRecipe); // Output: The name of the recipe
 
-let currentRecipe = JSON.parse(localStorage.getItem("recipe"));
+// let currentRecipe = JSON.parse(localStorage.getItem("recipe"));
+// let currentRecipe = recipes.Taiwan;
 let userAsking = true;
 let term;
 
@@ -293,7 +294,7 @@ function askStep(currentRecipe, terminal, stepIndex) {
       }
     );
   } else {
-    terminal.echo(`\n${randomGrannyConversation(grannyComplete)}`);
+    terminal.echo(`\n${randomGrannyConversation(granny.Complete)}`);
     terminal.pop();
   }
 }
@@ -382,5 +383,3 @@ function checkEnterKey(event) {
     sendInput();
   }
 }
-
-// No

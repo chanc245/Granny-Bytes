@@ -342,15 +342,15 @@ main {
   margin: 0 auto;
 }
 
-.upload{
-  background-color: #DEE7DB;
-  background-image: url('assets/img/UI/buttons/upload-all.png');
+.upload {
+  background-color: #dee7db;
+  background-image: url("assets/img/UI/buttons/upload-all.png");
   background-size: 140px 111px;
-  box-shadow: 
-    -4px 0 0 0 #9AB190,
-    4px 0 0 0 #9AB190,
-    0 -3px 0 0 #9AB190,
-    0 3px 0 0 #9AB190;
+  box-shadow:
+    -4px 0 0 0 #9ab190,
+    4px 0 0 0 #9ab190,
+    0 -3px 0 0 #9ab190,
+    0 3px 0 0 #9ab190;
   overflow: hidden;
 }
 
@@ -363,31 +363,31 @@ main {
 }
 
 .dz-preview {
-  background-color: #DEE7DB;
+  background-color: #dee7db;
   padding: 0px;
   margin: 0px;
 }
 
-.dz-processing{
-  background-color: #DEE7DB;
+.dz-processing {
+  background-color: #dee7db;
   padding: 0px;
   margin: 0px;
 }
 
-.dz-error{
-  background-color: #DEE7DB;
+.dz-error {
+  background-color: #dee7db;
   padding: 0px;
   margin: 0px;
 }
 
-.dz-complete{
-  background-color: #DEE7DB;
+.dz-complete {
+  background-color: #dee7db;
   padding: 0px;
   margin: 0px;
 }
 
-.dz-image-preview{
-  background-color: #DEE7DB;
+.dz-image-preview {
+  background-color: #dee7db;
   padding: 0px;
   margin: 0px;
 }
