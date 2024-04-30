@@ -182,11 +182,6 @@ const granny = {
   ],
 };
 
-// selectedRecipePromise.then((currentRecipe) => {
-//   console.log("hi hi");
-//   console.log(currentRecipe);
-// });
-
 console.log("RECIPE: " + localStorage.getItem("recipe")); // Check if the value is retrieved properly
 
 // Assuming the retrieved value is a JSON string representing an object
@@ -200,14 +195,14 @@ let currentRecipe = JSON.parse(localStorage.getItem("recipe"));
 let userAsking = true;
 let term;
 
-document.getElementById('recipe-text').innerHTML = currentRecipe.name + "<br><br>" + currentRecipe.ingredients;
+document.getElementById("recipe-text").innerHTML =
+  currentRecipe.name + "<br><br>" + currentRecipe.ingredients;
 
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
-
 $(document).ready(function () {
   term = $("#commandDiv").terminal(
     function (command) {
