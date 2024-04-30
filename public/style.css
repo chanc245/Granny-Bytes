@@ -71,6 +71,22 @@ a{
   height: 170px;
 }
 
+.mitty-bar{
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  width: 60%;
+}
+
+.mitty-text{
+  position: absolute;
+  right: 17px;
+  top: 35px;
+  font-size: 10px;
+  width: 55%;
+  color: #868E94;
+}
+
 .footer {
   position: absolute; /* Set position to absolute */
   bottom: 0; /* Position at the bottom of the .main-container */
