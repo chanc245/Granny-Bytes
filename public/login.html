@@ -43,7 +43,8 @@
           </div>
 
           <!-- <button type="submit" class="btn">Login</button> -->
-          <a href="recipe.html" id="login-btn"><img src="assets/img/UI/buttons/login.png"/></a>
+          <!-- <a href="recipe.html" id="login-btn"><img src="assets/img/UI/buttons/login.png"/></a> -->
+          <button onclick="login()" id="login-btn" class="loginBtn">Login</button>
         </div>
       </div>
 
@@ -64,5 +65,11 @@
     </div>
 
 </div>
+  <script>
+    const nextPage = document.getElementById("login-btn");
+      nextPage.addEventListener("click", () => {
+        window.location.href = "./recipe.html";
+      });
+  </script>
   <script src="time.js"></script>
 </html>

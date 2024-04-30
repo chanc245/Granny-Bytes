@@ -34,7 +34,7 @@ body {
   margin: 0px;
 }
 
-.overlay{
+.overlay {
   position: absolute;
   pointer-events: none;
   z-index: 100;
@@ -45,7 +45,7 @@ body {
   opacity: 70%;
 }
 
-a{
+a {
   color: #946e5a;
 }
 
@@ -64,7 +64,7 @@ a{
   border: 1px solid #ebdfd9;
 }
 
-.mitty-container{
+.mitty-container {
   position: absolute;
   margin: 30px;
   width: 230px;
@@ -73,30 +73,30 @@ a{
   flex-direction: row;
 }
 
-.mitty{
+.mitty {
   width: 50px;
   height: 50px;
 }
 
-.speechbubble{
+.speechbubble {
   width: 175px;
   height: 170px;
 }
 
-.mitty-bar{
+.mitty-bar {
   position: absolute;
   right: 15px;
   top: 10px;
   width: 60%;
 }
 
-.mitty-text{
+.mitty-text {
   position: absolute;
   right: 17px;
   top: 35px;
   font-size: 10px;
   width: 55%;
-  color: #868E94;
+  color: #868e94;
 }
 
 .footer {
@@ -198,7 +198,7 @@ a{
   color: #946e5a;
 }
 
-#user{
+#user {
   color: #946e5a;
   font-family: "Silkscreen", sans-serif;
   width: 147px;
@@ -236,6 +236,36 @@ a{
   margin-left: -35px;
 }
 
+.loginBtn {
+  width: 80%;
+  height: 100%;
+  padding: 5%;
+  font-family: "Bulkypix";
+  font-size: 20;
+  background-color: #936b57;
+  color: #eaded8;
+  box-shadow:
+    -5px 0 0 0 #674e41,
+    5px 0 0 0 #674e41,
+    0 -5px 0 0 #674e41,
+    0 5px 0 0 #674e41;
+}
+
+.loginBtn:hover {
+  width: 80%;
+  height: 100%;
+  padding: 5%;
+  font-family: "Bulkypix";
+  font-size: 20;
+  background-color: #674e41;
+  color: #eaded8;
+  box-shadow:
+    -5px 0 0 0 #936b57,
+    5px 0 0 0 #936b57,
+    0 -5px 0 0 #936b57,
+    0 5px 0 0 #936b57;
+}
+
 label {
   display: block;
   margin-bottom: 5px; /* Adjust as needed to add space between labels */
@@ -251,17 +281,16 @@ label {
   /* Standard syntax */
 }
 
-
 .recipebox {
-  background-color: #DEE7DB;
+  background-color: #dee7db;
   width: 500px;
   height: 300px;
   margin-top: 100px;
   box-shadow:
-    -10px 0 0 0 #9AB190,
-    10px 0 0 0 #9AB190,
-    0 -10px 0 0 #9AB190,
-    0 10px 0 0 #9AB190;
+    -10px 0 0 0 #9ab190,
+    10px 0 0 0 #9ab190,
+    0 -10px 0 0 #9ab190,
+    0 10px 0 0 #9ab190;
 }
 
 .topbar img {
@@ -269,7 +298,7 @@ label {
 }
 
 .recipeholder {
-  background-color: #FAFFF8;
+  background-color: #fafff8;
   height: 65%;
   color: #674e41;
   text-align: center;
@@ -291,7 +320,7 @@ label {
 }
 
 .bottombar {
-  background-color: #9AB190;
+  background-color: #9ab190;
   width: 96%;
   height: 30px;
   margin: 2%;

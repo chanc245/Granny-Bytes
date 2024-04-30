@@ -192,9 +192,6 @@ console.log(currentRecipe);
 let userAsking = true;
 let term;
 
-document.getElementById("recipe-text").innerHTML =
-  currentRecipe.name + "<br><br>" + currentRecipe.ingredients;
-
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
@@ -379,3 +376,40 @@ function checkEnterKey(event) {
     sendInput();
   }
 }
+
+// let ingredientsList = currentRecipe.ingredients;
+// let stepsList = currentRecipe.steps;
+
+// ingredientsList.forEach((ingredients) => {
+//   console.log(ingredients);
+// });
+
+// stepsList.forEach((steps) => {
+//   console.log(steps);
+// });
+
+let ingredientsList = currentRecipe.ingredients;
+let stepsList = currentRecipe.steps;
+
+let recipeText = currentRecipe.name + "<br><br>";
+
+// Adding ingredients
+recipeText += "<b>Ingredients:</b><br>";
+ingredientsList.forEach((ingredient) => {
+  recipeText += ingredient + "<br>";
+});
+
+// Adding steps
+recipeText += "<br><b>Steps:</b><br>";
+stepsList.forEach((step, index) => {
+  recipeText += index + 1 + ". " + step + "<br>";
+});
+
+document.getElementById("recipe-text").innerHTML = recipeText;
+
+// document.getElementById("recipe-text").innerHTML =
+//   currentRecipe.name +
+//   "<br><br>" +
+//   currentRecipe.ingredients +
+//   "<br><br>" +
+//   currentRecipe.steps;
