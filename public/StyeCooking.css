@@ -217,15 +217,15 @@ body {
 }
 
 .user-chat-container button {
-  /* background-color: transparent; */
-  background-image: url(./assets/img/UI/buttons/send_hover.png);
+  background-image: url(./assets/img/UI/buttons/chat_send.png);
   border: none;
   width: 25%;
+  /* height: 100%; */
   cursor: pointer;
 }
 
 .user-chat-container button:hover {
-  background-image: url(./assets/img/UI/buttons/send_hover.png);
+  background-image: url(./assets/img/UI/buttons/chat_send_hover.png);
   border: none;
   width: 25%;
   cursor: pointer;
@@ -270,7 +270,7 @@ body {
 
 #commandDiv {
   height: 100%;
-  width: 95%;
+  width: 100%;
   overflow-x: auto;
   overflow-y: auto;
   word-wrap: break-word;
@@ -341,55 +341,16 @@ main {
   max-width: 20vw;
   margin: 0 auto;
 }
-
-.upload{
-  background-color: #DEE7DB;
-  background-image: url('assets/img/UI/buttons/upload-all.png');
-  background-size: 140px 111px;
-  box-shadow: 
-    -4px 0 0 0 #9AB190,
-    4px 0 0 0 #9AB190,
-    0 -3px 0 0 #9AB190,
-    0 3px 0 0 #9AB190;
-  overflow: hidden;
-}
-
 .dropzone {
   background-color: transparent;
   color: #9ab190;
-  height: 10px;
-  padding: 0px;
-  margin: 0px;
 }
 
-.dz-preview {
-  background-color: #DEE7DB;
-  padding: 0px;
-  margin: 0px;
-}
-
-.dz-processing{
-  background-color: #DEE7DB;
-  padding: 0px;
-  margin: 0px;
-}
-
-.dz-error{
-  background-color: #DEE7DB;
-  padding: 0px;
-  margin: 0px;
-}
-
-.dz-complete{
-  background-color: #DEE7DB;
-  padding: 0px;
-  margin: 0px;
-}
-
-.dz-image-preview{
-  background-color: #DEE7DB;
-  padding: 0px;
-  margin: 0px;
+.dropzone img {
+  border-radius: 10px;
+  vertical-align: middle;
+  max-width: 5%;
+  max-height: 5%;
 }
 
 small {
