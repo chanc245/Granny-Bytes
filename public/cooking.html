@@ -83,7 +83,7 @@
                   placeholder="Chat with Grandma..."
                 />
                 <!-- <button onclick="sendInput()"><img class="btn" src="./assets/img/UI/buttons/chat_send.png"></button> -->
-                <button onclick="sendInput()" id="send_input" class="sendBtn">Send</button>
+                <button onclick="sendInput()" id="user_input" class="sendBtn">Send</button>
               </div>
             </div>
           </div>
@@ -108,6 +108,7 @@
 
     <div class="footer">
       <p class="scene-info">■Cook and chat with Granny</p>
+      <!-- <img class="bottombar" style="max-width: 70%; max-height: 100px" src="./assets/img/UI/bottombar/chat.png"> -->
       <p class="scene-info" id="time">12:00PM</p>
     </div>
 
@@ -115,16 +116,14 @@
   <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script> 
   <script type="module" src="imgUpload.js"></script>
   <script type="module" src="dish.js"></script>
-  <script type="module" src="script.js"></script>
+  <script src="script.js"></script>
   <script src="time.js"></script>
-  <script>
-    
-  </script>
   </body>
   <script>
     window.addEventListener("click", event => {
       const audio = document.querySelector("audio");
       audio.volume = 0.2;
       audio.play();
-    });</script>
+    });
+    </script>
 </html>

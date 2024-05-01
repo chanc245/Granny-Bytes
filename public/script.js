@@ -212,7 +212,7 @@ $(document).ready(function () {
       }
     },
     {
-      greetings: `*Never give out your password or crefit card number in an instant message conversation!
+      greetings: `*Never give out your password or credit card number in an instant message conversation!
 ______  
 ${grannyStartDishLoop(currentRecipe.name)}\n`, //grannyStart.Dish
       prompt: "  \n",
@@ -365,8 +365,10 @@ function evaluationPrompt(dish, currentStep, userQues) {
 // ---------- BUTTON ---------- //
 
 function sendInput() {
+  console.log("hi");
   var input = document.getElementById("user_input").value; // Get user input
   // term.echo(`\nYou:`)
+  console.log(input);
   term.exec(input); // Execute the input as a terminal command
   document.getElementById("user_input").value = ""; // Clear input
 }
@@ -376,17 +378,6 @@ function checkEnterKey(event) {
     sendInput();
   }
 }
-
-// let ingredientsList = currentRecipe.ingredients;
-// let stepsList = currentRecipe.steps;
-
-// ingredientsList.forEach((ingredients) => {
-//   console.log(ingredients);
-// });
-
-// stepsList.forEach((steps) => {
-//   console.log(steps);
-// });
 
 let ingredientsList = currentRecipe.ingredients;
 let stepsList = currentRecipe.steps;

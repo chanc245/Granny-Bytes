@@ -223,27 +223,6 @@ body {
   height: 35%;
 }
 
-#send_input {
-  background-color: #936b57;
-  color: #ebdfd9;
-  box-shadow:
-    -3px 0 0 0 #674e41,
-    3px 0 0 0 #674e41,
-    0 -3px 0 0 #674e41,
-    0 3px 0 0 #674e41;
-  border: none;
-}
-
-#send_input:hover {
-  background-color: #674e41;
-  color: #ebdfd9;
-  box-shadow:
-    -3px 0 0 0 #936b57,
-    3px 0 0 0 #936b57,
-    0 -3px 0 0 #936b57,
-    0 3px 0 0 #936b57;
-}
-
 .user-chat-container {
   display: flex;
   align-items: center;
@@ -277,12 +256,13 @@ body {
 }
 
 .user-chat-container button:hover {
-  background-color: #5a7152;
+  background-color: #674e41;
+  color: #ebdfd9;
   box-shadow:
-    -3px 0 0 0 #9ab190,
-    3px 0 0 0 #9ab190,
-    0 -3px 0 0 #9ab190,
-    0 3px 0 0 #9ab190;
+    -3px 0 0 0 #936b57,
+    3px 0 0 0 #936b57,
+    0 -3px 0 0 #936b57,
+    0 3px 0 0 #936b57;
   width: 25%;
   cursor: pointer;
 }
@@ -298,6 +278,10 @@ body {
 .right div {
   margin: 10px;
   height: 30%;
+}
+
+.bottombar img {
+  width: 20%;
 }
 
 #main {
