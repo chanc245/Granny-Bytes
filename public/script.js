@@ -180,16 +180,16 @@ const granny = {
     `\nToday's delicious endeavor is `,
   ],
   StartDishEnd: [
-    ` Let's roll up our sleeves and get cooking, my dear!`,
-    ` Let's begin with the first step, shall we?`,
-    ` Let's get started on those cooking steps, sweetheart.`,
-    ` Let me show you how it's done.`,
-    ` Let's dive into the cooking steps together, my love.`,
-    ` Here’s how we start...`,
-    ` Let's get started with our cooking steps, shall we?`,
-    ` Follow along with me now.`,
-    ` Ready to start the adventure in Granny's kitchen?`,
-    ` Let's begin our culinary journey together.`,
+    `Let's roll up our sleeves and get cooking, my dear!`,
+    `Let's begin with the first step, shall we?`,
+    `Let's get started on those cooking steps, sweetheart.`,
+    `Let me show you how it's done.`,
+    `Let's dive into the cooking steps together, my love.`,
+    `Here’s how we start...`,
+    `Let's get started with our cooking steps, shall we?`,
+    `Follow along with me now.`,
+    `Ready to start the adventure in Granny's kitchen?`,
+    `Let's begin our culinary journey together.`,
   ],
   Step: [
     "Now, for Step ",
@@ -346,7 +346,7 @@ function askStep(currentRecipe, terminal, stepIndex) {
             function (userInput) {
               requestAI(currentRecipe.name, currentStep, userInput).then(
                 (aiResponse) => {
-                  terminal.echo(`\nGrandma:\n   ${aiResponse}`);
+                  terminal.echo(`\nGrandma:\n${aiResponse}\n`);
                   terminal.pop();
                 }
               );
@@ -368,10 +368,19 @@ function askStep(currentRecipe, terminal, stepIndex) {
       }
     );
   } else {
-    terminal.echo(`\n${randomGrannyConversation(grannyComplete)}`);
+    terminal.echo(`\n${randomGrannyConversation(granny.Complete)}`);
+
+    askImage(currentRecipe, term, "imageURL")
+
     terminal.pop();
   }
 }
+
+function askImage(currentRecipe, terminal, imageURL) {
+  terminal.echo("")
+  terminal.echo("This is where the image thing loop will be in! (STILL NEED TO ADD)")
+}
+
 
 // ---------- AI ---------- //
 // ---------- AI ---------- //

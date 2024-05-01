@@ -270,6 +270,7 @@ let term;
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
+
 $(document).ready(function () {
   term = $("#commandDiv").terminal(
     function (command) {
@@ -330,13 +331,6 @@ function askStep(currentRecipe, terminal, stepIndex) {
 
     updateCookingDiv(currentRecipe.steps[stepIndex]);
 
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-
     terminal.echo(`\n${randomGrannyConversation(granny.Step)}${stepIndex + 1}: ${currentStep}`); //granny.Step
     terminal.push(
       async function (command) {
@@ -369,7 +363,7 @@ function askStep(currentRecipe, terminal, stepIndex) {
       }
     );
   } else {
-    terminal.echo(`\n${randomGrannyConversation(grannyComplete)}`);
+    terminal.echo(`\n${randomGrannyConversation(granny.Complete)}`);
     terminal.pop();
   }
 }
