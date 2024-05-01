@@ -89,7 +89,9 @@
           </div>
 
           <div class="right">
-            <div class="environment inner-box"></div>
+            <div class="environment inner-box">
+              <img id="rotatingImage" style="width: 100%; height: 100%;" src="assets/img/Grandma/g1.png"/>
+            </div>
             <div class="cooking inner-box"></div>
 
             <div class="upload inner-box" id="upload">
@@ -126,5 +128,22 @@
       const audio = document.querySelector("audio");
       audio.volume = 0.2;
       audio.play();
-    });</script>
+    });
+
+    // Array of image URLs
+    var imageUrls = [
+        "assets/img/Grandma/g1.png",
+        "assets/img/Grandma/g2.png"
+    ];
+
+    var currentIndex = 0;
+    var rotatingImage = document.getElementById("rotatingImage");
+
+    setInterval(function() {
+        currentIndex = (currentIndex + 1) % imageUrls.length;
+        rotatingImage.src = imageUrls[currentIndex];
+    }, 1000);
+    
+    
+    </script>
 </html>
