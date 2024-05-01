@@ -232,15 +232,13 @@ a {
   letter-spacing: 0.1cap;
 }
 
-#login-btn {
-  transform: scale(0.6);
-  margin-left: -35px;
-}
-
 .loginBtn {
   width: 80%;
   height: 100%;
   padding: 5%;
+  transform: scale(0.6);
+  margin-left: -15px;
+  margin-top: 5px;
   font-family: "Bulkypix";
   font-size: 20;
   background-color: #936b57;

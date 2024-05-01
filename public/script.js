@@ -1,4 +1,4 @@
-// Apr26 -- Most current version,
+// Apr30 -- Most recent version,
 
 // ---------- VARIABLES ---------- //
 // ---------- VARIABLES ---------- //
@@ -134,7 +134,7 @@ const granny = {
   Ask: [
     "My dear, is there anything about this step that you'd like to ask your old granny?",
     "Sweetheart, do you need granny to explain this step a bit more?",
-    "Are you all clear on this step, or is there something you'd like to ask me, dear?",
+    "Is there something you'd like to ask me, dear?",
     "Do you have any little doubts about this part, my love?",
     "Anything puzzling you about this step, darling? Just ask your granny!",
     "Is there anything about this step that's troubling you, my dear?",
@@ -191,6 +191,12 @@ console.log(currentRecipe);
 
 let userAsking = true;
 let term;
+
+let storedimgdata = localStorage.getItem("fileDatURL");
+const imageParts = [
+  { inlineData: { data: storedimgdata, mimeType: "image/jpeg" } },
+];
+console.log(storedimgdata);
 
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
@@ -260,6 +266,13 @@ function askStep(currentRecipe, terminal, stepIndex) {
       async function (command) {
         console.log(await yesNoAnalyzer(command));
         if (command.match(/yes|y/i)) {
+          terminal.push(function (storedimgdata) {
+            requestImg(storedimgdata).then((imgResponse) => {
+              console.log("entering loop");
+              terminal.echo(`\nGrandma:\n   ${imgResponse}`);
+              terminal.pop();
+            });
+          });
           terminal.echo(`\n${randomGrannyConversation(granny.Ques)}`); //granny.Ques
           terminal.push(
             function (userInput) {
@@ -287,6 +300,13 @@ function askStep(currentRecipe, terminal, stepIndex) {
       }
     );
   } else {
+    // terminal.push(function (storedimgdata) {
+    //   requestImg(storedimgdata).then((imgResponse) => {
+    //     console.log("entering loop");
+    //     terminal.echo(`\nGrandma:\n   ${imgResponse}`);
+    //     terminal.pop();
+    //   });
+    // });
     terminal.echo(`\n${randomGrannyConversation(granny.Complete)}`);
     terminal.pop();
   }
@@ -338,6 +358,25 @@ async function requestAI(dish, currentStep, userQues) {
   if (response.ok) {
     const jsonData = await response.json();
     return jsonData.ai;
+  } else {
+    console.error("Error in submitting data.");
+    return "Error in submitting data.";
+  }
+}
+
+async function requestImg(storedimgdata) {
+  const imageParts = storedimgdata;
+  const response = await fetch("/result", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ imgPath: imageParts }),
+  });
+
+  if (response.ok) {
+    const jsonData = await response.json();
+    return jsonData.imgAnalyse;
   } else {
     console.error("Error in submitting data.");
     return "Error in submitting data.";
@@ -397,10 +436,3 @@ stepsList.forEach((step, index) => {
 });
 
 document.getElementById("recipe-text").innerHTML = recipeText;
-
-// document.getElementById("recipe-text").innerHTML =
-//   currentRecipe.name +
-//   "<br><br>" +
-//   currentRecipe.ingredients +
-//   "<br><br>" +
-//   currentRecipe.steps;

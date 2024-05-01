@@ -235,8 +235,15 @@ body {
   background-color: #fcf5f1;
   color: #674e41;
   height: 10vh;
+  padding-left: 5%;
+  border: none;
   width: auto;
   flex: 1;
+}
+
+#user_input::placeholder {
+  color: #999;
+  padding: 5%;
 }
 
 .user-chat-container button {
@@ -388,7 +395,19 @@ main {
 
 .upload {
   background-color: #dee7db;
-  background-image: url("assets/img/UI/buttons/upload-all.png");
+  background-image: url("assets/img/UI/buttons/upload_all.png");
+  background-size: 140px 111px;
+  box-shadow:
+    -4px 0 0 0 #9ab190,
+    4px 0 0 0 #9ab190,
+    0 -3px 0 0 #9ab190,
+    0 3px 0 0 #9ab190;
+  overflow: hidden;
+}
+
+.upload:hover {
+  background-color: #dee7db;
+  background-image: url("assets/img/UI/buttons/upload_all_hover.png");
   background-size: 140px 111px;
   box-shadow:
     -4px 0 0 0 #9ab190,

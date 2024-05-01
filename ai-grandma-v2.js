@@ -2,7 +2,7 @@
 // Master the Gemini API: A Node.js tutorial with real examples, Google for developer
 
 // * AI quantum grandma v2
-// * chat bot + img analyzer + fonrt end terminal(link to HTML)
+// * chat bot + img analyzer + front end terminal(link to HTML)
 
 // node ai-grandma-v2.js
 // npm run granny
@@ -54,6 +54,20 @@ app.post("/submit", async (req, res) => {
   }
 });
 
+app.post("/result", async (req, res) => {
+  let imgPath = req.body.imgPath;
+
+  try {
+    const imgResponse = await imgAnalyser(imgPath);
+    res.json({ imgAnalyse: imgResponse });
+  } catch (error) {
+    console.error("Gemini Error:", error);
+    res.status(500).json({
+      error: "Failed to generate image analysis result. Please try again.",
+    });
+  }
+});
+
 async function getGenResultAsString(input) {
   console.log("--Run Gemini");
 
@@ -94,14 +108,15 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-async function imgAnalyser() {
+async function imgAnalyser(imgPath) {
   const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
 
   const prompt =
-    "Based on the image, please judege if this dish is well cooked, what can I do to make this dish better(be as speicifc as you can)";
+    "You're a grandma who is judging food. Based on the image, please judege if this dish is well cooked, give a stars rating out of 5 on how well the dish is made and what can I do to make this dish better(be as speicifc as you can be).";
 
-  const imageParts = [fileToGenerativePart("img/burnt-dish.jpg", "image/jpeg")];
-
+  // const imageParts = [fileToGenerativePart("img/burnt-dish.jpg", "image/jpeg")];
+  const imageParts = imgPath;
+  console.log(imageParts);
   const result = await model.generateContent([prompt, ...imageParts]);
   const response = await result.response;
   const text = response.text();
