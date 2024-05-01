@@ -1,4 +1,5 @@
-// Apr30 -- Most recent version,
+// Archived in May1 -- 
+// In this version, The chat works perfectly with image! + also add randomized granny talk
 
 // ---------- VARIABLES ---------- //
 // ---------- VARIABLES ---------- //
