@@ -339,7 +339,7 @@ body {
 
 .terminal {
   /* inside text color */
-  --size: 0.8;
+  --size: 1;
   overflow: hidden;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -363,7 +363,7 @@ body {
 /* TERMAL FONT */
 
 :root {
-  --size: 1;
+  --size: 2;
   --font: "Half Bold Pixel-7";
 }
 
@@ -387,6 +387,12 @@ body {
   white-space: nowrap !important;
   border: 0 !important;
 }
+
+/* HTML UPLOAD */
+/* HTML UPLOAD */
+/* HTML UPLOAD */
+/* HTML UPLOAD */
+/* HTML UPLOAD */
 
 main {
   max-width: 20vw;
