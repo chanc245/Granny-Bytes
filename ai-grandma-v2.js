@@ -54,19 +54,6 @@ app.post("/submit", async (req, res) => {
   }
 });
 
-app.post("/result", async (req, res) => {
-  let imgPath = req.body.imgPath;
-
-  try {
-    const imgResponse = await imgAnalyser(imgPath);
-    res.json({ imgAnalyse: imgResponse });
-  } catch (error) {
-    console.error("Gemini Error:", error);
-    res.status(500).json({
-      error: "Failed to generate image analysis result. Please try again.",
-    });
-  }
-});
 
 async function getGenResultAsString(input) {
   console.log("--Run Gemini");

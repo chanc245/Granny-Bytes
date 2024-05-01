@@ -1,4 +1,5 @@
-// Apr30 -- Most recent version,
+// Archived in May1 -- 
+// In this version, The chat works perfectly with image! + also add randomized granny talk
 
 // ---------- VARIABLES ---------- //
 // ---------- VARIABLES ---------- //
@@ -17,14 +18,6 @@ const recipes = {
       "Soy Sauce: half a bowl",
       "Water: 3 bowls",
     ],
-    stepslist: [
-      "Medium Heat, Fry the pork belly to golden brown (skin first), set it aside",
-      "Medium Heat, Fry the garlic and green onions to golden brown, set them aside",
-      "Low Heat, heat sugar until it turns golden, add in the meat, soy sauce, water",
-      "Low Heat, cook until the water almost all evaporates (almost dry)",
-      "Plate and serve!",
-    ],
-
     steps: [
       {
         imagePath: "/assets/img/Food/Taiwan/Taiwan_Step1.png",
@@ -59,15 +52,6 @@ const recipes = {
       "Rice: 1 Tsp",
       "Sugar: 2 Tsp",
       "Saffron: 6-7 strands",
-    ],
-    stepslist: [
-      "Wash and soak rice in water.",
-      "Soak saffron in one Tsp milk.",
-      "Put milk on to boil. Once it boils, add soaked rice",
-      "Let it cook on low heat for 45 mins. Keep stirring occasionally",
-      "The milk will thicken up",
-      "Add saffron and sugar.",
-      "Enjoy!",
     ],
     steps: [
       {
@@ -110,13 +94,6 @@ const recipes = {
       "Frying Mix: 1 cup",
       "Water: ⅔ cup",
     ],
-    stepslist: [
-      "Slice kimchi into small pieces and place into a bowl",
-      "Add the frying mix, kimchi juice, and garlic to the bowl",
-      "Pour in the water slowly and mix until the dough is fully combined",
-      "Spoon mixture into hot oiled pan and fry on both sides until golden",
-      "Serve on a plate and enjoy!",
-    ],
     steps: [
       {
         imagePath: "/assets/img/Food/SouthKorea/Korea_Step1.png",
@@ -156,16 +133,6 @@ const recipes = {
       "2 tsp vanilla extract",
       "1 tsp salt",
       "6 butter cookies",
-    ],
-    stepslist: [
-      "Cook wide noodles as indicated on the package.",
-      "Mix/beat together eggs with sugar.",
-      "Mix in cottage cheese, heavy cream, melted butter, vanilla, salt and raisins.",
-      "Pour drained noodles over the egg mixture.",
-      "Grease a baking dish then pour the noodle mix into the dish.",
-      "Mix crumbled cookies with butter then sprinkle over the noodles.",
-      "Bake in the oven (350°F) until the top is golden brown, approximately an hour.",
-      "Serve warm or from the fridge.",
     ],
     steps: [
       {
@@ -214,16 +181,16 @@ const granny = {
     `\nToday's delicious endeavor is `,
   ],
   StartDishEnd: [
-    `Let's roll up our sleeves and get cooking, my dear!`,
-    `Let's begin with the first step, shall we?`,
-    `Let's get started on those cooking steps, sweetheart.`,
-    `Let me show you how it's done.`,
-    `Let's dive into the cooking steps together, my love.`,
-    `Here’s how we start...`,
-    `Let's get started with our cooking steps, shall we?`,
-    `Follow along with me now.`,
-    `Ready to start the adventure in Granny's kitchen?`,
-    `Let's begin our culinary journey together.`,
+    ` Let's roll up our sleeves and get cooking, my dear!`,
+    ` Let's begin with the first step, shall we?`,
+    ` Let's get started on those cooking steps, sweetheart.`,
+    ` Let me show you how it's done.`,
+    ` Let's dive into the cooking steps together, my love.`,
+    ` Here’s how we start...`,
+    ` Let's get started with our cooking steps, shall we?`,
+    ` Follow along with me now.`,
+    ` Ready to start the adventure in Granny's kitchen?`,
+    ` Let's begin our culinary journey together.`,
   ],
   Step: [
     "Now, for Step ",
@@ -303,6 +270,7 @@ let term;
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
+
 $(document).ready(function () {
   term = $("#commandDiv").terminal(
     function (command) {
@@ -363,13 +331,6 @@ function askStep(currentRecipe, terminal, stepIndex) {
 
     updateCookingDiv(currentRecipe.steps[stepIndex]);
 
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-
     terminal.echo(`\n${randomGrannyConversation(granny.Step)}${stepIndex + 1}: ${currentStep}`); //granny.Step
     terminal.push(
       async function (command) {
@@ -380,7 +341,7 @@ function askStep(currentRecipe, terminal, stepIndex) {
             function (userInput) {
               requestAI(currentRecipe.name, currentStep, userInput).then(
                 (aiResponse) => {
-                  terminal.echo(`\nGrandma:\n${aiResponse}\n`);
+                  terminal.echo(`\nGrandma:\n   ${aiResponse}`);
                   terminal.pop();
                 }
               );
@@ -403,18 +364,9 @@ function askStep(currentRecipe, terminal, stepIndex) {
     );
   } else {
     terminal.echo(`\n${randomGrannyConversation(granny.Complete)}`);
-
-    askImage(currentRecipe, term, "imageURL")
-
     terminal.pop();
   }
 }
-
-function askImage(currentRecipe, terminal, imageURL) {
-  terminal.echo("")
-  terminal.echo("This is where the image thing loop will be in! (STILL NEED TO ADD)")
-}
-
 
 // ---------- AI ---------- //
 // ---------- AI ---------- //
@@ -504,7 +456,7 @@ function checkEnterKey(event) {
 }
 
 let ingredientsList = currentRecipe.ingredients;
-let stepsListdisplay = currentRecipe.stepslist;
+let stepsList = currentRecipe.steps;
 
 let recipeText = currentRecipe.name + "<br><br>";
 
@@ -515,10 +467,10 @@ ingredientsList.forEach((ingredient) => {
 });
 
 // Adding steps
-// recipeText += "<br><b>Steps:</b><br>";
-// stepsListdisplay.forEach((stepslist, index) => {
-//   recipeText += index + 1 + ". " + stepslist + "<br>";
-// });
+recipeText += "<br><b>Steps:</b><br>";
+stepsList.forEach((step, index) => {
+  recipeText += index + 1 + ". " + step + "<br>";
+});
 
 document.getElementById("recipe-text").innerHTML = recipeText;
 

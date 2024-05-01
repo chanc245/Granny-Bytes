@@ -1,6 +1,6 @@
 // Imported the selectRecipe function from script.js
 import { selectRecipe } from "./selection.js";
-console.log("debug");
+// console.log("debug");
 let currentRecipe;
 let selectedRecipe;
 
@@ -27,7 +27,7 @@ recipeLinks.forEach((link) => {
 const selectedRecipePromise = new Promise((resolve, reject) => {
   document.addEventListener("DOMContentLoaded", () => {
     resolve(selectedRecipe);
-    console.log("promise");
+    // console.log("promise");
   });
 });
 export { currentRecipe, selectedRecipePromise };
