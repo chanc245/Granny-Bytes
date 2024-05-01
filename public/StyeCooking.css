@@ -180,7 +180,7 @@ body {
   flex-direction: column;
   margin: 20px;
   margin-right: 10px;
-  margin-left: 0px;
+  margin-left: 10px;
   width: 85%;
   height: 460px;
   overflow: hidden;
@@ -211,12 +211,14 @@ body {
 }
 
 .left div {
-  margin: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .terminal {
   height: 100%;
-  width: 94%;
 }
 
 .text-input {
@@ -308,7 +310,7 @@ body {
 /* TERMINAL SETUP */
 
 .inter {
-  padding: 20px;
+  padding-left: 0px;
 }
 
 .terminal.inner-box {
@@ -316,15 +318,20 @@ body {
 }
 
 #commandDiv {
+  /* white-space: nowrap;
   height: 100%;
   width: 95%;
   overflow-x: auto;
   overflow-y: auto;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  /* word-wrap: break-word;
+  overflow-wrap: break-word; */
   background-color: #fcf5f1;
-  padding: 0px;
-  line-height: -0.5px;
+  padding-left: 5%;
+  padding-right: 0%;
+  /* border: 0.1rem solid; */
+  /* padding: -15px; */
+  /*padding: 0px;
+  line-height: -0.5px; */
 }
 
 .sendBtn {
@@ -338,11 +345,11 @@ body {
 /* TERMINAL COLOR */
 
 .terminal {
-  /* inside text color */
-  --size: 0.8;
+  --size: 0.9;
   overflow: hidden;
-  word-wrap: break-word;
+  /* word-wrap: break-word; */
   overflow-wrap: break-word;
+  white-space: nowrap;
   --color: #674e41;
 }
 
@@ -421,36 +428,6 @@ main {
   background-color: transparent;
   color: #9ab190;
   height: 10px;
-  padding: 0px;
-  margin: 0px;
-}
-
-.dz-preview {
-  background-color: #dee7db;
-  padding: 0px;
-  margin: 0px;
-}
-
-.dz-processing {
-  background-color: #dee7db;
-  padding: 0px;
-  margin: 0px;
-}
-
-.dz-error {
-  background-color: #dee7db;
-  padding: 0px;
-  margin: 0px;
-}
-
-.dz-complete {
-  background-color: #dee7db;
-  padding: 0px;
-  margin: 0px;
-}
-
-.dz-image-preview {
-  background-color: #dee7db;
   padding: 0px;
   margin: 0px;
 }

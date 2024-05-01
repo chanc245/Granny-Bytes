@@ -17,6 +17,14 @@ const recipes = {
       "Soy Sauce: half a bowl",
       "Water: 3 bowls",
     ],
+    stepslist: [
+      "Medium Heat, Fry the pork belly to golden brown (skin first), set it aside",
+      "Medium Heat, Fry the garlic and green onions to golden brown, set them aside",
+      "Low Heat, heat sugar until it turns golden, add in the meat, soy sauce, water",
+      "Low Heat, cook until the water almost all evaporates (almost dry)",
+      "Plate and serve!",
+    ],
+
     steps: [
       {
         imagePath: "/assets/img/Food/Taiwan/Taiwan_Step1.png",
@@ -51,6 +59,15 @@ const recipes = {
       "Rice: 1 Tsp",
       "Sugar: 2 Tsp",
       "Saffron: 6-7 strands",
+    ],
+    stepslist: [
+      "Wash and soak rice in water.",
+      "Soak saffron in one Tsp milk.",
+      "Put milk on to boil. Once it boils, add soaked rice",
+      "Let it cook on low heat for 45 mins. Keep stirring occasionally",
+      "The milk will thicken up",
+      "Add saffron and sugar.",
+      "Enjoy!",
     ],
     steps: [
       {
@@ -93,6 +110,13 @@ const recipes = {
       "Frying Mix: 1 cup",
       "Water: ⅔ cup",
     ],
+    stepslist: [
+      "Slice kimchi into small pieces and place into a bowl",
+      "Add the frying mix, kimchi juice, and garlic to the bowl",
+      "Pour in the water slowly and mix until the dough is fully combined",
+      "Spoon mixture into hot oiled pan and fry on both sides until golden",
+      "Serve on a plate and enjoy!",
+    ],
     steps: [
       {
         imagePath: "/assets/img/Food/SouthKorea/Korea_Step1.png",
@@ -132,6 +156,16 @@ const recipes = {
       "2 tsp vanilla extract",
       "1 tsp salt",
       "6 butter cookies",
+    ],
+    stepslist: [
+      "Cook wide noodles as indicated on the package.",
+      "Mix/beat together eggs with sugar.",
+      "Mix in cottage cheese, heavy cream, melted butter, vanilla, salt and raisins.",
+      "Pour drained noodles over the egg mixture.",
+      "Grease a baking dish then pour the noodle mix into the dish.",
+      "Mix crumbled cookies with butter then sprinkle over the noodles.",
+      "Bake in the oven (350°F) until the top is golden brown, approximately an hour.",
+      "Serve warm or from the fridge.",
     ],
     steps: [
       {
@@ -501,7 +535,7 @@ function checkEnterKey(event) {
 }
 
 let ingredientsList = currentRecipe.ingredients;
-let stepsList = currentRecipe.steps;
+let stepsListdisplay = currentRecipe.stepslist;
 
 let recipeText = currentRecipe.name + "<br><br>";
 
@@ -512,10 +546,10 @@ ingredientsList.forEach((ingredient) => {
 });
 
 // Adding steps
-recipeText += "<br><b>Steps:</b><br>";
-stepsList.forEach((step, index) => {
-  recipeText += index + 1 + ". " + step + "<br>";
-});
+// recipeText += "<br><b>Steps:</b><br>";
+// stepsListdisplay.forEach((stepslist, index) => {
+//   recipeText += index + 1 + ". " + stepslist + "<br>";
+// });
 
 document.getElementById("recipe-text").innerHTML = recipeText;
 

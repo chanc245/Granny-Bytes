@@ -38,7 +38,6 @@ app.use(express.static(join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   res.sendFile(join(__dirname, "public/welcome.html"));
-  // res.sendFile(join(__dirname, "public/recipe.html")); //for Debugging
 });
 
 app.post("/submit", async (req, res) => {
