@@ -14,7 +14,7 @@
       <link rel="stylesheet" href="./StyeCooking.css" />
       <title>Grandma.AI</title>
     </head>
-    <title>COOK WITH GRANDMA!</title>
+    <title>Cook with Grandma!</title>
   </head>
   <body>
 
@@ -27,19 +27,21 @@
         <img class="mitty" src="assets/img/UI/icons/icon_Mitty.png"/>
         <img class="speechbubble" src="assets/img/UI/icons/speech-bubble.png"/>
         <img class="mitty-bar" src="assets/img/UI/topbar/mitty_hints_topbar.png"/>
-        <p class="mitty-text">Begin cooking with Granny! Refer the recipe below. If you have any questions, just ask Grandma by sending her a message!</p>
+        <p class="mitty-text">
+          Begin cooking with Granny! Refer the recipe below. If you have any questions, just ask Grandma by sending her a message!
+        </p>
       </div>
 
     <div class="container">
       <div class="left-column">
         <div class="empty"></div>
-        <!-- <button id="toggle-button" onclick="toggleRecipe()"></button> -->
         <div class="ingredients app">
           <div class="topbar_scroll">
             <img src="assets/img/UI/topbar/ingredients_topbar.png" />
           </div>
           <div class="ingredients-container">
             <p id="recipe-text">
+              <!--Default recipe text-->
               焢肉 Kong Rou<br /><br />
               Ingredients:<br />
               Cubed pork belly: 1 lb<br />
@@ -69,20 +71,16 @@
         <div class="inner-container">
 
           <div class="left">
+
             <div class="terminal inner-box">
               <div class="preloader visually-hidden"></div>
               <div class="inter" id="commandDiv"></div>
             </div>
+
             <div class="text-input inner-box">
               <img src="assets/img/UI/topbar/input_topbar.png" />
               <div class="user-chat-container">
-                <input
-                  type="text"
-                  id="user_input"
-                  onkeypress="checkEnterKey(event)"
-                  placeholder="Chat with Grandma..."
-                />
-                <!-- <button onclick="sendInput()"><img class="btn" src="./assets/img/UI/buttons/chat_send.png"></button> -->
+                <input type="text" id="user_input" onkeypress="checkEnterKey(event)" placeholder="Chat with Grandma..."/>
                 <button onclick="sendInput()" id="user_input" class="sendBtn">Send</button>
               </div>
             </div>
@@ -95,7 +93,7 @@
             <div class="cooking inner-box"></div>
 
             <div class="upload inner-box" id="upload">
-              <form class="dropzone" id="myform" action="/">
+              <form class="dropzone" id="imageUpload" action="/">
                 <div class="dz-message" data-dz-message><span></span></div>
               </form>
 
@@ -103,7 +101,6 @@
             </div>
 
           </div>
-
         </div>
       </div>
     </div>
@@ -114,34 +111,32 @@
       <p class="scene-info" id="time">12:00PM</p>
     </div>
 
-  </div>
-  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script> 
-  <script src="imgUpload.js"></script>
-  <script type="module" src="dish.js"></script>
-  <script src="script.js"></script>
-  <script src="time.js"></script>
-  </body>
-  <script>
-    window.addEventListener("click", event => {
-      const audio = document.querySelector("audio");
-      audio.volume = 0.2;
-      audio.play();
-    });
+    </div>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script> 
+    <!-- <script src="imgUpload.js"></script> -->
+    <script type="module" src="dish.js"></script>
+    <script src="script.js"></script>
+    <script src="time.js"></script>
+    <script>
+      window.addEventListener("click", event => {
+        const audio = document.querySelector("audio");
+        audio.volume = 0.2;
+        audio.play();
+      });
 
-    // Array of image URLs
-    var imageUrls = [
-        "assets/img/Grandma/g1.png",
-        "assets/img/Grandma/g2.png"
-    ];
+      // Array of image URLs for grandma's face 
+      var imageUrls = [
+          "assets/img/Grandma/g1.png",
+          "assets/img/Grandma/g2.png"
+      ];
 
-    var currentIndex = 0;
-    var rotatingImage = document.getElementById("rotatingImage");
+      var currentIndex = 0;
+      var rotatingImage = document.getElementById("rotatingImage");
 
-    setInterval(function() {
-        currentIndex = (currentIndex + 1) % imageUrls.length;
-        rotatingImage.src = imageUrls[currentIndex];
-    }, 1000);
-    
-    
-    </script>
+      setInterval(function() {
+          currentIndex = (currentIndex + 1) % imageUrls.length;
+          rotatingImage.src = imageUrls[currentIndex];
+      }, 1000);
+      </script>
+    </body>
 </html>

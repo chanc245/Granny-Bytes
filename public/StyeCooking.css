@@ -230,6 +230,7 @@ body {
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
+  padding-left: 5px;
 }
 
 .user-chat-container input[type="text"] {
@@ -336,6 +337,7 @@ body {
 
 .sendBtn {
   width: 10px;
+  margin-right: 10px;
 }
 
 /* TERMINAL COLOR */
@@ -345,7 +347,7 @@ body {
 /* TERMINAL COLOR */
 
 .terminal {
-  --size: 0.9;
+  --size: 1;
   overflow: hidden;
   /* word-wrap: break-word; */
   overflow-wrap: break-word;

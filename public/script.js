@@ -1,11 +1,4 @@
-// Apr30 -- Most recent version,
-
-// ---------- VARIABLES ---------- //
-// ---------- VARIABLES ---------- //
-// ---------- VARIABLES ---------- //
-// ---------- VARIABLES ---------- //
-// ---------- VARIABLES ---------- //
-
+// May2nd -- Most recent version,
 const recipes = {
   Taiwan: {
     name: "Braised Pork Belly (焢肉 Kong Rou)",
@@ -17,7 +10,7 @@ const recipes = {
       "Soy Sauce: half a bowl",
       "Water: 3 bowls",
     ],
-    stepslist: [
+    recipesteps: [
       "Medium Heat, Fry the pork belly to golden brown (skin first), set it aside",
       "Medium Heat, Fry the garlic and green onions to golden brown, set them aside",
       "Low Heat, heat sugar until it turns golden, add in the meat, soy sauce, water",
@@ -60,7 +53,7 @@ const recipes = {
       "Sugar: 2 Tsp",
       "Saffron: 6-7 strands",
     ],
-    stepslist: [
+    recipesteps: [
       "Wash and soak rice in water.",
       "Soak saffron in one Tsp milk.",
       "Put milk on to boil. Once it boils, add soaked rice",
@@ -110,7 +103,7 @@ const recipes = {
       "Frying Mix: 1 cup",
       "Water: ⅔ cup",
     ],
-    stepslist: [
+    recipesteps: [
       "Slice kimchi into small pieces and place into a bowl",
       "Add the frying mix, kimchi juice, and garlic to the bowl",
       "Pour in the water slowly and mix until the dough is fully combined",
@@ -157,7 +150,7 @@ const recipes = {
       "1 tsp salt",
       "6 butter cookies",
     ],
-    stepslist: [
+    recipesteps: [
       "Cook wide noodles as indicated on the package.",
       "Mix/beat together eggs with sugar.",
       "Mix in cottage cheese, heavy cream, melted butter, vanilla, salt and raisins.",
@@ -205,7 +198,7 @@ const granny = {
     `\nToday's special from Granny's kitchen is `,
     `\nAlright my lovely, today we're whipping up `,
     `\nWell, today Granny has `,
-    `\nGather around, children! Today we're making `,
+    `\nGather around! Today we're making `,
     `\nIt's a fine day for cooking, isn't it? Today's dish is `,
     `\nHello my darling, ready to cook? Today we're tackling `,
     `\nToday, Granny's got a special treat—`,
@@ -287,12 +280,13 @@ const granny = {
   ],
 };
 
+//Using local storage to access information about which recipe was selected by the user
 let storedRecipe = JSON.parse(localStorage.getItem("recipe"));
 let storedimgdata = localStorage.getItem("fileDatURL");
 const imageParts = [
   { inlineData: { data: storedimgdata, mimeType: "image/jpeg" } },
 ];
-// console.log(storedimgdata);
+//console.log(storedimgdata);
 
 let currentRecipe = storedRecipe;
 let userAsking = true;
@@ -370,10 +364,12 @@ function askStep(currentRecipe, terminal, stepIndex) {
     // -------------------------------------------------------------------------------------- //
     // -------------------------------------------------------------------------------------- //
 
-    terminal.echo(`\n${randomGrannyConversation(granny.Step)}${stepIndex + 1}: ${currentStep}`); //granny.Step
+    terminal.echo(
+      `\n${randomGrannyConversation(granny.Step)}${stepIndex + 1}: ${currentStep}`
+    ); //granny.Step
     terminal.push(
       async function (command) {
-      // console.log(await yesNoAnalyzer(command))
+        // console.log(await yesNoAnalyzer(command))
         if (command.match(/yes|y/i)) {
           terminal.echo(`\n${randomGrannyConversation(granny.Ques)}`); //granny.Ques
           terminal.push(
@@ -404,17 +400,20 @@ function askStep(currentRecipe, terminal, stepIndex) {
   } else {
     terminal.echo(`\n${randomGrannyConversation(granny.Complete)}`);
 
-    askImage(currentRecipe, term, "imageURL")
+    askImage(currentRecipe, term, "imageURL");
 
     terminal.pop();
   }
 }
 
 function askImage(currentRecipe, terminal, imageURL) {
-  terminal.echo("")
-  terminal.echo("This is where the image thing loop will be in! (STILL NEED TO ADD)")
+  terminal.echo("");
+  if (imgAnalysisResponse) {
+    terminal.echo(`\nGrandma:\n${imgAnalysisResponse}\n`);
+  } else {
+    terminal.echo("No image analysis response available.");
+  }
 }
-
 
 // ---------- AI ---------- //
 // ---------- AI ---------- //
@@ -442,7 +441,6 @@ async function yesNoAnalyzer(input) {
   if (response.ok) {
     const jsonData = await response.json();
     return jsonData.ai;
-    // console.log(jsonData.ai);
   } else {
     console.error("Error in submitting data.");
     return "Error in submitting data.";
@@ -482,6 +480,52 @@ function evaluationPrompt(dish, currentStep, userQues) {
   `;
 }
 
+Dropzone.options.imageUpload = {
+  paramName: "file",
+  maxFilesize: 2,
+  disablePreviews: true,
+  accept: function (file, done) {
+    document.getElementById("upload").style.backgroundImage =
+      "url(" + URL.createObjectURL(file) + ")";
+
+    // Access the file data here
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      //Separating the dataURL so that its its base64 data only
+      const data = event.target.result.split(",", 2)[1];
+      const type = file.type;
+
+      // Sending data and type of the image in post request
+      fetch("/vision", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ data, type }),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.text();
+          } else {
+            console.error("Error in sending image.");
+            return "Error in submitting data.";
+          }
+        })
+        .then((responseText) => {
+          imgAnalysisResponse = responseText;
+          console.log(imgAnalysisResponse);
+          done();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    };
+    reader.readAsDataURL(file);
+
+    done();
+  },
+};
+
 // ---------- HTML RELATED ---------- //
 // ---------- HTML RELATED ---------- //
 // ---------- HTML RELATED ---------- //
@@ -489,12 +533,12 @@ function evaluationPrompt(dish, currentStep, userQues) {
 // ---------- HTML RELATED ---------- //
 
 function sendInput() {
-  // console.log("--senInput Called");
-  var input = document.getElementById("user_input").value; // Get user input
-  // term.echo(`\nYou:`)
-  // console.log(input);
-  term.exec(input); // Execute the input as a terminal command
-  document.getElementById("user_input").value = ""; // Clear input
+  // Getting user input for grandma chat
+  var input = document.getElementById("user_input").value;
+  // Execute the input as a terminal command
+  term.exec(input);
+  // Clearing input after its sent
+  document.getElementById("user_input").value = "";
 }
 
 function checkEnterKey(event) {
@@ -504,36 +548,29 @@ function checkEnterKey(event) {
 }
 
 let ingredientsList = currentRecipe.ingredients;
-let stepsListdisplay = currentRecipe.stepslist;
+let stepsListdisplay = currentRecipe.recipesteps;
 
 let recipeText = currentRecipe.name + "<br><br>";
 
-// Adding ingredients
+// Parsing ingredients for display
 recipeText += "<b>Ingredients:</b><br>";
 ingredientsList.forEach((ingredient) => {
   recipeText += ingredient + "<br>";
 });
 
-// Adding steps
-// recipeText += "<br><b>Steps:</b><br>";
-// stepsListdisplay.forEach((stepslist, index) => {
-//   recipeText += index + 1 + ". " + stepslist + "<br>";
-// });
+// Parsing recipe steps for display
+recipeText += "<br><b>Steps:</b><br>";
+stepsListdisplay.forEach((recipesteps, index) => {
+  recipeText += index + 1 + ". " + recipesteps + "<br>";
+});
 
+//Adding the recipe information to HTML
 document.getElementById("recipe-text").innerHTML = recipeText;
 
-// document.getElementById("recipe-text").innerHTML =
-//   currentRecipe.name +
-//   "<br><br>" +
-//   currentRecipe.ingredients +
-//   "<br><br>" +
-//   currentRecipe.steps;
-
-function updateCookingDiv(stepObj) {``
+function updateCookingDiv(stepObj) {
+  ``;
   const imagePath = stepObj.imagePath;
   const imageAlt = stepObj.description;
-
-  // console.log(stepObj.imagePath);
 
   var cookingDiv = document.querySelector(".cooking");
 

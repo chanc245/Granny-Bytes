@@ -4,7 +4,7 @@
 // * AI quantum grandma v2
 // * chat bot + img analyzer + front end terminal(link to HTML)
 
-// node ai-grandma-v2.js
+// node ai-grandma-v3.js
 // npm run granny
 
 import express from "express";
@@ -17,11 +17,11 @@ import readline from "readline";
 import * as fs from "fs";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// ---------- TO FONT END ---------- //
-// ---------- TO FONT END ---------- //
-// ---------- TO FONT END ---------- //
-// ---------- TO FONT END ---------- //
-// ---------- TO FONT END ---------- //
+// ---------- TO FRONT END ---------- //
+// ---------- TO FRONT END ---------- //
+// ---------- TO FRONT END ---------- //
+// ---------- TO FRONT END ---------- //
+// ---------- TO FRONT END ---------- //
 
 dotenv.config();
 
@@ -42,7 +42,6 @@ app.get("/", (req, res) => {
 
 app.post("/submit", async (req, res) => {
   let input = req.body.input;
-
   try {
     const aiResponse = await getGenResultAsString(input);
     res.json({ ai: aiResponse });
@@ -51,6 +50,21 @@ app.post("/submit", async (req, res) => {
     res
       .status(500)
       .json({ error: "Failed to generate output. Please try again." });
+  }
+});
+
+app.post("/vision", async (req, res) => {
+  let type = req.body.type;
+  console.log(type);
+  let data = req.body.data;
+  try {
+    const imgResponse = await imgAnalyser(data, type);
+    res.json({ analyse: imgResponse });
+  } catch (error) {
+    console.error("Gemini Error:", error);
+    res
+      .status(500)
+      .json({ error: "Failed to generate image analysis. Please try again." });
   }
 });
 
@@ -94,20 +108,26 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-async function imgAnalyser(imgPath) {
+async function imgAnalyser(data, type) {
+  console.log("/vision");
+  console.log(type);
   const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
 
   const prompt =
-    "You're a grandma who is judging food. Based on the image, please judege if this dish is well cooked, give a stars rating out of 5 on how well the dish is made and what can I do to make this dish better(be as speicifc as you can be).";
+    "You're a grandma who is judging food. Based on the image, please judge if this dish is well-cooked, give a stars rating out of 5 on how well the dish is made and what can I do to make this dish better (be as specific as you can be).";
 
-  // const imageParts = [fileToGenerativePart("img/burnt-dish.jpg", "image/jpeg")];
-  const imageParts = imgPath;
-  console.log(imageParts);
-  const result = await model.generateContent([prompt, ...imageParts]);
+  const imagePart = {
+    inlineData: {
+      data: data,
+      mimeType: type,
+    },
+  };
+
+  const result = await model.generateContent([prompt, imagePart]);
   const response = await result.response;
   const text = response.text();
-
   console.log(text);
+  return text;
 }
 
 async function chat() {
@@ -140,9 +160,6 @@ async function chat() {
 
 async function ask(prompt) {
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
-  // const prompt =
-  //   "";
 
   const result = await model.generateContent(prompt);
   const response = await result.response;

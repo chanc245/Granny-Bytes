@@ -1,33 +1,37 @@
-// Imported the selectRecipe function from script.js
+// Imported the selectRecipe function from selection.js
 import { selectRecipe } from "./selection.js";
-// console.log("debug");
+
 let currentRecipe;
 let selectedRecipe;
 
 const recipeLinks = document.querySelectorAll("a[data-cuisine]");
-// Add click event listener to each <a> tag
+
 recipeLinks.forEach((link) => {
   link.addEventListener("click", function (event) {
     event.preventDefault();
-    console.log("debug in the function");
+
+    //Finding all the cuisines stored in the data-cuisine attribute
     const cuisine = this.getAttribute("data-cuisine");
     selectedRecipe = selectRecipe(cuisine);
+
+    //Storing the selectedRecipe information in currentRecipe Variable
     currentRecipe = selectedRecipe;
-    console.log("debug currentRecipe stored");
-    console.log(currentRecipe);
+
+    //Each element of the object parsed
     console.log(currentRecipe.name);
     console.log(currentRecipe.ingredients);
+    console.log(currentRecipe.recipesteps);
     console.log(currentRecipe.steps);
 
-    // Open cooking.html
+    // Opening cooking.html
     window.location.href = this.getAttribute("href");
   });
 });
 
-const selectedRecipePromise = new Promise((resolve, reject) => {
+const selectedRecipePromise = new Promise((resolve) => {
   document.addEventListener("DOMContentLoaded", () => {
     resolve(selectedRecipe);
-    // console.log("promise");
   });
 });
-export { currentRecipe, selectedRecipePromise };
+
+export { currentRecipe };

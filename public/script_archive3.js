@@ -1,4 +1,4 @@
-// Archived in May1 -- 
+// Archived in May1 --
 // In this version, The chat works perfectly with image! + also add randomized granny talk
 
 // ---------- VARIABLES ---------- //
@@ -331,10 +331,12 @@ function askStep(currentRecipe, terminal, stepIndex) {
 
     updateCookingDiv(currentRecipe.steps[stepIndex]);
 
-    terminal.echo(`\n${randomGrannyConversation(granny.Step)}${stepIndex + 1}: ${currentStep}`); //granny.Step
+    terminal.echo(
+      `\n${randomGrannyConversation(granny.Step)}${stepIndex + 1}: ${currentStep}`
+    ); //granny.Step
     terminal.push(
       async function (command) {
-      // console.log(await yesNoAnalyzer(command))
+        // console.log(await yesNoAnalyzer(command))
         if (command.match(/yes|y/i)) {
           terminal.echo(`\n${randomGrannyConversation(granny.Ques)}`); //granny.Ques
           terminal.push(
@@ -481,7 +483,8 @@ document.getElementById("recipe-text").innerHTML = recipeText;
 //   "<br><br>" +
 //   currentRecipe.steps;
 
-function updateCookingDiv(stepObj) {``
+function updateCookingDiv(stepObj) {
+  ``;
   const imagePath = stepObj.imagePath;
   const imageAlt = stepObj.description;
 

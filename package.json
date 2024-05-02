@@ -4,12 +4,13 @@
   "type": "module",
   "main": "ai-grandma-v2.js",
   "scripts": {
-    "start": "node ai-grandma-v1.js",
-    "granny": "nodemon ai-grandma-v2.js"
+    "start": "node ai-grandma-v3.js",
+    "granny": "nodemon ai-grandma-v3.js"
   },
   "author": "chrissy",
   "dependencies": {
     "@google/generative-ai": "^0.5.0",
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "dropzone": "^6.0.0-beta.2",

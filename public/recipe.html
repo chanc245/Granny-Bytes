@@ -1,64 +1,66 @@
-<!doctype html>
 <html>
-<body onload="formatAMPM()">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Choose Your Recipe!</title>
-    <link rel="stylesheet" href="./style.css">
   </head>
-  <body>
-    <img class="overlay" src="assets/img/noiseoverlay.png"/>
+  <body onload="formatAMPM()">
+    <img class="overlay" src="assets/img/noiseoverlay.png" />
 
     <div class="main-container">
       <div class="recipebox">
-        <div class="topbar"><img src="assets/img/UI/topbar/recipe_topbar.png" /></div>
+        <div class="topbar">
+          <img src="assets/img/UI/topbar/recipe_topbar.png" />
+        </div>
         <div class="recipeholder">
           <div>
-          <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_Taiwan.png" />
-          <a href="./cooking.html" data-cuisine="Taiwanese"><p>Taiwan </p></a>
-        </div>
-        <div>
-          <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_SouthKorea.png" />
-          <a href="./cooking.html" data-cuisine="SouthKorean"><p>South<br />Korea</p></a>
-        </div>
-        <div>
-          <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_CentralEurope.png" />
-          <a href="./cooking.html" data-cuisine="CentralEuropean"><p>Central<br />Europe</p></a>
-        </div>
-        <div>
-          <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_India.png" />
-          <a href="./cooking.html" data-cuisine="Indian"><p>India</p></a>
-        </div>
+            <img
+              class="foodicon"
+              src="assets/img/Food/Recipe_icons/recipe_icon_Taiwan.png"
+            />
+            <a href="./cooking.html" data-cuisine="Taiwanese"><p>Taiwan</p></a>
+          </div>
 
-          <!-- <div>
-            <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_Taiwan.png" />
-            <a href="./cooking.html" onclick="selectRecipe('Taiwanese')"><P>Taiwan </P></a>
+          <div>
+            <img
+              class="foodicon"
+              src="assets/img/Food/Recipe_icons/recipe_icon_SouthKorea.png"
+            />
+            <a href="./cooking.html" data-cuisine="SouthKorean"
+              ><p>South<br />Korea</p></a
+            >
+          </div>
+
+          <div>
+            <img
+              class="foodicon"
+              src="assets/img/Food/Recipe_icons/recipe_icon_CentralEurope.png"
+            />
+            <a href="./cooking.html" data-cuisine="CentralEuropean"
+              ><p>Central<br />Europe</p></a
+            >
           </div>
           <div>
-            <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_SouthKorea.png" />
-            <a href="./cooking.html" onclick="selectRecipe('SouthKorean')"><p>South<br />Korea</p></a>
+            <img
+              class="foodicon"
+              src="assets/img/Food/Recipe_icons/recipe_icon_India.png"
+            />
+            <a href="./cooking.html" data-cuisine="Indian"><p>India</p></a>
           </div>
-          <div>
-            <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_CentralEurope.png" />
-            <a href="./cooking.html" onclick="selectRecipe('CentralEuropean')"><p>Central<br />Europe</p></a>
-          </div>
-          <div>
-            <img class="foodicon" src="assets/img/Food/Recipe_icons/recipe_icon_India.png" />
-            <a href="./cooking.html" onclick="selectRecipe('Indian')"><p>India</p></a>
-          </div> -->
         </div>
         <div class="bottombar">
           <p>&nbsp;4 OBJECT(S)</p>
         </div>
 
-      <div class="footer">
-        <p class="scene-info">■RECIPE SELECTION</p>
-        <p class="scene-info" id="time">12:00PM</p>
+        <div class="footer">
+          <p class="scene-info">■RECIPE SELECTION</p>
+          <p class="scene-info" id="time">12:00PM</p>
+        </div>
       </div>
     </div>
-    
-  </div>
-  <script type="module" src="selection.js"></script>
-  <script type="module" src="dish.js"></script>
-  <script src="time.js"></script>
+    <script type="module" src="selection.js"></script>
+    <script type="module" src="dish.js"></script>
+    <script src="time.js"></script>
   </body>
 </html>
