@@ -288,12 +288,13 @@ const granny = {
   ],
 };
 
-//Using local storage to access information about which recipe was selected by the user
+// //Using local storage to access information about which recipe was selected by the user
 let storedRecipe = JSON.parse(localStorage.getItem("recipe"));
-let storedimgdata = localStorage.getItem("fileDatURL");
-const imageParts = [
-  { inlineData: { data: storedimgdata, mimeType: "image/jpeg" } },
-];
+let imgAnalysisResponse;
+// let storedimgdata = localStorage.getItem("fileDatURL");
+// const imageParts = [
+//   { inlineData: { data: storedimgdata, mimeType: "image/jpeg" } },
+// ];
 //console.log(storedimgdata);
 
 let currentRecipe = storedRecipe;
@@ -403,20 +404,9 @@ function askStep(currentRecipe, terminal, stepIndex) {
   } else {
     terminal.echo(`\n${randomGrannyConversation(granny.Complete)}`);
 
-    askImage(currentRecipe, term, "imageURL");
+    askImage(imgAnalysisResponse, term);
 
     terminal.pop();
-  }
-}
-
-function askImage(currentRecipe, terminal, imageURL) {
-  terminal.echo("");
-  if (imgAnalysisResponse) {
-    terminal.echo(`\nGrandma:\n${imgAnalysisResponse}\n`);
-  } else {
-    terminal.echo(
-      "No image analysis response available. Please check that the image size is less than 10MB"
-    );
   }
 }
 
@@ -487,7 +477,7 @@ function evaluationPrompt(dish, currentStep, userQues) {
 
 Dropzone.options.imageUpload = {
   paramName: "file",
-  maxFilesize: 10,
+  maxFilesize: 20,
   disablePreviews: true,
   accept: function (file, done) {
     document.getElementById("upload").style.backgroundImage =
@@ -513,11 +503,12 @@ Dropzone.options.imageUpload = {
             return response.text();
           } else {
             console.error("Error in sending image.");
-            return "Error in submitting data.";
+            return "Error in sending image.";
           }
         })
         .then((responseText) => {
           imgAnalysisResponse = responseText;
+          askImage(imgAnalysisResponse, term);
           console.log(imgAnalysisResponse);
           done();
         })
@@ -529,6 +520,17 @@ Dropzone.options.imageUpload = {
     reader.readAsDataURL(file);
   },
 };
+
+function askImage(imgAnalysisResponse, terminal) {
+  terminal.echo("");
+  if (imgAnalysisResponse) {
+    terminal.echo(`\nGrandma:\n${imgAnalysisResponse}\n`);
+  } else {
+    terminal.echo(
+      "No image analysis response available. Please check that the image size is less than 10MB"
+    );
+  }
+}
 
 // ---------- HTML RELATED ---------- //
 // ---------- HTML RELATED ---------- //
