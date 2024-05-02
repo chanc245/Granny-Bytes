@@ -1,8 +1,16 @@
 # Granny Bytes
 
+![Granny Bytes banner](public/assets/img/granny_bytes_banner.jpg)
+
 [**Try Granny Bytes!**](https://granny-bytes.onrender.com/)
 
+**Participated in 2024 [Google AI Hackathon!](https://googleai.devpost.com/)**
+
+[Check out this project on Devpost!](link to be added!)
+
 Granny Bytes is a web-based AI application that uses Google’s Gemini API to create a helpful and constructive Grandmother-inspired kitchen chatbot, engaging new technologies with traditional cooking.
+
+![Granny Bytes welcome page gif](public/assets/img/wecome.gif)
 
 ## Inspiration
 Our inspiration stems from the personal relationships we all have with our grandmothers, and about the ways we can harness AI to emulate this inter-generational connection. 
@@ -13,6 +21,8 @@ As for the user experience, we were inspired by cozy 8-bit style games and retro
 
 ## What it does
 Our app simulates the experience of cooking with grandmothers, utilizing the AI capabilities of Gemini to imitate the grandmother's presence. 
+
+![Granny Bytes recipes folder](public/assets/img/recipe.gif)
 
 As of now, users are presented with 4 pre-written cultural recipes that have been passed down by each team members’ grandmothers. 
 
@@ -27,7 +37,6 @@ We then used HTML and CSS to translate the visuals to the front end. JavaScript,
 
 Further all the team members were able to collaborate on the code via Github functionalities. 
 Lastly, we used Render to deploy our app. 
-
 
 ## Meet The Team
 * Robin Altman: [Github](https://github.com/altrs), [Portfolio](https://www.altrs.wiki/)
