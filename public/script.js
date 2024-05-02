@@ -411,7 +411,9 @@ function askImage(currentRecipe, terminal, imageURL) {
   if (imgAnalysisResponse) {
     terminal.echo(`\nGrandma:\n${imgAnalysisResponse}\n`);
   } else {
-    terminal.echo("No image analysis response available.");
+    terminal.echo(
+      "No image analysis response available. Please check that the image size is less than 10MB"
+    );
   }
 }
 
@@ -482,7 +484,7 @@ function evaluationPrompt(dish, currentStep, userQues) {
 
 Dropzone.options.imageUpload = {
   paramName: "file",
-  maxFilesize: 2,
+  maxFilesize: 10,
   disablePreviews: true,
   accept: function (file, done) {
     document.getElementById("upload").style.backgroundImage =

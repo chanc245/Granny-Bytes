@@ -33,8 +33,8 @@ body {
 }
 
 .btn img {
-  width: 10px; /* Set the desired width */
-  height: auto; /* Maintain aspect ratio */
+  width: 10px;
+  height: auto;
 }
 
 .mitty-container {
@@ -73,13 +73,13 @@ body {
 }
 
 .footer {
-  position: absolute; /* Set position to absolute */
-  bottom: 0; /* Position at the bottom of the .main-container */
-  left: 0; /* Align to the left */
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 56px;
   background-color: #ebdfd9;
-  color: #ebdfd9; /* Change text color */
+  color: #ebdfd9;
   display: flex;
   justify-content: space-between;
 }
@@ -319,6 +319,11 @@ body {
 }
 
 #commandDiv {
+  background-color: #fcf5f1;
+  padding-left: 5%;
+  padding-right: 0%;
+  word-wrap: normal;
+  word-break: keep-all;
   /* white-space: nowrap;
   height: 100%;
   width: 95%;
@@ -326,9 +331,6 @@ body {
   overflow-y: auto;
   /* word-wrap: break-word;
   overflow-wrap: break-word; */
-  background-color: #fcf5f1;
-  padding-left: 5%;
-  padding-right: 0%;
   /* border: 0.1rem solid; */
   /* padding: -15px; */
   /*padding: 0px;
