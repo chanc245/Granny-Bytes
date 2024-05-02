@@ -520,11 +520,10 @@ Dropzone.options.imageUpload = {
         })
         .catch((error) => {
           console.error("Error:", error);
+          done(error);
         });
     };
     reader.readAsDataURL(file);
-
-    done();
   },
 };
 

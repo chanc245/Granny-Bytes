@@ -7,12 +7,12 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
       <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
-      <link rel="icon" href="assets/img/grannybytes_favicon.png" type="image/x-icon">
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"/>
         <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-      <link rel="stylesheet" href="./StyeCooking.css" />
+        <link rel="icon" href="assets/img/grannybytes_favicon.png" type="image/x-icon">
+      <link rel="stylesheet" href="./StyleCooking.css" />
       <title>Grandma.AI</title>
     </head>
     <title>Cook with Grandma!</title>
@@ -79,7 +79,8 @@
             </div>
 
             <div class="text-input inner-box">
-              <img src="assets/img/UI/topbar/input_topbar.png" />
+              <!-- <img src="assets/img/UI/topbar/input_topbar.png" /> -->
+              <img id="emoticonGif" src="assets/img/UI/topbar/emoticon/emoticon1.png"/>
               <div class="user-chat-container">
                 <input type="text" id="user_input" onkeypress="checkEnterKey(event)" placeholder="Chat with Grandma..."/>
                 <button onclick="sendInput()" id="user_input" class="sendBtn">Send</button>
@@ -114,7 +115,6 @@
 
     </div>
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script> 
-    <!-- <script src="imgUpload.js"></script> -->
     <script type="module" src="dish.js"></script>
     <script src="script.js"></script>
     <script src="time.js"></script>
@@ -137,6 +137,23 @@
       setInterval(function() {
           currentIndex = (currentIndex + 1) % imageUrls.length;
           rotatingImage.src = imageUrls[currentIndex];
+      }, 1000);
+
+      var emoticonUrls = [
+          "assets/img/UI/topbar/emoticon/emoticon1.png",
+          "assets/img/UI/topbar/emoticon/emoticon2.png",
+          "assets/img/UI/topbar/emoticon/emoticon3.png",
+          "assets/img/UI/topbar/emoticon/emoticon4.png",
+          "assets/img/UI/topbar/emoticon/emoticon5.png",
+          "assets/img/UI/topbar/emoticon/emoticon6.png",
+      ];
+
+      var currentEmoticon = 0;
+      var emoticonGif = document.getElementById("emoticonGif");
+
+      setInterval(function() {
+        currentEmoticon = (currentEmoticon + 1) % emoticonUrls.length;
+        emoticonGif.src = emoticonUrls[currentEmoticon];
       }, 1000);
       </script>
     </body>

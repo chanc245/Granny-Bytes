@@ -101,13 +101,13 @@ a {
 }
 
 .footer {
-  position: absolute; /* Set position to absolute */
-  bottom: 0; /* Position at the bottom of the .main-container */
-  left: 0; /* Align to the left */
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 56px;
   background-color: #ebdfd9;
-  color: #ebdfd9; /* Change text color */
+  color: #ebdfd9;
   display: flex;
   justify-content: space-between;
 }
@@ -267,7 +267,7 @@ a {
 
 label {
   display: block;
-  margin-bottom: 5px; /* Adjust as needed to add space between labels */
+  margin-bottom: 5px;
 }
 
 #main {

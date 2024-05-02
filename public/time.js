@@ -1,3 +1,4 @@
+//For Updating time within the interface
 function formatAMPM(date) {
   var hours = date.getHours();
   var minutes = date.getMinutes();

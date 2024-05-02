@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background-color: #fef2eb;
@@ -351,6 +354,7 @@ body {
 .terminal {
   --size: 1;
   overflow: hidden;
+  scroll-behavior: smooth;
   /* word-wrap: break-word; */
   overflow-wrap: break-word;
   white-space: nowrap;
