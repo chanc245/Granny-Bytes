@@ -1,4 +1,12 @@
 // May2nd -- Most recent version,
+// In this version, script_archive3.js + image upload result
+
+// ---------- VARIABLES ---------- //
+// ---------- VARIABLES ---------- //
+// ---------- VARIABLES ---------- //
+// ---------- VARIABLES ---------- //
+// ---------- VARIABLES ---------- //
+
 const recipes = {
   Taiwan: {
     name: "Braised Pork Belly (焢肉 Kong Rou)",
@@ -297,6 +305,7 @@ let term;
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
 // ---------- TERMINAL ---------- //
+
 $(document).ready(function () {
   term = $("#commandDiv").terminal(
     function (command) {
@@ -314,8 +323,8 @@ $(document).ready(function () {
     {
       greetings: `*Never give out your password or credit card number in an instant message conversation!
 ______  
-${grannyStartDishLoop(currentRecipe.name)}\n`, //grannyStart.Dish
-      prompt: "  \n",
+Granny:${grannyStartDishLoop(currentRecipe.name)}`, //grannyStart.Dish
+      prompt: " ",
     }
   );
 
@@ -355,19 +364,12 @@ function askStep(currentRecipe, terminal, stepIndex) {
     const currentStep = currentRecipe.steps[stepIndex].description;
     const currentImg = `"${currentRecipe.steps[stepIndex].imagePath}"`;
 
-    updateCookingDiv(currentRecipe.steps[stepIndex]);
-
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
-    // -------------------------------------------------------------------------------------- //
+    updateCookingDiv(currentRecipe.steps[stepIndex]); //update the image with the steps
 
     terminal.echo(
-      `\n${randomGrannyConversation(granny.Step)}${stepIndex + 1}: ${currentStep}`
-    ); //granny.Step
-    terminal.push(
+      `\nGranny:\n${randomGrannyConversation(granny.Step)}${stepIndex + 1}: ${currentStep}`); //granny.Step
+    
+      terminal.push(
       async function (command) {
         // console.log(await yesNoAnalyzer(command))
         if (command.match(/yes|y/i)) {
@@ -382,19 +384,19 @@ function askStep(currentRecipe, terminal, stepIndex) {
               );
             },
             {
-              prompt: "\n ",
+              prompt: '\nYou: \n',
             }
           );
         } else if (command.match(/no|n/i)) {
           terminal.pop();
           askStep(currentRecipe, terminal, stepIndex + 1); // Move to the next step
         } else {
-          terminal.echo(`\n${randomGrannyConversation(granny.YesNo)}`); //granny.YesNoLoop
+          terminal.echo(`\n${randomGrannyConversation(granny.YesNo)}
+          `); //granny.YesNoLoop
         }
       },
       {
         prompt: `\n${randomGrannyConversation(granny.Ask)}`, //granny.Ask
-        greetings: "",
       }
     );
   } else {
@@ -505,22 +507,22 @@ Dropzone.options.imageUpload = {
         },
         body: JSON.stringify({ data, type }),
       })
-        .then((response) => {
-          if (response.ok) {
-            return response.text();
-          } else {
-            console.error("Error in sending image.");
-            return "Error in submitting data.";
-          }
-        })
-        .then((responseText) => {
-          imgAnalysisResponse = responseText;
-          console.log(imgAnalysisResponse);
-          done();
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+      .then((response) => {
+        if (response.ok) {
+          return response.text();
+        } else {
+          console.error("Error in sending image.");
+          return "Error in submitting data.";
+        }
+      })
+      .then((responseText) => {
+        imgAnalysisResponse = responseText;
+        console.log(imgAnalysisResponse);
+        done();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
     };
     reader.readAsDataURL(file);
 
