@@ -382,7 +382,7 @@ function askStep(currentRecipe, terminal, stepIndex) {
               );
             },
             {
-              prompt: " ",
+              prompt: "\n ",
             }
           );
         } else if (command.match(/no|n/i)) {
