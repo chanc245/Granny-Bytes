@@ -66,7 +66,7 @@ When clicking on a recipe, users will be greeted with an interactive recipe guid
 
 ## Meet The Team
 * Robin Altman: [Github](https://github.com/altrs), [Portfolio](https://www.altrs.wiki/)
-* Chris Chang: [Github](), [Portfolio](https://chrisc.bio/)
+* Chris Chang: [Github](https://github.com/chanc245), [Portfolio](https://chrisc.bio/)
 * Paridhi Garg: [Github](https://github.com/Paridhii27), [Portfolio](https://www.paridhiworks.com/)
 * Hannah Lee: [Github](https://github.com/hannahlee2021), [Portfolio](https://hl3e213works.cargo.site/)
 
@@ -83,3 +83,4 @@ When clicking on a recipe, users will be greeted with an interactive recipe guid
 * Tassneen Bashir
 * Fei Liu
 * Samuel Thurman
+* Justin Bakse
