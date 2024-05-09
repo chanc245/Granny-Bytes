@@ -162,7 +162,7 @@ a {
 
 .welcomebox {
   position: absolute;
-  background-color: #ebdfd9;
+  background-color: #EFD3CF;
   width: 250px;
   height: 250px;
   top: 70;
@@ -183,7 +183,9 @@ a {
   height: 200px;
   top: 180;
   margin: 2em auto;
-  background-color: #ebdfd9;
+  padding: 10;
+  padding-bottom: 0;
+  background-color: #F7E3D5;
   box-shadow:
     -10px 0 0 0 #946e5a,
     10px 0 0 0 #946e5a,
