@@ -1,10 +1,38 @@
+/* DEFINE COLOR PALLETS */
+:root {
+  --bgLight: #FEF2EB;
+  --bgDark: #EADED8;
+
+  --brownLight1: #F7E3D4;
+  --brownLight2: #D0B49F;
+  --brownDark1: #946E5A;
+  --brownDark2: #674E41;
+
+  --blueLight1: #DEE7EF;
+  --blueLight2: #C0CEDA;
+  --blueDark1: #9BA8B2;
+  --blueDark2: #4F606D;
+
+  --greenLight1: #EAF4E6;
+  --greenLight2: #D7E3D3;
+  --greenDark1: #9AB190;
+  --greenDark2: #5A7152;
+
+  --redLight1: #FCE8E5;
+  --redLight2: #EFD4D0;
+  --redDark1: #C0857D;
+  --redDark2: #8E554C;
+}
+/* to use it--> var(--redDark2) */
+
 @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #fef2eb;
+  background-color: var(--bgLight);
   font-family: "Silkscreen", sans-serif;
   display: flex;
 }
@@ -32,7 +60,7 @@ body {
   background-image: url("assets/img/Environment/kitchen.png");
   background-size: cover;
   background-position: 50% 50%;
-  border: 1px solid #ebdfd9;
+  border: 1px solid var(--bgDark);
 }
 
 .btn img {
@@ -72,7 +100,7 @@ body {
   top: 35px;
   font-size: 10px;
   width: 55%;
-  color: #868e94;
+  color: var(--blueDark2);
 }
 
 .footer {
@@ -81,8 +109,8 @@ body {
   left: 0;
   width: 100%;
   height: 56px;
-  background-color: #ebdfd9;
-  color: #ebdfd9;
+  background-color: var(--bgDark);
+  color: var(--bgDark);
   display: flex;
   justify-content: space-between;
 }
@@ -91,42 +119,42 @@ body {
   font-size: 30px;
   margin: 5px;
   padding: 0 5px;
-  background-color: #99745F;
+  background-color: var(--brownDark1);
 }
 
 .box {
-  background-color: #F7E3D5;
+  background-color: var(--brownLight1);
   width: 500px;
   height: 300px;
   margin: 2em auto;
   margin-top: 100px;
   box-shadow:
-    -10px 0 0 0 #99745F,
-    10px 0 0 0 #99745F,
-    0 -10px 0 0 #99745F,
-    0 10px 0 0 #99745F;
+    -10px 0 0 0 var(--brownDark1),
+    10px 0 0 0 var(--brownDark1),
+    0 -10px 0 0 var(--brownDark1),
+    0 10px 0 0 var(--brownDark1);
 }
 
 .app {
-  background-color: #D9E4D5;
+  background-color: var(--greenLight2);
   width: 500px;
   height: 300px;
   box-shadow:
-    -10px 0 0 0 #9ab190,
-    10px 0 0 0 #9ab190,
-    0 -10px 0 0 #9ab190,
-    0 10px 0 0 #9ab190;
+    -10px 0 0 0 var(--greenDark1),
+    10px 0 0 0 var(--greenDark1),
+    0 -10px 0 0 var(--greenDark1),
+    0 10px 0 0 var(--greenDark1);
 }
 
 .inner-box {
-  background-color: #F7E3D5;
+  background-color: var(--brownLight1);
   margin: 2em auto;
   height: 100px;
   box-shadow:
-    -4px 0 0 0 #99745F,
-    4px 0 0 0 #99745F,
-    0 -3px 0 0 #99745F,
-    0 3px 0 0 #99745F;
+    -4px 0 0 0 var(--brownDark1),
+    4px 0 0 0 var(--brownDark1),
+    0 -3px 0 0 var(--brownDark1),
+    0 3px 0 0 var(--brownDark1);
 }
 
 .container {
@@ -147,17 +175,17 @@ body {
 .empty {
   width: 90%;
   height: 190px;
-  color: #99745F;
+  color: var(--brownDark1);
   font-size: 2vh;
   margin: 0px;
   margin-bottom: 30px;
 }
 
 .ingredients {
-  background-color: #D9E4D5;
+  background-color: var(--greenLight2);
   width: 90%;
   height: 260px;
-  color: #EAF4E6;
+  color: var(--greenLight1);
   font-size: 11px;
   margin: 0px;
   overflow: scroll;
@@ -169,11 +197,11 @@ body {
 
 .ingredients p {
   margin: 10px;
-  color: #5a7152;
+  color: var(--greenDark2);
 }
 
 .ingredients-container {
-  background-color: #EAF4E6;
+  background-color: var(--greenLight1);
   margin: 2%;
   padding: 1%;
 }
@@ -238,8 +266,8 @@ body {
 
 .user-chat-container input[type="text"] {
   font-family: "Half Bold Pixel-7", sans-serif;
-  background-color: #FEF2EA;
-  color: #644C3F;
+  background-color: var(--bgLight);
+  color: var(--brownDark2);
 
   height: 10vh;
   width: auto;
@@ -260,28 +288,28 @@ body {
 
 .user-chat-container button {
   font-family: "Half Bold Pixel-7", sans-serif;
-  background-color: #99745F;
-  color: #ebdfd9;
+  background-color: var(--brownDark1);
+  color: var(--bgDark);
   border: none;
   width: 25%;
   margin-left: 10px;
   height: 70px;
   cursor: pointer;
   box-shadow:
-    -3px 0 0 0 #644C3F,
-    3px 0 0 0 #644C3F,
-    0 -3px 0 0 #644C3F,
-    0 3px 0 0 #644C3F;
+    -3px 0 0 0 var(--brownDark2),
+    3px 0 0 0 var(--brownDark2),
+    0 -3px 0 0 var(--brownDark2),
+    0 3px 0 0 var(--brownDark2);
 }
 
 .user-chat-container button:hover {
-  background-color: #674e41;
-  color: #ebdfd9;
+  background-color: var(--brownDark2);
+  color: var(--bgDark);
   box-shadow:
-    -3px 0 0 0 #99745F,
-    3px 0 0 0 #99745F,
-    0 -3px 0 0 #99745F,
-    0 3px 0 0 #99745F;
+    -3px 0 0 0 var(--brownDark1),
+    3px 0 0 0 var(--brownDark1),
+    0 -3px 0 0 var(--brownDark1),
+    0 3px 0 0 var(--brownDark1);
   width: 25%;
   cursor: pointer;
 }
@@ -328,7 +356,7 @@ body {
 }
 
 #commandDiv {
-  background-color: #FEF2EA;
+  background-color: var(--bgLight);
   padding-left: 10px;
   padding-right: 0%;
   word-wrap: normal;
@@ -364,17 +392,17 @@ body {
   /* word-wrap: break-word; */
   overflow-wrap: break-word;
   white-space: nowrap;
-  --color: #674e41;
+  --color: var(--brownDark2);
 }
 
 .cmd {
   /* user input color */
-  --color: #fcf5f1;
+  --color: var(--bgLight);
 }
 
 .cmd-prompt {
   /* blinking input color */
-  --color: #674e41;
+  --color: var(--brownDark2);
 }
 
 /* TERMAL FONT */
@@ -421,32 +449,32 @@ main {
 }
 
 .upload {
-  background-color: #dee7db;
+  background-color: var(--greenLight1);
   background-image: url("assets/img/UI/buttons/upload_all.png");
   background-size: 140px 111px;
   box-shadow:
-    -4px 0 0 0 #9ab190,
-    4px 0 0 0 #9ab190,
-    0 -3px 0 0 #9ab190,
-    0 3px 0 0 #9ab190;
+    -4px 0 0 0 var(--greenDark1),
+    4px 0 0 0 var(--greenDark1),
+    0 -3px 0 0 var(--greenDark1),
+    0 3px 0 0 var(--greenDark1);
   overflow: hidden;
 }
 
 .upload:hover {
-  background-color: #dee7db;
+  background-color: var(--greenLight1);
   background-image: url("assets/img/UI/buttons/upload_all_hover.png");
   background-size: 140px 111px;
   box-shadow:
-    -4px 0 0 0 #9ab190,
-    4px 0 0 0 #9ab190,
-    0 -3px 0 0 #9ab190,
-    0 3px 0 0 #9ab190;
+    -4px 0 0 0 var(--greenDark1),
+    4px 0 0 0 var(--greenDark1),
+    0 -3px 0 0 var(--greenDark1),
+    0 3px 0 0 var(--greenDark1);
   overflow: hidden;
 }
 
 .dropzone {
   background-color: transparent;
-  color: #9ab190;
+  color: var(--greenDark1);
   height: 10px;
   padding: 0px;
   margin: 0px;

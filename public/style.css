@@ -1,3 +1,30 @@
+/* DEFINE COLOR PALLETS */
+:root {
+  --bgLight: #FEF2EB;
+  --bgDark: #EADED8;
+
+  --brownLight1: #F7E3D4;
+  --brownLight2: #D0B49F;
+  --brownDark1: #946E5A;
+  --brownDark2: #674E41;
+
+  --blueLight1: #DEE7EF;
+  --blueLight2: #C0CEDA;
+  --blueDark1: #9BA8B2;
+  --blueDark2: #4F606D;
+
+  --greenLight1: #EAF4E6;
+  --greenLight2: #D7E3D3;
+  --greenDark1: #9AB190;
+  --greenDark2: #5A7152;
+
+  --redLight1: #FCE8E5;
+  --redLight2: #EFD4D0;
+  --redDark1: #C0857D;
+  --redDark2: #8E554C;
+}
+/* to use it--> var(--redDark2) */
+
 @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
 
 @font-face {
@@ -29,7 +56,7 @@
 
 body {
   display: flex;
-  background-color: #fef2eb;
+  background-color: var(--bgLight);
   font-family: "Silkscreen", sans-serif;
   margin: 0px;
 }
@@ -46,7 +73,7 @@ body {
 }
 
 a {
-  color: #946e5a;
+  color: var(--brownDark1);
 }
 
 .main-container {
@@ -61,7 +88,7 @@ a {
   background-image: url("assets/img/Environment/kitchen.png");
   background-size: cover;
   background-position: 50% 50%;
-  border: 1px solid #ebdfd9;
+  border: 1px solid var(--bgDark);
 }
 
 .mitty-container {
@@ -97,7 +124,7 @@ a {
   top: 35px;
   font-size: 10px;
   width: 55%;
-  color: #868e94;
+  color: var(--blueDark2);
 }
 
 .footer {
@@ -106,8 +133,8 @@ a {
   left: 0;
   width: 100%;
   height: 56px;
-  background-color: #ebdfd9;
-  color: #ebdfd9;
+  background-color: var(--bgDark);
+  color: var(--bgDark);
   display: flex;
   justify-content: space-between;
 }
@@ -116,7 +143,7 @@ a {
   font-size: 30px;
   margin: 5px;
   padding: 0 5px;
-  background-color: #936b57;
+  background-color: var(--brownDark1);
 }
 
 .grandma-app img {
@@ -130,7 +157,7 @@ a {
   position: relative;
   top: 20vw;
   left: 40vw;
-  color: #946e5a;
+  color: var(--brownDark1);
 }
 
 .open-app {
@@ -154,25 +181,25 @@ a {
   height: 50vh;
   margin: 2em auto;
   box-shadow:
-    -10px 0 0 0 #946e5a,
-    10px 0 0 0 #946e5a,
-    0 -10px 0 0 #946e5a,
-    0 10px 0 0 #946e5a;
+    -10px 0 0 0 var(--brownDark1),
+    10px 0 0 0 var(--brownDark1),
+    0 -10px 0 0 var(--brownDark1),
+    0 10px 0 0 var(--brownDark1);
 }
 
 .welcomebox {
   position: absolute;
-  background-color: #EFD3CF;
+  background-color: var(--redLight2);
   width: 250px;
   height: 250px;
   top: 70;
   left: 450px;
   margin: 1em auto;
   box-shadow:
-    -10px 0 0 0 #ba7a70,
-    10px 0 0 0 #ba7a70,
-    0 -10px 0 0 #ba7a70,
-    0 10px 0 0 #ba7a70;
+    -10px 0 0 0 var(--redDark1),
+    10px 0 0 0 var(--redDark1),
+    0 -10px 0 0 var(--redDark1),
+    0 10px 0 0 var(--redDark1);
   /* z-index: -1; */
 }
 
@@ -185,12 +212,12 @@ a {
   margin: 2em auto;
   padding: 10;
   padding-bottom: 0;
-  background-color: #F7E3D5;
+  background-color: var(--brownLight1);
   box-shadow:
-    -10px 0 0 0 #946e5a,
-    10px 0 0 0 #946e5a,
-    0 -10px 0 0 #946e5a,
-    0 10px 0 0 #946e5a;
+    -10px 0 0 0 var(--brownDark1),
+    10px 0 0 0 var(--brownDark1),
+    0 -10px 0 0 var(--brownDark1),
+    0 10px 0 0 var(--brownDark1);
 }
 
 ::placeholder {
@@ -198,11 +225,11 @@ a {
 }
 
 #password::placeholder {
-  color: #946e5a;
+  color: var(--brownDark1);
 }
 
 #user {
-  color: #946e5a;
+  color: var(--brownDark1);
   font-family: "Silkscreen", sans-serif;
   width: 147px;
 }
@@ -230,7 +257,7 @@ a {
   z-index: 1;
   font-family: "Silkscreen", sans-serif;
   font-size: 15px;
-  color: #946e5a;
+  color: var(--brownDark1);
   letter-spacing: 0.1cap;
 }
 
@@ -243,13 +270,13 @@ a {
   margin-top: 5px;
   font-family: "Bulkypix";
   font-size: 20;
-  background-color: #936b57;
-  color: #eaded8;
+  background-color: var(--brownDark1);
+  color: var(--bgDark);
   box-shadow:
-    -5px 0 0 0 #674e41,
-    5px 0 0 0 #674e41,
-    0 -5px 0 0 #674e41,
-    0 5px 0 0 #674e41;
+    -5px 0 0 0 var(--brownDark2),
+    5px 0 0 0 var(--brownDark2),
+    0 -5px 0 0 var(--brownDark2),
+    0 5px 0 0 var(--brownDark2);
 }
 
 .loginBtn:hover {
@@ -258,13 +285,13 @@ a {
   padding: 5%;
   font-family: "Bulkypix";
   font-size: 20;
-  background-color: #674e41;
-  color: #eaded8;
+  background-color: var(--brownDark2);
+  color: var(--bgDark);
   box-shadow:
-    -5px 0 0 0 #936b57,
-    5px 0 0 0 #936b57,
-    0 -5px 0 0 #936b57,
-    0 5px 0 0 #936b57;
+    -5px 0 0 0 var(--brownDark1),
+    5px 0 0 0 var(--brownDark1),
+    0 -5px 0 0 var(--brownDark1),
+    0 5px 0 0 var(--brownDark1);
 }
 
 label {
@@ -283,15 +310,15 @@ label {
 }
 
 .recipebox {
-  background-color: #D8E4D4;
+  background-color: var(--greenLight2);
   width: 500px;
   height: 300px;
   margin-top: 100px;
   box-shadow:
-    -10px 0 0 0 #9ab190,
-    10px 0 0 0 #9ab190,
-    0 -10px 0 0 #9ab190,
-    0 10px 0 0 #9ab190;
+    -10px 0 0 0 var(--greenDark1),
+    10px 0 0 0 var(--greenDark1),
+    0 -10px 0 0 var(--greenDark1),
+    0 10px 0 0 var(--greenDark1);
   padding: 10px;
 }
 
@@ -300,7 +327,7 @@ label {
 }
 
 .recipeholder {
-  background-color: #EAF4E6;
+  background-color: var(--greenLight1);
   
   display: flex;
   flex-direction: row;
@@ -310,7 +337,7 @@ label {
 
   text-align: center;
   font-size: 2vh;
-  color: #674e41;
+  color: var(--brownDark2);
 }
 
 .recipeholder div {
@@ -326,11 +353,11 @@ label {
 }
 
 .bottombar {
-  background-color: #9EB494;
+  background-color: var(--greenDark1);
   width: auto;
   height: 35;
   margin: 10 0;
-  color: #D8E4D4;
+  color: var(--greenLight2);
   display: flex;
 
   font-size: 25; 
