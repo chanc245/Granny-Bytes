@@ -386,7 +386,7 @@ function askStep(currentRecipe, terminal, stepIndex) {
               );
             },
             {
-              prompt: "\nYou: \n",
+              prompt: " ",
             }
           );
         } else if (command.match(/no|n/i)) {
@@ -542,6 +542,7 @@ function sendInput() {
   // Getting user input for grandma chat
   var input = document.getElementById("user_input").value;
   // Execute the input as a terminal command
+  // term.echo(`\nYou:`)
   term.exec(input);
   // Clearing input after its sent
   document.getElementById("user_input").value = "";
