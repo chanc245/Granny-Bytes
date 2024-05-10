@@ -28,7 +28,7 @@
         <img class="mitty" src="assets/img/UI/icons/icon_Mitty.png"/>
         <img class="speechbubble" src="assets/img/UI/icons/speech-bubble.png"/>
         <img class="mitty-bar" src="assets/img/UI/topbar/mitty_hints_topbar.png"/>
-        <p class="mitty-text">
+        <p class="mitty-text" style="font-family:'Half Bold Pixel-7';">
           Begin cooking with Granny! Refer the recipe below. If you have any questions, just ask Grandma by sending her a message!
         </p>
       </div>
@@ -37,11 +37,11 @@
       <div class="left-column">
         <div class="empty"></div>
         <div class="ingredients app">
-          <div class="topbar_scroll">
+          <div class="topbar_scroll" style="margin: 5px 5px 2px 5px;">
             <img src="assets/img/UI/topbar/ingredients_topbar.png" />
           </div>
           <div class="ingredients-container">
-            <p id="recipe-text">
+            <p id="recipe-text" style="font-family:'Half Bold Pixel-7';">
               <!--Default recipe text-->
               焢肉 Kong Rou<br /><br />
               Ingredients:<br />
@@ -66,8 +66,8 @@
         </div>
       </div>
 
-      <div class="grandma-ui box">
-        <img src="assets/img/UI/topbar/grandma_conversation_topbar.png" />
+      <div class="grandma-ui box" style="padding: 5px; padding-bottom: 0;">
+        <img src="assets/img/UI/topbar/grandma_conversation_topbar.png"/>
         
         <div class="inner-container">
 
@@ -78,9 +78,9 @@
               <div class="inter" id="commandDiv"></div>
             </div>
 
-            <div class="text-input inner-box">
+            <div class="text-input inner-box" style="padding: 5px;">
               <!-- <img src="assets/img/UI/topbar/input_topbar.png" /> -->
-              <img id="emoticonGif" src="assets/img/UI/topbar/emoticon/emoticon1.png"/>
+              <img id="emoticonGif" src="assets/img/UI/topbar/emoticon/emoticon1.png" />
               <div class="user-chat-container">
                 <input type="text" id="user_input" onkeypress="checkEnterKey(event)" placeholder="Chat with Grandma..."/>
                 <button onclick="sendInput()" id="user_input" class="sendBtn">Send</button>
@@ -92,7 +92,9 @@
             <div class="environment inner-box">
               <img id="rotatingImage" style="width: 100%; height: 100%;" src="assets/img/Grandma/g1.png"/>
             </div>
-            <div class="cooking inner-box"></div>
+            <div class="cooking inner-box"  >
+              <!-- img update locaion -->
+            </div>
 
             <div class="upload inner-box" id="upload">
               <form class="dropzone" id="imageUpload" action="/">

@@ -42,7 +42,7 @@ body {
 
 .mitty-container {
   position: absolute;
-  margin: 30px;
+  margin: 10px 30px 0px 25px;
   width: 230px;
   height: 200px;
   display: flex;
@@ -91,24 +91,24 @@ body {
   font-size: 30px;
   margin: 5px;
   padding: 0 5px;
-  background-color: #936b57;
+  background-color: #99745F;
 }
 
 .box {
-  background-color: #ebdfd9;
+  background-color: #F7E3D5;
   width: 500px;
   height: 300px;
   margin: 2em auto;
   margin-top: 100px;
   box-shadow:
-    -10px 0 0 0 #936b57,
-    10px 0 0 0 #936b57,
-    0 -10px 0 0 #936b57,
-    0 10px 0 0 #936b57;
+    -10px 0 0 0 #99745F,
+    10px 0 0 0 #99745F,
+    0 -10px 0 0 #99745F,
+    0 10px 0 0 #99745F;
 }
 
 .app {
-  background-color: #ebdfd9;
+  background-color: #D9E4D5;
   width: 500px;
   height: 300px;
   box-shadow:
@@ -119,14 +119,14 @@ body {
 }
 
 .inner-box {
-  background-color: #ebdfd9;
+  background-color: #F7E3D5;
   margin: 2em auto;
   height: 100px;
   box-shadow:
-    -4px 0 0 0 #936b57,
-    4px 0 0 0 #936b57,
-    0 -3px 0 0 #936b57,
-    0 3px 0 0 #936b57;
+    -4px 0 0 0 #99745F,
+    4px 0 0 0 #99745F,
+    0 -3px 0 0 #99745F,
+    0 3px 0 0 #99745F;
 }
 
 .container {
@@ -147,18 +147,18 @@ body {
 .empty {
   width: 90%;
   height: 190px;
-  color: #936b57;
+  color: #99745F;
   font-size: 2vh;
   margin: 0px;
   margin-bottom: 30px;
 }
 
 .ingredients {
-  background-color: #dee7db;
+  background-color: #D9E4D5;
   width: 90%;
-  height: 200px;
-  color: #dee7db;
-  font-size: 1.5vh;
+  height: 260px;
+  color: #EAF4E6;
+  font-size: 11px;
   margin: 0px;
   overflow: scroll;
 }
@@ -173,7 +173,7 @@ body {
 }
 
 .ingredients-container {
-  background-color: #fafff8;
+  background-color: #EAF4E6;
   margin: 2%;
   padding: 1%;
 }
@@ -238,13 +238,19 @@ body {
 
 .user-chat-container input[type="text"] {
   font-family: "Half Bold Pixel-7", sans-serif;
-  background-color: #fcf5f1;
-  color: #674e41;
+  background-color: #FEF2EA;
+  color: #644C3F;
+
   height: 10vh;
+  width: auto;
+  box-sizing: border-box;
+  resize: none;
+
   padding-left: 5%;
   border: none;
-  width: auto;
-  flex: 1;
+  
+  overflow-wrap: break-word;
+  /* flex: 1; */
 }
 
 #user_input::placeholder {
@@ -254,28 +260,28 @@ body {
 
 .user-chat-container button {
   font-family: "Half Bold Pixel-7", sans-serif;
-  background-color: #936b57;
-  color: #eaded8;
+  background-color: #99745F;
+  color: #ebdfd9;
   border: none;
   width: 25%;
   margin-left: 10px;
   height: 70px;
   cursor: pointer;
   box-shadow:
-    -3px 0 0 0 #674e41,
-    3px 0 0 0 #674e41,
-    0 -3px 0 0 #674e41,
-    0 3px 0 0 #674e41;
+    -3px 0 0 0 #644C3F,
+    3px 0 0 0 #644C3F,
+    0 -3px 0 0 #644C3F,
+    0 3px 0 0 #644C3F;
 }
 
 .user-chat-container button:hover {
   background-color: #674e41;
   color: #ebdfd9;
   box-shadow:
-    -3px 0 0 0 #936b57,
-    3px 0 0 0 #936b57,
-    0 -3px 0 0 #936b57,
-    0 3px 0 0 #936b57;
+    -3px 0 0 0 #99745F,
+    3px 0 0 0 #99745F,
+    0 -3px 0 0 #99745F,
+    0 3px 0 0 #99745F;
   width: 25%;
   cursor: pointer;
 }
@@ -322,8 +328,8 @@ body {
 }
 
 #commandDiv {
-  background-color: #fcf5f1;
-  padding-left: 5%;
+  background-color: #FEF2EA;
+  padding-left: 10px;
   padding-right: 0%;
   word-wrap: normal;
   word-break: keep-all;
@@ -449,4 +455,17 @@ main {
 small {
   display: block;
   text-align: center;
+}
+
+/* STYLING IMG BOX */
+.cooking.inner-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cooking.inner-box img {
+  max-width: 100%;
+  height: auto;
 }
