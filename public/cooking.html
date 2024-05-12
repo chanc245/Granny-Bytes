@@ -51,16 +51,6 @@
               Green Onion: 2 piece<br />
               Soy Sauce: half a bowl <br />
               Water: 3 bowl <br /><br />
-
-              Steps: <br />
-              1. Medium Heat, Fry the pork belly to golden brown (skin first), put
-              it aside <br />
-              2. Medium Heat, Garlic and Green fry to golden brown, put it aside
-              <br />
-              3. Low Heat, heat sugar til it turns golden, add in the meat, soy
-              sauce, water <br />
-              4. Low Heat, cook until the water almost all evaporates (almost no
-              water)
             </p>
         </div>
         </div>
@@ -79,7 +69,6 @@
             </div>
 
             <div class="text-input inner-box" style="padding: 5px;">
-              <!-- <img src="assets/img/UI/topbar/input_topbar.png" /> -->
               <img id="emoticonGif" src="assets/img/UI/topbar/emoticon/emoticon1.png" />
               <div class="user-chat-container">
                 <input type="text" id="user_input" onkeypress="checkEnterKey(event)" placeholder="Chat with Grandma..."/>
@@ -93,15 +82,10 @@
               <img id="rotatingImage" style="width: 100%; height: 100%;" src="assets/img/Grandma/g1.png"/>
             </div>
             <div class="cooking inner-box"  >
-              <!-- img update locaion -->
             </div>
 
-            <div class="upload inner-box" id="upload">
-              <form class="dropzone" id="imageUpload" action="/">
-                <div class="dz-message" data-dz-message><span></span></div>
-              </form>
-
-              <pre id="output"></pre>
+            <div class="uploadPage inner-box">
+              <button onclick="uploadPage()" id="upload-page" class="granny_result">Upload Cooking Results</button>
             </div>
 
           </div>
@@ -127,6 +111,11 @@
         audio.play();
       });
 
+      const resultPage = document.getElementById("upload-page");
+      resultPage.addEventListener("click", () => {
+        window.location.href = "./results.html";
+      });
+
       // Array of image URLs for grandma's face 
       var imageUrls = [
           "assets/img/Grandma/g1.png",
@@ -141,6 +130,7 @@
           rotatingImage.src = imageUrls[currentIndex];
       }, 1000);
 
+      // Array of emoticons for the chat UI
       var emoticonUrls = [
           "assets/img/UI/topbar/emoticon/emoticon1.png",
           "assets/img/UI/topbar/emoticon/emoticon2.png",

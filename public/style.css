@@ -1,31 +1,36 @@
 /* DEFINE COLOR PALLETS */
 :root {
-  --bgLight: #FEF2EB;
-  --bgDark: #F4E5DE;
+  --bgLight: #fef2eb;
+  --bgDark: #f4e5de;
 
-  --brownLight1: #F8EAE0;
-  --brownLight2: #D0B49F;
-  --brownDark1: #946E5A;
-  --brownDark2: #674E41;
+  --brownLight1: #f8eae0;
+  --brownLight2: #d0b49f;
+  --brownDark1: #946e5a;
+  --brownDark2: #674e41;
 
-  --blueLight1: #DEE7EF;
-  --blueLight2: #C0CEDA;
-  --blueDark1: #9BA8B2;
-  --blueDark2: #4F606D;
+  --blueLight1: #dee7ef;
+  --blueLight2: #c0ceda;
+  --blueDark1: #9ba8b2;
+  --blueDark2: #4f606d;
 
-  --greenLight1: #EAF4E6;
-  --greenLight2: #D7E3D3;
-  --greenDark1: #9AB190;
-  --greenDark2: #5A7152;
+  --greenLight1: #eaf4e6;
+  --greenLight2: #d7e3d3;
+  --greenDark1: #9ab190;
+  --greenDark2: #5a7152;
 
-  --redLight1: #FCE8E5;
-  --redLight2: #EFD4D0;
-  --redDark1: #C0857D;
-  --redDark2: #8E554C;
+  --redLight1: #fce8e5;
+  --redLight2: #efd4d0;
+  --redDark1: #c0857d;
+  --redDark2: #8e554c;
 }
 /* to use it--> var(--redDark2) */
 
-@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"); */
+
+@font-face {
+  font-family: "Silkscreen";
+  src: url("./assets/font/Silkscreen-Regular.ttf") format("truetype");
+}
 
 @font-face {
   font-family: "Hardpixel";
@@ -42,7 +47,7 @@
   src: url("./assets/font/BULKYPIX.TTF") format("truetype");
 }
 
-.silkscreen-regular {
+/* .silkscreen-regular {
   font-family: "Silkscreen", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -52,12 +57,12 @@
   font-family: "Silkscreen", sans-serif;
   font-weight: 700;
   font-style: normal;
-}
+} */
 
 body {
   display: flex;
   background-color: var(--bgLight);
-  font-family: "Silkscreen", sans-serif;
+  font-family: "Silkscreen";
   margin: 0px;
 }
 
@@ -328,7 +333,7 @@ label {
 
 .recipeholder {
   background-color: var(--greenLight1);
-  
+
   display: flex;
   flex-direction: row;
 
@@ -360,7 +365,7 @@ label {
   color: var(--greenLight2);
   display: flex;
 
-  font-size: 25; 
-  display: flex; 
+  font-size: 25;
+  display: flex;
   align-items: center;
 }

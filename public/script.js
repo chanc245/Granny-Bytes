@@ -1,4 +1,4 @@
-// May2nd -- Most recent version,
+// May12th -- Most recent version,
 // In this version, script_archive3.js + image upload result
 
 // ---------- VARIABLES ---------- //
@@ -288,14 +288,9 @@ const granny = {
   ],
 };
 
-// //Using local storage to access information about which recipe was selected by the user
+//Using local storage to access information about which recipe was selected by the user
 let storedRecipe = JSON.parse(localStorage.getItem("recipe"));
 let imgAnalysisResponse;
-// let storedimgdata = localStorage.getItem("fileDatURL");
-// const imageParts = [
-//   { inlineData: { data: storedimgdata, mimeType: "image/jpeg" } },
-// ];
-//console.log(storedimgdata);
 
 let currentRecipe = storedRecipe;
 let userAsking = true;
@@ -475,51 +470,110 @@ function evaluationPrompt(dish, currentStep, userQues) {
   `;
 }
 
+// Dropzone.options.imageUpload = {
+//   paramName: "file",
+//   maxFilesize: 20,
+//   disablePreviews: true,
+//   accept: function (file, done) {
+//     document.getElementById("upload").style.backgroundImage =
+//       "url(" + URL.createObjectURL(file) + ")";
+
+//     // Access the file data here
+//     const reader = new FileReader();
+//     reader.onload = function (event) {
+//       //Separating the dataURL so that its its base64 data only
+//       const data = event.target.result.split(",", 2)[1];
+//       const type = file.type;
+
+//       // Sending data and type of the image in post request
+//       fetch("/vision", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({ data, type }),
+//       })
+//         .then((response) => {
+//           if (response.ok) {
+//             return response.text();
+//           } else {
+//             console.error("Error in sending image.");
+//             return "Error in sending image.";
+//           }
+//         })
+//         .then((responseText) => {
+//           imgAnalysisResponse = responseText;
+//           askImage(imgAnalysisResponse, term);
+//           console.log(imgAnalysisResponse);
+//           done();
+//         })
+//         .catch((error) => {
+//           console.error("Error:", error);
+//           done(error);
+//         });
+//     };
+//     reader.readAsDataURL(file);
+//   },
+// };
+
 Dropzone.options.imageUpload = {
   paramName: "file",
   maxFilesize: 20,
   disablePreviews: true,
   accept: function (file, done) {
-    document.getElementById("upload").style.backgroundImage =
+    document.getElementById("uploadImg").style.backgroundImage =
       "url(" + URL.createObjectURL(file) + ")";
 
-    // Access the file data here
-    const reader = new FileReader();
-    reader.onload = function (event) {
-      //Separating the dataURL so that its its base64 data only
-      const data = event.target.result.split(",", 2)[1];
-      const type = file.type;
+    const data = file.dataURL.split(",", 2)[1];
+    const type = file.type;
+    console.log("File Uploaded");
+    console.log(file);
 
-      // Sending data and type of the image in post request
-      fetch("/vision", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ data, type }),
+    fetch("/vision", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data, type }),
+    })
+      .then((response) => response.json())
+      .then((responseData) => {
+        document.getElementById("cooking-feedback-text").innerText =
+          responseData.analyse;
+        done();
       })
-        .then((response) => {
-          if (response.ok) {
-            return response.text();
-          } else {
-            console.error("Error in sending image.");
-            return "Error in sending image.";
-          }
-        })
-        .then((responseText) => {
-          imgAnalysisResponse = responseText;
-          askImage(imgAnalysisResponse, term);
-          console.log(imgAnalysisResponse);
-          done();
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          done(error);
-        });
-    };
-    reader.readAsDataURL(file);
+      .catch((error) => {
+        console.error("Error:", error);
+        done(error);
+      });
   },
 };
+
+// Dropzone.options.imageUpload = {
+//   paramName: "file",
+//   maxFilesize: 10,
+//   disablePreviews: true,
+//   success: function (file) {
+//     document.getElementById("upload").style.backgroundImage =
+//       "url(" + URL.createObjectURL(file) + ")";
+//     const data = file.dataURL.split(",", 2)[1];
+//     console.log("File Uploaded");
+//     console.log(file);
+//     fetch("/api/vision", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ data, type: file.type }),
+//     })
+//       .then((response) => response.text())
+//       .then((responseText) => {
+//         const responseElement = document.createElement("p");
+//         responseElement.innerText = responseText;
+//         document.body.appendChild(responseElement);
+//       });
+//   },
+// };
 
 function askImage(imgAnalysisResponse, terminal) {
   terminal.echo("");
@@ -562,14 +616,14 @@ let recipeText = currentRecipe.name + "<br><br>";
 // Parsing ingredients for display
 recipeText += "<b>Ingredients:</b><br>";
 ingredientsList.forEach((ingredient) => {
-  recipeText += ingredient + "<br>";
+  recipeText += "-" + ingredient + "<br>";
 });
 
 // Parsing recipe steps for display
-recipeText += "<br><b>Steps:</b><br>";
-stepsListdisplay.forEach((recipesteps, index) => {
-  recipeText += index + 1 + ". " + recipesteps + "<br>";
-});
+// recipeText += "<br><b>Steps:</b><br>";
+// stepsListdisplay.forEach((recipesteps, index) => {
+//   recipeText += index + 1 + ". " + recipesteps + "<br>";
+// });
 
 //Adding the recipe information to HTML
 document.getElementById("recipe-text").innerHTML = recipeText;

@@ -1,31 +1,45 @@
 /* DEFINE COLOR PALLETS */
 :root {
-  --bgLight: #FEF2EB;
-  --bgDark: #F4E5DE;
+  --bgLight: #fef2eb;
+  --bgDark: #f4e5de;
 
-  --brownLight1: #F8EAE0;
-  --brownLight2: #D0B49F;
-  --brownDark1: #946E5A;
-  --brownDark2: #674E41;
+  --brownLight1: #f8eae0;
+  --brownLight2: #d0b49f;
+  --brownDark1: #946e5a;
+  --brownDark2: #674e41;
 
-  --blueLight1: #DEE7EF;
-  --blueLight2: #C0CEDA;
-  --blueDark1: #9BA8B2;
-  --blueDark2: #4F606D;
+  --blueLight1: #dee7ef;
+  --blueLight2: #c0ceda;
+  --blueDark1: #9ba8b2;
+  --blueDark2: #4f606d;
 
-  --greenLight1: #EAF4E6;
-  --greenLight2: #D7E3D3;
-  --greenDark1: #9AB190;
-  --greenDark2: #5A7152;
+  --greenLight1: #eaf4e6;
+  --greenLight2: #d7e3d3;
+  --greenDark1: #9ab190;
+  --greenDark2: #5a7152;
 
-  --redLight1: #FCE8E5;
-  --redLight2: #EFD4D0;
-  --redDark1: #C0857D;
-  --redDark2: #8E554C;
+  --redLight1: #fce8e5;
+  --redLight2: #efd4d0;
+  --redDark1: #c0857d;
+  --redDark2: #8e554c;
 }
-/* to use it--> var(--redDark2) */
 
 @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+
+@font-face {
+  font-family: "Silkscreen";
+  src: url("./assets/font/Silkscreen-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Halfpix";
+  src: url("./assets/font/half_bold_pixel-7.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bulkypix";
+  src: url("./assets/font/BULKYPIX.TTF") format("truetype");
+}
 
 html {
   scroll-behavior: smooth;
@@ -33,7 +47,7 @@ html {
 
 body {
   background-color: var(--bgLight);
-  font-family: "Silkscreen", sans-serif;
+  font-family: "Silkscreen";
   display: flex;
 }
 
@@ -198,12 +212,23 @@ body {
 .ingredients p {
   margin: 10px;
   color: var(--greenDark2);
+  line-height: 0.5cm;
 }
 
 .ingredients-container {
   background-color: var(--greenLight1);
   margin: 2%;
   padding: 1%;
+}
+
+.mainpage {
+  background-color: var(--greenLight2);
+  width: 90%;
+  height: 60px;
+  color: var(--greenLight1);
+  font-size: 11px;
+  margin: 0px;
+  overflow: scroll;
 }
 
 .grandma-ui {
@@ -238,18 +263,30 @@ body {
   flex-direction: column;
   height: 100%;
   width: 60%;
-  margin: 0px;
+  margin: 10px;
 }
 
 .left div {
   margin-left: 0px;
-  margin-right: 0px;
+  margin-right: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
 .terminal {
   height: 100%;
+}
+
+.cooking-result {
+  height: 50%;
+  background-color: var(--bgLight);
+}
+
+.cooking-result p {
+  margin: 0vh 1vw;
+  margin-top: 1vh;
+  font-family: "Halfpix";
+  color: var(--brownDark1);
 }
 
 .text-input {
@@ -276,7 +313,7 @@ body {
 
   padding-left: 5%;
   border: none;
-  
+
   overflow-wrap: break-word;
   /* flex: 1; */
 }
@@ -287,7 +324,7 @@ body {
 }
 
 .user-chat-container button {
-  font-family: "Half Bold Pixel-7", sans-serif;
+  font-family: "Bulkypix";
   background-color: var(--brownDark1);
   color: var(--bgDark);
   border: none;
@@ -311,6 +348,35 @@ body {
     0 -3px 0 0 var(--brownDark1),
     0 3px 0 0 var(--brownDark1);
   width: 25%;
+  cursor: pointer;
+}
+
+.uploadPage button {
+  font-family: "Bulkypix";
+  line-height: 0.6cm;
+  background-color: var(--greenDark1);
+  color: var(--greenLight1);
+  border: none;
+  width: 100%;
+  /* margin-left: 10px; */
+  height: 120px;
+  cursor: pointer;
+  box-shadow:
+    -4px 0 0 0 var(--greenDark2),
+    4px 0 0 0 var(--greenDark2),
+    0 -3px 0 0 var(--greenDark2),
+    0 3px 0 0 var(--greenDark2);
+}
+
+.uploadPage button:hover {
+  background-color: var(--greenDark2);
+  color: var(--greenLight2);
+  box-shadow:
+    -4px 0 0 0 var(--greenDark1),
+    4px 0 0 0 var(--greenDark1),
+    0 -3px 0 0 var(--greenDark1),
+    0 3px 0 0 var(--greenDark1);
+  width: 100%;
   cursor: pointer;
 }
 
@@ -361,29 +427,12 @@ body {
   padding-right: 0%;
   word-wrap: normal;
   word-break: keep-all;
-  /* white-space: nowrap;
-  height: 100%;
-  width: 95%;
-  overflow-x: auto;
-  overflow-y: auto;
-  /* word-wrap: break-word;
-  overflow-wrap: break-word; */
-  /* border: 0.1rem solid; */
-  /* padding: -15px; */
-  /*padding: 0px;
-  line-height: -0.5px; */
 }
 
 .sendBtn {
   width: 10px;
   margin-right: 10px;
 }
-
-/* TERMINAL COLOR */
-/* TERMINAL COLOR */
-/* TERMINAL COLOR */
-/* TERMINAL COLOR */
-/* TERMINAL COLOR */
 
 .terminal {
   --size: 1;
@@ -405,10 +454,6 @@ body {
   --color: var(--brownDark2);
 }
 
-/* TERMAL FONT */
-/* TERMAL FONT */
-/* TERMAL FONT */
-/* TERMAL FONT */
 /* TERMAL FONT */
 
 :root {
@@ -438,10 +483,6 @@ body {
 }
 
 /* HTML UPLOAD */
-/* HTML UPLOAD */
-/* HTML UPLOAD */
-/* HTML UPLOAD */
-/* HTML UPLOAD */
 
 main {
   max-width: 20vw;
@@ -450,20 +491,8 @@ main {
 
 .upload {
   background-color: var(--greenLight1);
-  background-image: url("assets/img/UI/buttons/upload_all.png");
-  background-size: 140px 111px;
-  box-shadow:
-    -4px 0 0 0 var(--greenDark1),
-    4px 0 0 0 var(--greenDark1),
-    0 -3px 0 0 var(--greenDark1),
-    0 3px 0 0 var(--greenDark1);
-  overflow: hidden;
-}
-
-.upload:hover {
-  background-color: var(--greenLight1);
-  background-image: url("assets/img/UI/buttons/upload_all_hover.png");
-  background-size: 140px 111px;
+  background-size: cover;
+  height: 50%;
   box-shadow:
     -4px 0 0 0 var(--greenDark1),
     4px 0 0 0 var(--greenDark1),
@@ -475,9 +504,9 @@ main {
 .dropzone {
   background-color: transparent;
   color: var(--greenDark1);
-  height: 10px;
+  height: 0px;
   padding: 0px;
-  margin: 0px;
+  /* margin: 5px; */
 }
 
 small {
@@ -485,7 +514,6 @@ small {
   text-align: center;
 }
 
-/* STYLING IMG BOX */
 .cooking.inner-box {
   display: flex;
   justify-content: center;
@@ -496,4 +524,34 @@ small {
 .cooking.inner-box img {
   max-width: 100%;
   height: auto;
+}
+
+.grandma-app img {
+  position: relative;
+  top: 14vw;
+  left: 38vw;
+  height: 20%;
+}
+
+.grandma-app p {
+  position: relative;
+  top: 20vw;
+  left: 40vw;
+  color: var(--brownDark1);
+}
+
+.open-app {
+  position: relative;
+  top: 130;
+  left: 500;
+  width: 100px;
+  height: 25%;
+  margin: 50px;
+  background-image: url("./assets/img/UI/icons/Recipe_icon.png");
+  background-size: cover;
+  transition: background-image 0.3s ease-in-out;
+}
+
+.open-app:hover {
+  background-image: url("./assets/img/UI/icons/Recipe_icon_hover.png");
 }

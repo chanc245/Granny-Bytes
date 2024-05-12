@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grandma.AI</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="./StyleCooking.css" />
+    <link
+      rel="icon"
+      href="assets/img/grannybytes_favicon.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+  </head>
+  <body onload="formatAMPM()">
+    <img class="overlay" src="assets/img/noiseoverlay.png" />
+
+    <audio src="assets/audio/grannyai.mp3"></audio>
+
+    <div class="main-container">
+      <div class="mitty-container hidden" id="appear">
+        <img class="mitty" src="assets/img/UI/icons/icon_Mitty.png" />
+        <img class="speechbubble" src="assets/img/UI/icons/speech-bubble.png" />
+        <img
+          class="mitty-bar"
+          src="assets/img/UI/topbar/mitty_hints_topbar.png"
+        />
+        <p class="mitty-text" style="font-family: Half Bold Pixel-7">
+          Upload an image of your cooking to see what grandma thinks about it
+          and how you can improve it!
+        </p>
+      </div>
+
+      <div class="container">
+        <div class="left-column">
+          <!-- Placeholder for left-column content -->
+        </div>
+
+        <div class="grandma-ui box" style="padding: 5px; padding-bottom: 0">
+          <img src="assets/img/UI/topbar/grandma_conversation_topbar.png" />
+
+          <div class="inner-container">
+            <div class="left">
+              <div class="cooking-result inner-box">
+                <p>*Grandma Feedback!</p>
+                <p>______</p>
+                <div id="cooking-feedback-text"></div>
+              </div>
+
+              <div class="upload inner-box" id="uploadImg">
+                <img src="assets/img/UI/topbar/upload_topbar.png" />
+                <form class="dropzone" id="imageUpload" action="/">
+                  <div class="dz-message" data-dz-message><span></span></div>
+                </form>
+
+                <pre id="output"></pre>
+              </div>
+            </div>
+
+            <div class="right">
+              <div class="environment inner-box">
+                <img
+                  id="grandmaGif"
+                  style="width: 100%; height: 100%"
+                  src="assets/img/Grandma/g2.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p class="scene-info">■Cook and chat with Granny</p>
+        <p class="scene-info" id="time">12:00PM</p>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <script type="module" src="dish.js"></script>
+    <script src="script.js"></script>
+    <script src="time.js"></script>
+    <script>
+      window.addEventListener("click", (event) => {
+        const audio = document.querySelector("audio");
+        audio.volume = 0.2;
+        audio.play();
+      });
+
+      const resultPage = document.getElementById("upload");
+      resultPage.addEventListener("click", () => {
+        window.location.href = "./results.html";
+      });
+
+      // Array of image URLs for grandma's face
+      var imageUrls = [
+        "assets/img/Grandma/g1.png",
+        "assets/img/Grandma/g2.png",
+      ];
+
+      var currentIndex = 0;
+      var rotatingImage = document.getElementById("grandmaGif");
+
+      setInterval(function () {
+        currentIndex = (currentIndex + 1) % imageUrls.length;
+        rotatingImage.src = imageUrls[currentIndex];
+      }, 1000);
+    </script>
+  </body>
+</html>
