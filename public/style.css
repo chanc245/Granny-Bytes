@@ -88,6 +88,8 @@ a {
   background-position: 50% 50%;
   
   border: 1px solid var(--comDarkGray);
+
+  cursor: url('assets/cursors/pixel.cur'), auto;
 }
 
 .scene-info {
