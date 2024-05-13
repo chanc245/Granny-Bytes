@@ -15,7 +15,7 @@
 
     <div class="main-container">
       <div class="mitty-container hidden" id="appear">
-        <img class="mitty" src="assets/img/UI/icons/icon_Mitty.png"/>
+        <img class="mitty" id="mittyGif" src="./assets/img/Mitty/icon_Mitty.png"/>
         <img class="speechbubble" src="assets/img/UI/icons/speech-bubble.png"/>
         <img class="mitty-bar" src="assets/img/UI/topbar/mitty_hints_topbar.png"/>
         <p class="mitty-text">Welcome to your desktop! To enter Granny Bytes and start cooking, click the cooking pot icon on the stove.</p>
@@ -49,6 +49,8 @@
       </div>
     </div>
     <div class="com-screen-off"></div>
+    <!-- COMPUTER FRAME -->
+
   </body>
   
   <script src="time.js"></script>
@@ -81,5 +83,32 @@
         screenOff.style.display = "none";
       }
     }
+
+     // MITTY INTERACTION //
+      let mittyUrls = [
+        "./assets/img/Mitty/icon_Mitty.png",
+        "./assets/img/Mitty/icon_Mitty_close.png"
+      ];
+
+      let currentMitty = 0;
+      let mittyGif = document.getElementById("mittyGif");
+      
+      setInterval(function() {
+        currentMitty = (currentMitty + 1) % mittyUrls.length;
+        mittyGif.src = mittyUrls[currentMitty];
+      }, 1500);
+
+      document.addEventListener("DOMContentLoaded", function() {
+
+        let mittyGif = document.getElementById("mittyGif");
+        mittyGif.addEventListener("click", function() {
+          mittyGif.src = "./assets/img/Mitty/icon_Mitty_click.png"; 
+
+          setTimeout(function() {
+              mittyGif.src = "./assets/img/Mitty/icon_Mitty.png";
+          }, 300);
+        });
+      });
+      // MITTY INTERACTION //
   </script> 
   </html>

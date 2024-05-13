@@ -15,7 +15,7 @@
     
     <div class="main-container">
       <div class="mitty-container">
-        <img class="mitty" src="assets/img/UI/icons/icon_Mitty.png"/>
+        <img class="mitty" id="mittyGif" src="./assets/img/Mitty/icon_Mitty.png"/>
         <img class="speechbubble" style="height: 120px;" src="assets/img/UI/icons/speech-bubble.png"/>
         <img class="mitty-bar" src="assets/img/UI/topbar/mitty_hints_topbar.png"/>
         <p class="mitty-text">Check out the welcome page and then type your name to log in!</p>
@@ -93,6 +93,33 @@
       nextPage.addEventListener("click", () => {
         window.location.href = "./recipe.html";
       });
+
+    // MITTY INTERACTION //
+    let mittyUrls = [
+      "./assets/img/Mitty/icon_Mitty.png",
+      "./assets/img/Mitty/icon_Mitty_close.png"
+    ];
+
+    let currentMitty = 0;
+    let mittyGif = document.getElementById("mittyGif");
+    
+    setInterval(function() {
+      currentMitty = (currentMitty + 1) % mittyUrls.length;
+      mittyGif.src = mittyUrls[currentMitty];
+    }, 1500);
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+      let mittyGif = document.getElementById("mittyGif");
+      mittyGif.addEventListener("click", function() {
+        mittyGif.src = "./assets/img/Mitty/icon_Mitty_click.png"; 
+
+        setTimeout(function() {
+            mittyGif.src = "./assets/img/Mitty/icon_Mitty.png";
+        }, 300);
+      });
+    });
+    // MITTY INTERACTION //
 
     // TURN OFF COMPUTER //
     function togglePower() {
