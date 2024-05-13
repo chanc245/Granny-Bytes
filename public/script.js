@@ -406,7 +406,7 @@ function askStep(currentRecipe, terminal, stepIndex) {
 
     // askImage(imgAnalysisResponse, term);
 
-    terminal.pop();
+    // terminal.pop();
   }
 }
 
