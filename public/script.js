@@ -323,7 +323,7 @@ $(document).ready(function () {
     },
     {
       greetings: `*Never give out your password or credit card number in an instant message conversation!
-______  
+_____________
 Granny:${grannyStartDishLoop(currentRecipe.name)}`, //grannyStart.Dish
       prompt: " ",
     }
@@ -404,7 +404,7 @@ function askStep(currentRecipe, terminal, stepIndex) {
   } else {
     terminal.echo(`\n${randomGrannyConversation(granny.Complete)}`);
 
-    askImage(imgAnalysisResponse, term);
+    // askImage(imgAnalysisResponse, term);
 
     terminal.pop();
   }

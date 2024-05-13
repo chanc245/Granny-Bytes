@@ -310,8 +310,9 @@ body {
 .user-chat-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
+  flex-grow: 1;
 }
 
 .user-chat-container textarea {
@@ -340,16 +341,16 @@ body {
   background-color: var(--brownDark1);
   color: var(--bgDark);
   border: none;
-  width: 25%;
-  margin-left: 10px;
+  width: 27%;
   height: 90px;
+  margin-left: 10px !important;
+  margin-right: 0 !important;
   cursor: pointer;
   box-shadow:
     -3px 0 0 0 var(--brownDark2),
     3px 0 0 0 var(--brownDark2),
     0 -3px 0 0 var(--brownDark2),
     0 3px 0 0 var(--brownDark2);
-  flex: 1;
 }
 
 .user-chat-container button:hover {
@@ -436,10 +437,13 @@ body {
 
 #commandDiv {
   background-color: var(--bgLight);
-  padding-left: 10px;
   padding-right: 0%;
+  margin-left: 5px;
+  width: 97%;
   word-wrap: normal;
+  overflow-wrap: break-word;
   word-break: keep-all;
+  white-space: normal;
 }
 
 .sendBtn {
@@ -451,7 +455,7 @@ body {
   --size: 1;
   overflow: hidden;
   scroll-behavior: auto;
-  /* word-wrap: break-word; */
+  word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: nowrap;
   --color: var(--brownDark2);
@@ -497,10 +501,10 @@ body {
 
 /* HTML UPLOAD */
 
-main {
+/* main {
   max-width: 20vw;
   margin: 0 auto;
-}
+} */
 
 .cooking.inner-box {
   display: flex;
