@@ -71,7 +71,8 @@
             <div class="text-input inner-box" style="padding: 5px;">
               <img id="emoticonGif" src="assets/img/UI/topbar/emoticon/emoticon1.png" />
               <div class="user-chat-container">
-                <input type="text" id="user_input" onkeypress="checkEnterKey(event)" placeholder="Chat with Grandma..."/>
+                <!-- <input type="text" id="user_input" onkeypress="checkEnterKey(event)" placeholder="Chat with Grandma..."/> -->
+                <textarea id="user_input" onkeypress="checkEnterKey(event)" placeholder="Chat with Grandma..." style="width: 300px; height: 100px; border-color: transparent;"></textarea>
                 <button onclick="sendInput()" id="user_input" class="sendBtn">Send</button>
               </div>
             </div>
@@ -94,8 +95,10 @@
     </div>
 
     <div class="footer">
-      <p class="scene-info">■Cook and chat with Granny</p>
-      <!-- <img class="bottombar" style="max-width: 70%; max-height: 100px" src="./assets/img/UI/bottombar/chat.png"> -->
+      <div class="scene-info">
+        <img src="./assets/img/UI/icons/icon_Conversation.png">
+        <p class="scene-info">Cook and chat with Granny</p>
+      </div>
       <p class="scene-info" id="time">12:00PM</p>
     </div>
 
@@ -110,6 +113,21 @@
         audio.volume = 0.2;
         audio.play();
       });
+
+      document.addEventListener("keydown", function(event) {
+      const terminal = document.querySelector(".terminal");
+      const scrollAmount = 2; // Adjust as needed
+
+      if (event.key === "ArrowUp") {
+        // Scroll up
+        terminal.scrollTop -= scrollAmount;
+        event.preventDefault(); // Prevent the default behavior of arrow keys
+      } else if (event.key === "ArrowDown") {
+        // Scroll down
+        terminal.scrollTop += scrollAmount;
+        event.preventDefault(); // Prevent the default behavior of arrow keys
+      }
+    });
 
       const resultPage = document.getElementById("upload-page");
       resultPage.addEventListener("click", () => {

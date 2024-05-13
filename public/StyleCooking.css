@@ -128,10 +128,26 @@ body {
 }
 
 .footer p {
-  font-size: 30px;
+  font-size: 26px;
   margin: 5px;
   padding: 0 5px;
   background-color: var(--brownDark1);
+}
+
+.scene-info {
+  display: flex;
+  align-items: center;
+  background-color: var(--brownDark1);
+  padding: 10px;
+  margin: 5px;
+}
+
+.scene-info img {
+  margin-right: 5px;
+}
+
+.scene-info-text {
+  margin: 0;
 }
 
 .box {
@@ -296,29 +312,27 @@ body {
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
-  padding-left: 5px;
 }
 
-.user-chat-container input[type="text"] {
+.user-chat-container textarea {
   font-family: "Half Bold Pixel-7", sans-serif;
   background-color: var(--bgLight);
   color: var(--brownDark2);
-
   height: 10vh;
   width: auto;
   box-sizing: border-box;
   resize: none;
-
   padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 5%;
   border: none;
-
   overflow-wrap: break-word;
-  /* flex: 1; */
 }
 
 #user_input::placeholder {
   color: #999;
-  padding: 5%;
+  padding-left: 2%;
+  padding-top: 2%;
 }
 
 .user-chat-container button {
@@ -328,13 +342,14 @@ body {
   border: none;
   width: 25%;
   margin-left: 10px;
-  height: 70px;
+  height: 90px;
   cursor: pointer;
   box-shadow:
     -3px 0 0 0 var(--brownDark2),
     3px 0 0 0 var(--brownDark2),
     0 -3px 0 0 var(--brownDark2),
     0 3px 0 0 var(--brownDark2);
+  flex: 1;
 }
 
 .user-chat-container button:hover {
@@ -435,7 +450,7 @@ body {
 .terminal {
   --size: 1;
   overflow: hidden;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   /* word-wrap: break-word; */
   overflow-wrap: break-word;
   white-space: nowrap;
@@ -505,6 +520,7 @@ main {
   color: var(--brownDark1);
   padding: 20px;
   overflow-y: auto;
+  font-size: 15px;
 }
 
 .upload {
@@ -518,7 +534,7 @@ main {
   position: relative; /* Add position relative */
   background-color: var(--greenLight2);
   background-size: cover;
-  height: 50%;
+  height: 45%;
   padding: 10px;
   box-shadow:
     -4px 0 0 0 var(--greenDark1),

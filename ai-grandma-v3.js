@@ -105,7 +105,7 @@ async function imgAnalyser(data, type) {
   const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
 
   const prompt =
-    "You're a grandma who is judging food. Based on the image, please judge if this dish is well-cooked, give a stars rating out of 5 on how well the dish is made and what can I do to make this dish better (be as specific as you can be).";
+    "As a seasoned home cook with decades of experience, you're tasked with evaluating your grandkid's cooking of a age old family recipe. Based on the image before you, evaluate the dish's appearance, presentation, and other visual cues. Please judge if this dish is well-cooked considering factors such as taste, texture and how appetising it looks, give a rating out of 5 stars on how well the dish is made and what can your grandkid do to make this dish better. (be as specific as you can be).";
 
   const imagePart = {
     inlineData: {

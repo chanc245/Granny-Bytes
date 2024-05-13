@@ -84,6 +84,22 @@ a {
   border: 1px solid var(--bgDark);
 }
 
+.scene-info {
+  display: flex;
+  align-items: center;
+  background-color: var(--brownDark1);
+  padding: 10px;
+  margin: 5px;
+}
+
+.scene-info img {
+  margin-right: 5px;
+}
+
+.scene-info-text {
+  margin: 0;
+}
+
 .mitty-container {
   position: absolute;
   margin: 30px;
@@ -125,7 +141,7 @@ a {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 56px;
+  height: 55px;
   background-color: var(--bgDark);
   color: var(--bgDark);
   display: flex;
@@ -133,7 +149,7 @@ a {
 }
 
 .footer p {
-  font-size: 30px;
+  font-size: 26px;
   margin: 5px;
   padding: 0 5px;
   background-color: var(--brownDark1);
