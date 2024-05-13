@@ -71,9 +71,49 @@
        </div>
 
       </div>
+
+  <!-- COMPUTER FRAME -->
+  <div class="com-frame">
+    <div class="com-bot-bar">
+      <div class="bot-bar-container">
+        <img src="./assets/img/retro-computer/com-connect-noclick.svg" class="bot-bar-svg">
+        <img src="./assets/img/retro-computer/com-left-noclick.svg" class="bot-bar-svg">
+        <img src="./assets/img/retro-computer/com-up-noclick.svg" class="bot-bar-svg">
+        <img src="./assets/img/retro-computer/com-down-noclick.svg" class="bot-bar-svg">
+        <img src="./assets/img/retro-computer/com-right-noclick.svg" class="bot-bar-svg">
+        <div class="power-light"></div>
+        <div class="power-btn" onclick="togglePower()"></div> 
+      </div>    
+    </div>
+  </div>
+  <div class="com-screen-off"></div>
+  <!-- COMPUTER FRAME -->
+
     </div>
     <script type="module" src="selection.js"></script>
     <script type="module" src="dish.js"></script>
     <script src="time.js"></script>
+    <script>
+      // TURN OFF COMPUTER //
+    function togglePower() {
+      var light = document.querySelector('.power-light');
+      var screenOff = document.querySelector('.com-screen-off');
+
+      // Toggle power light
+      if (light.style.backgroundImage.includes('com-power-light-on.svg')) {
+        light.style.backgroundImage = "url('./assets/img/retro-computer/com-power-light-off.svg')";
+      } else {
+        light.style.backgroundImage = "url('./assets/img/retro-computer/com-power-light-on.svg')";
+      }
+
+      // Toggle screen visibility
+      if (screenOff.style.display === "none") {
+        screenOff.style.display = "block";
+      } else {
+        screenOff.style.display = "none";
+      }
+    }
+    // TURN OFF COMPUTER //
+    </script>
   </body>
 </html>

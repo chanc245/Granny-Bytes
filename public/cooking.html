@@ -72,7 +72,7 @@
               <img id="emoticonGif" src="assets/img/UI/topbar/emoticon/emoticon1.png" />
               <div class="user-chat-container">
                 <!-- <input type="text" id="user_input" onkeypress="checkEnterKey(event)" placeholder="Chat with Grandma..."/> -->
-                <textarea id="user_input" onkeypress="checkEnterKey(event)" placeholder="Chat with Grandma..." style="width: 300px; height: 100px; border-color: transparent;"></textarea>
+                <textarea id="user_input" onkeypress="checkEnterKey(event)" placeholder="Chat with Grandma..." style="width: 220px; height: 100px; border-color: transparent;"></textarea>
                 <button onclick="sendInput()" id="user_input" class="sendBtn">Send</button>
               </div>
             </div>
@@ -101,8 +101,25 @@
       </div>
       <p class="scene-info" id="time">12:00PM</p>
     </div>
-
     </div>
+
+  <!-- COMPUTER FRAME -->
+  <div class="com-frame">
+    <div class="com-bot-bar">
+      <div class="bot-bar-container">
+        <img src="./assets/img/retro-computer/com-connect-noclick.svg" class="bot-bar-svg">
+        <img src="./assets/img/retro-computer/com-left-noclick.svg" class="bot-bar-svg">
+        <img src="./assets/img/retro-computer/com-up-noclick.svg" class="bot-bar-svg">
+        <img src="./assets/img/retro-computer/com-down-noclick.svg" class="bot-bar-svg">
+        <img src="./assets/img/retro-computer/com-right-noclick.svg" class="bot-bar-svg">
+        <div class="power-light"></div>
+        <div class="power-btn" onclick="togglePower()"></div> 
+      </div>    
+    </div>
+  </div>
+  <div class="com-screen-off"></div>
+  <!-- COMPUTER FRAME -->
+
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script> 
     <script type="module" src="dish.js"></script>
     <script src="script.js"></script>
@@ -115,19 +132,19 @@
       });
 
       document.addEventListener("keydown", function(event) {
-      const terminal = document.querySelector(".terminal");
-      const scrollAmount = 2; // Adjust as needed
+        const terminal = document.querySelector(".terminal");
+        const scrollAmount = 2; // Adjust as needed
 
-      if (event.key === "ArrowUp") {
-        // Scroll up
-        terminal.scrollTop -= scrollAmount;
-        event.preventDefault(); // Prevent the default behavior of arrow keys
-      } else if (event.key === "ArrowDown") {
-        // Scroll down
-        terminal.scrollTop += scrollAmount;
-        event.preventDefault(); // Prevent the default behavior of arrow keys
-      }
-    });
+        if (event.key === "ArrowUp") {
+          // Scroll up
+          terminal.scrollTop -= scrollAmount;
+          event.preventDefault(); // Prevent the default behavior of arrow keys
+        } else if (event.key === "ArrowDown") {
+          // Scroll down
+          terminal.scrollTop += scrollAmount;
+          event.preventDefault(); // Prevent the default behavior of arrow keys
+        }
+      });
 
       const resultPage = document.getElementById("upload-page");
       resultPage.addEventListener("click", () => {
@@ -165,6 +182,27 @@
         currentEmoticon = (currentEmoticon + 1) % emoticonUrls.length;
         emoticonGif.src = emoticonUrls[currentEmoticon];
       }, 1000);
-      </script>
+    
+      // TURN OFF COMPUTER //
+    function togglePower() {
+      var light = document.querySelector('.power-light');
+      var screenOff = document.querySelector('.com-screen-off');
+
+      // Toggle power light
+      if (light.style.backgroundImage.includes('com-power-light-on.svg')) {
+        light.style.backgroundImage = "url('./assets/img/retro-computer/com-power-light-off.svg')";
+      } else {
+        light.style.backgroundImage = "url('./assets/img/retro-computer/com-power-light-on.svg')";
+      }
+
+      // Toggle screen visibility
+      if (screenOff.style.display === "none") {
+        screenOff.style.display = "block";
+      } else {
+        screenOff.style.display = "none";
+      }
+    }
+    // TURN OFF COMPUTER //
+    </script>
     </body>
 </html>

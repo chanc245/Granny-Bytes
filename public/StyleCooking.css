@@ -44,9 +44,10 @@ html {
 }
 
 body {
+  display: flex;
   background-color: var(--bgLight);
   font-family: "Silkscreen";
-  display: flex;
+  margin: 0px;
 }
 
 .overlay {
@@ -63,16 +64,21 @@ body {
 .main-container {
   position: absolute;
   left: 0;
-  right: 0;
-  top: 0;
+  right: 4px;
+
+  top: -58px;
   bottom: 0;
+
   margin: auto;
+
   width: 810px;
-  height: 576px;
+  height: 580px;
+
   background-image: url("assets/img/Environment/kitchen.png");
   background-size: cover;
   background-position: 50% 50%;
-  border: 1px solid var(--bgDark);
+  
+  border: 1px solid var(--comDarkGray);
 }
 
 .btn img {
@@ -361,7 +367,7 @@ body {
     3px 0 0 0 var(--brownDark1),
     0 -3px 0 0 var(--brownDark1),
     0 3px 0 0 var(--brownDark1);
-  width: 25%;
+  width: 27%;
   cursor: pointer;
 }
 
@@ -510,7 +516,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .cooking.inner-box img {
@@ -608,3 +614,101 @@ body {
 .open-app:hover {
   background-image: url("./assets/img/UI/icons/Recipe_icon_rerun.png");
 }
+
+/* TOP COMPUTER FRAME */
+.com-frame {
+  width: 1007px; 
+  height: 821px; 
+
+  position: absolute;
+
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  
+  background: url('./assets/img/retro-computer/com-frame.png') no-repeat center center; 
+  background-size: cover; 
+
+  z-index: -1;
+}
+
+.com-screen-off {
+  position: absolute;
+  left: 0;
+  right: 4px;
+
+  top: -58px;
+  bottom: 0;
+
+  margin: auto;
+
+  width: 810px;
+  height: 580px;
+
+  background-color: #4D4D4D;
+
+  border: 1px solid var(--comDarkGray);
+
+  display: none;
+  z-index: 500;
+}
+
+.com-bot-bar {
+  width: 771px;       
+  height: 48px;       
+  position: absolute; 
+
+  left: 117px;       
+  top: 763px;  
+
+  background: url('./assets/img/retro-computer/com-bot-bar.png') no-repeat center top;
+  background-size: 100% auto;
+}
+
+.bot-bar-container {
+  position: absolute;
+  left: 186px;
+  width: 100%; 
+}
+
+.bot-bar-svg {
+    position: absolute;
+    top: 0; 
+}
+
+.bot-bar-svg:nth-child(1) { width: 56px; height: 47px; left: 0px; }
+.bot-bar-svg:nth-child(2) { width: 43px; height: 38px; left: 88px; }
+.bot-bar-svg:nth-child(3) { width: 43px; height: 38px; left: 135px; }
+.bot-bar-svg:nth-child(4) { width: 43px; height: 38px; left: 182px; }
+.bot-bar-svg:nth-child(5) { width: 43px; height: 38px; left: 230px; }
+
+.power-light {
+  display: block;
+  background: url('./assets/img/retro-computer/com-power-light-on.svg') no-repeat;
+  background-size: 100%; 
+  width: 8px;
+  height: 8px;
+  position: absolute; 
+  left: 305px; 
+  top: 8px; 
+}
+
+.power-btn {
+  display: block;
+  background: url('./assets/img/retro-computer/com-power-btn-normal.svg') no-repeat;
+  background-size: 100%; 
+  width: 56px;
+  height: 46px;
+  position: absolute; 
+  left: 345px; 
+}
+
+.power-btn:hover {
+    background-image: url('./assets/img/retro-computer/com-power-btn-hover.svg');
+    background-size: 100%; 
+}
+
+.power-btn img {
+    visibility: hidden;
+}
+/* TOP COMPUTER FRAME */

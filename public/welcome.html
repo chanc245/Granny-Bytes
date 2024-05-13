@@ -9,7 +9,6 @@
     <title>Welcome to Granny Bytes</title>
   </head>
   <body>
-
     <img class="overlay" src="assets/img/noiseoverlay.png"/>
 
     <audio src="assets/audio/sizzle.wav"></audio>
@@ -23,25 +22,64 @@
       </div>
       <div class="grandma-app">
         <a href="./login.html">
-          <div class="open-app">
-          </div>
-          </a>
+          <div class="open-app"></div>
+        </a>
       </div>
     <div class="footer">
       <div class="scene-info">
         <img src="./assets/img/UI/icons/icon_ Welcome.png">
         <p class="scene-info">Welcome to Granny Bytes</p>
+        </div>
+        <p class="scene-info" id="time">12:00PM</p>
       </div>
-      <p class="scene-info" id="time">12:00PM</p>
     </div>
-   </div>
-   
+
+  <!-- COMPUTER FRAME -->
+    <div class="com-frame">
+      <div class="com-bot-bar">
+        <div class="bot-bar-container">
+          <img src="./assets/img/retro-computer/com-connect-noclick.svg" class="bot-bar-svg">
+          <img src="./assets/img/retro-computer/com-left-noclick.svg" class="bot-bar-svg">
+          <img src="./assets/img/retro-computer/com-up-noclick.svg" class="bot-bar-svg">
+          <img src="./assets/img/retro-computer/com-down-noclick.svg" class="bot-bar-svg">
+          <img src="./assets/img/retro-computer/com-right-noclick.svg" class="bot-bar-svg">
+          <div class="power-light"></div>
+          <div class="power-btn" onclick="togglePower()"></div> 
+        </div>    
+      </div>
+    </div>
+    <div class="com-screen-off"></div>
   </body>
+  
   <script src="time.js"></script>
+
   <script>
-  window.addEventListener("click", event => {
     const audio = document.querySelector("audio");
-    audio.volume = 0.2;
-    audio.play();
-  });</script>
+    window.addEventListener("click", event => {
+      audio.play();
+      audio.volume = 0.2;
+    });
+
+    function togglePower() {
+      const light = document.querySelector('.power-light');
+      const screenOff = document.querySelector('.com-screen-off');
+      const audio = document.querySelector("audio");
+
+      // Toggle power light
+      if (light.style.backgroundImage.includes('com-power-light-on.svg')) {
+        light.style.backgroundImage = "url('./assets/img/retro-computer/com-power-light-off.svg')";
+        audio.volume = 0;
+      } else {
+        light.style.backgroundImage = "url('./assets/img/retro-computer/com-power-light-on.svg')";
+        audio.volume = 0.2
+      }
+
+      // Toggle screen visibility
+      if (screenOff.style.display === "none") {
+        screenOff.style.display = "block";
+      } else {
+        screenOff.style.display = "none";
+      }
+    }
+  </script> 
   </html>

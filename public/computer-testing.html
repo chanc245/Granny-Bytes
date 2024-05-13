@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Layout try</title>
+</head>
+
+<style>
+:root {
+--bgLight: #fef2eb;
+--bgDark: #f4e5de;
+
+--comDarkGray: #B3B3B3
+}
+
+body {
+  display: flex;
+  background-color: var(--bgLight);
+  font-family: "Silkscreen";
+  margin: 0px;
+}
+
+.main-container {
+  position: absolute;
+  left: 0;
+  right: 4px;
+
+  top: -58px;
+  bottom: 0;
+
+  margin: auto;
+
+  width: 810px;
+  height: 580px;
+
+  background-image: url("assets/img/Environment/kitchen.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  
+  border: 1px solid var(--comDarkGray);
+}
+
+.com-frame {
+  width: 1007px; 
+  height: 821px; 
+
+  position: absolute;
+
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  
+  background: url('/public/assets/img/retro-computer/com-frame.png') no-repeat center center; 
+  background-size: cover; 
+}
+
+.com-screen-off {
+  position: absolute;
+  left: 0;
+  right: 4px;
+
+  top: -58px;
+  bottom: 0;
+
+  margin: auto;
+
+  width: 810px;
+  height: 580px;
+
+  background-color: #4D4D4D;
+
+  border: 1px solid var(--comDarkGray);
+
+  display: none;
+}
+
+.com-bot-bar {
+  width: 771px;       
+  height: 48px;       
+  position: absolute; 
+
+  left: 117px;       
+  top: 763px;  
+
+  background: url('/public/assets/img/retro-computer/com-bot-bar.png') no-repeat center top;
+  background-size: 100% auto;
+}
+
+.bot-bar-container {
+  position: absolute;
+  left: 186px;
+  width: 100%; 
+}
+
+.bot-bar-svg {
+    position: absolute;
+    top: 0; 
+}
+
+.bot-bar-svg:nth-child(1) { width: 56px; height: 47px; left: 0px; }
+.bot-bar-svg:nth-child(2) { width: 43px; height: 38px; left: 88px; }
+.bot-bar-svg:nth-child(3) { width: 43px; height: 38px; left: 135px; }
+.bot-bar-svg:nth-child(4) { width: 43px; height: 38px; left: 182px; }
+.bot-bar-svg:nth-child(5) { width: 43px; height: 38px; left: 230px; }
+
+.power-light {
+  display: block;
+  background: url('/public/assets/img/retro-computer/com-power-light-on.svg') no-repeat;
+  background-size: 100%; 
+  width: 8px;
+  height: 8px;
+  position: absolute; 
+  left: 305px; 
+  top: 8px; 
+}
+
+.power-btn {
+  display: block;
+  background: url('/public/assets/img/retro-computer/com-power-btn-normal.svg') no-repeat;
+  background-size: 100%; 
+  width: 56px;
+  height: 46px;
+  position: absolute; 
+  left: 345px; 
+}
+
+.power-btn:hover {
+    background-image: url('/public/assets/img/retro-computer/com-power-btn-hover.svg');
+    background-size: 100%; 
+}
+
+.power-btn img {
+    visibility: hidden;
+}
+</style>
+
+<body>
+  <div class="com-frame">
+    <div class="com-bot-bar">
+      <div class="bot-bar-container">
+        <img src="/public/assets/img/retro-computer/com-connect-noclick.svg" class="bot-bar-svg">
+        <img src="/public/assets/img/retro-computer/com-left-noclick.svg" class="bot-bar-svg">
+        <img src="/public/assets/img/retro-computer/com-up-noclick.svg" class="bot-bar-svg">
+        <img src="/public/assets/img/retro-computer/com-down-noclick.svg" class="bot-bar-svg">
+        <img src="/public/assets/img/retro-computer/com-right-noclick.svg" class="bot-bar-svg">
+        <div class="power-light"></div>
+        <div class="power-btn" onclick="togglePower()"></div> 
+    </div>    
+    </div>
+  </div>
+  
+  <div class="main-container"></div>
+  <div class="com-screen-off"></div>
+  
+  <script>
+    function togglePower() {
+      var light = document.querySelector('.power-light');
+      var screenOff = document.querySelector('.com-screen-off');
+
+      // Toggle power light
+      if (light.style.backgroundImage.includes('com-power-light-on.svg')) {
+        light.style.backgroundImage = "url('/public/assets/img/retro-computer/com-power-light-off.svg')";
+      } else {
+        light.style.backgroundImage = "url('/public/assets/img/retro-computer/com-power-light-on.svg')";
+      }
+
+      // Toggle screen visibility
+      if (screenOff.style.display === "none") {
+        screenOff.style.display = "block";
+      } else {
+        screenOff.style.display = "none";
+      }
+    }
+  </script> 
+</body>
+</html>
