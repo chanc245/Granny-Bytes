@@ -43,7 +43,12 @@
 
       <div class="container">
         <div class="left-column">
-          <!-- Placeholder for left-column content -->
+          <div class="empty"></div>
+          <div class="rerun-grandma-app">
+            <a href="./recipe.html">
+              <div class="open-app"></div>
+            </a>
+          </div>
         </div>
 
         <div class="grandma-ui box" style="padding: 5px; padding-bottom: 0">
@@ -54,16 +59,19 @@
               <div class="cooking-result inner-box">
                 <p>*Grandma Feedback!</p>
                 <p>______</p>
-                <div id="cooking-feedback-text"></div>
+                <p id="loadingText"></p>
+                <div id="cooking-feedback-text" class="feedback-text"></div>
               </div>
 
-              <div class="upload inner-box" id="uploadImg">
+              <div class="dropImg inner-div">
                 <img src="assets/img/UI/topbar/upload_topbar.png" />
-                <form class="dropzone" id="imageUpload" action="/">
-                  <div class="dz-message" data-dz-message><span></span></div>
-                </form>
+                <div class="upload inner-div" id="upload">
+                  <form class="dropzone" id="imageUpload" action="/">
+                    <!-- <div class="dz-message" data-dz-message><span></span></div> -->
+                  </form>
 
-                <pre id="output"></pre>
+                  <pre id="output"></pre>
+                </div>
               </div>
             </div>
 
@@ -87,7 +95,6 @@
     </div>
 
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-    <script type="module" src="dish.js"></script>
     <script src="script.js"></script>
     <script src="time.js"></script>
     <script>
@@ -95,11 +102,6 @@
         const audio = document.querySelector("audio");
         audio.volume = 0.2;
         audio.play();
-      });
-
-      const resultPage = document.getElementById("upload");
-      resultPage.addEventListener("click", () => {
-        window.location.href = "./results.html";
       });
 
       // Array of image URLs for grandma's face

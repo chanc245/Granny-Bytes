@@ -24,8 +24,6 @@
   --redDark2: #8e554c;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
-
 @font-face {
   font-family: "Silkscreen";
   src: url("./assets/font/Silkscreen-Regular.ttf") format("truetype");
@@ -489,36 +487,11 @@ main {
   margin: 0 auto;
 }
 
-.upload {
-  background-color: var(--greenLight1);
-  background-size: cover;
-  height: 50%;
-  box-shadow:
-    -4px 0 0 0 var(--greenDark1),
-    4px 0 0 0 var(--greenDark1),
-    0 -3px 0 0 var(--greenDark1),
-    0 3px 0 0 var(--greenDark1);
-  overflow: hidden;
-}
-
-.dropzone {
-  background-color: transparent;
-  color: var(--greenDark1);
-  height: 0px;
-  padding: 0px;
-  /* margin: 5px; */
-}
-
-small {
-  display: block;
-  text-align: center;
-}
-
 .cooking.inner-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .cooking.inner-box img {
@@ -526,11 +499,69 @@ small {
   height: auto;
 }
 
+.cooking-result.inner-box {
+  background-color: var(--bgLight);
+  max-height: 200px;
+  color: var(--brownDark1);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.upload {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 10px;
+}
+
+.dropImg {
+  position: relative; /* Add position relative */
+  background-color: var(--greenLight2);
+  background-size: cover;
+  height: 50%;
+  padding: 10px;
+  box-shadow:
+    -4px 0 0 0 var(--greenDark1),
+    4px 0 0 0 var(--greenDark1),
+    0 -3px 0 0 var(--greenDark1),
+    0 3px 0 0 var(--greenDark1);
+  /* overflow: hidden; */
+}
+
+/* Adjust the Dropzone's CSS */
+.upload .dropzone {
+  position: relative;
+  width: 100%;
+  height: 10%;
+}
+
+/* .upload.dropzone {
+  background-size: cover;
+  background-position: center;
+} */
+
+.dropzone {
+  background-color: var(--greenLight1);
+  color: var(--greenDark1);
+  padding: 0px;
+  height: 100%;
+}
+
+.feedback-text {
+  color: var(--brownDark1);
+  padding: 10px;
+  line-height: normal;
+}
+
+#cooking-feedback-text {
+  font-family: "Halfpix";
+}
+
 .grandma-app img {
   position: relative;
-  top: 14vw;
+  top: 0vw;
   left: 38vw;
-  height: 20%;
+  height: 100%;
 }
 
 .grandma-app p {
@@ -545,13 +576,15 @@ small {
   top: 130;
   left: 500;
   width: 100px;
-  height: 25%;
-  margin: 50px;
+  height: 100px;
+  margin-left: 50px;
+  margin-top: 60%;
   background-image: url("./assets/img/UI/icons/Recipe_icon.png");
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   transition: background-image 0.3s ease-in-out;
 }
 
 .open-app:hover {
-  background-image: url("./assets/img/UI/icons/Recipe_icon_hover.png");
+  background-image: url("./assets/img/UI/icons/Recipe_icon_rerun.png");
 }

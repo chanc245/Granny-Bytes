@@ -94,15 +94,6 @@ app.listen(port, () => {
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLEAPIKEY);
 
-function fileToGenerativePart(path, mimeType) {
-  return {
-    inlineData: {
-      data: Buffer.from(fs.readFileSync(path)).toString("base64"),
-      mimeType,
-    },
-  };
-}
-
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,

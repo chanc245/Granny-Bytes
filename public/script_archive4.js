@@ -1,4 +1,4 @@
-// May2nd -- Most recent version,
+// May12th -- Most recent version,
 // In this version, script_archive3.js + image upload result
 
 // ---------- VARIABLES ---------- //
@@ -288,14 +288,9 @@ const granny = {
   ],
 };
 
-// //Using local storage to access information about which recipe was selected by the user
+//Using local storage to access information about which recipe was selected by the user
 let storedRecipe = JSON.parse(localStorage.getItem("recipe"));
 let imgAnalysisResponse;
-// let storedimgdata = localStorage.getItem("fileDatURL");
-// const imageParts = [
-//   { inlineData: { data: storedimgdata, mimeType: "image/jpeg" } },
-// ];
-//console.log(storedimgdata);
 
 let currentRecipe = storedRecipe;
 let userAsking = true;
@@ -323,8 +318,8 @@ $(document).ready(function () {
     },
     {
       greetings: `*Never give out your password or credit card number in an instant message conversation!
-______  
-Granny:${grannyStartDishLoop(currentRecipe.name)}`, //grannyStart.Dish
+  ______  
+  Granny:${grannyStartDishLoop(currentRecipe.name)}`, //grannyStart.Dish
       prompt: " ",
     }
   );
@@ -386,7 +381,7 @@ function askStep(currentRecipe, terminal, stepIndex) {
               );
             },
             {
-              prompt: "\nYou: \n",
+              prompt: " ",
             }
           );
         } else if (command.match(/no|n/i)) {
@@ -394,7 +389,7 @@ function askStep(currentRecipe, terminal, stepIndex) {
           askStep(currentRecipe, terminal, stepIndex + 1); // Move to the next step
         } else {
           terminal.echo(`\n${randomGrannyConversation(granny.YesNo)}
-          `); //granny.YesNoLoop
+            `); //granny.YesNoLoop
         }
       },
       {
@@ -404,7 +399,7 @@ function askStep(currentRecipe, terminal, stepIndex) {
   } else {
     terminal.echo(`\n${randomGrannyConversation(granny.Complete)}`);
 
-    askImage(imgAnalysisResponse, term);
+    // askImage(imgAnalysisResponse, term);
 
     terminal.pop();
   }
@@ -418,12 +413,12 @@ function askStep(currentRecipe, terminal, stepIndex) {
 
 async function yesNoAnalyzer(input) {
   const prompt = `
-  Based on this user input: ${input}, please analyze whether the user's answer is more aligned with 'yes' or 'no'.
-
-  If the answer leans more towards yes, respond with yes.
-  If the answer leans more towards no, respond with no.
-
-  Please answer only with yes or no.`;
+    Based on this user input: ${input}, please analyze whether the user's answer is more aligned with 'yes' or 'no'.
+  
+    If the answer leans more towards yes, respond with yes.
+    If the answer leans more towards no, respond with no.
+  
+    Please answer only with yes or no.`;
 
   const response = await fetch("/submit", {
     method: "POST",
@@ -463,16 +458,16 @@ async function requestAI(dish, currentStep, userQues) {
 
 function evaluationPrompt(dish, currentStep, userQues) {
   return `
-    You are a grandma assisting your grandchild in cooking. 
-    Speak in a calm, warm, and caring manner.
-
-    The current recipe is: ${dish}
-    The current step is: ${currentStep}
-
-    Your grandkid's question about this recipe is: ${userQues}
-    
-    Please provide short, concise, and simple guidance or clarification.
-  `;
+      You are a grandma assisting your grandchild in cooking. 
+      Speak in a calm, warm, and caring manner.
+  
+      The current recipe is: ${dish}
+      The current step is: ${currentStep}
+  
+      Your grandkid's question about this recipe is: ${userQues}
+      
+      Please provide short, concise, and simple guidance or clarification.
+    `;
 }
 
 Dropzone.options.imageUpload = {
@@ -480,21 +475,17 @@ Dropzone.options.imageUpload = {
   maxFilesize: 20,
   disablePreviews: true,
   accept: function (file, done) {
-    const uploadDiv = document.getElementById("imageUpload");
-    uploadDiv.style.backgroundImage = "url(" + URL.createObjectURL(file) + ")";
-    uploadDiv.style.backgroundSize = "100% 100%";
-
-    document.getElementById("loadingText").innerText =
-      "Wait for Grandma to evaluate...";
+    document.getElementById("upload").style.backgroundImage =
+      "url(" + URL.createObjectURL(file) + ")";
 
     // Access the file data here
     const reader = new FileReader();
     reader.onload = function (event) {
-      //Separating the dataURL so that it's base64 data only
+      //Separating the dataURL so that its its base64 data only
       const data = event.target.result.split(",", 2)[1];
       const type = file.type;
 
-      // Sending data and type of the image in a post request
+      // Sending data and type of the image in post request
       fetch("/vision", {
         method: "POST",
         headers: {
@@ -504,18 +495,16 @@ Dropzone.options.imageUpload = {
       })
         .then((response) => {
           if (response.ok) {
-            return response.json();
+            return response.text();
           } else {
             console.error("Error in sending image.");
             return "Error in sending image.";
           }
         })
         .then((responseText) => {
-          const analysisText = responseText.analyse;
-          document.getElementById("cooking-feedback-text").innerText =
-            analysisText;
-          console.log(analysisText);
-          document.getElementById("loadingText").innerText = "";
+          imgAnalysisResponse = responseText;
+          askImage(imgAnalysisResponse, term);
+          console.log(imgAnalysisResponse);
           done();
         })
         .catch((error) => {
@@ -527,6 +516,86 @@ Dropzone.options.imageUpload = {
   },
 };
 
+// Dropzone.options.imageUpload = {
+//   paramName: "file",
+//   maxFilesize: 20,
+//   disablePreviews: true,
+//   accept: function (file, done) {
+//     // Set the background image of the dropzone container
+//     document.getElementById("uploadImg").style.backgroundImage =
+//       "url(" + URL.createObjectURL(file) + ")";
+
+//     const data = file.dataURL.split(",", 2)[1];
+//     const type = file.type;
+//     console.log("File Uploaded");
+//     console.log(file);
+
+//     fetch("/vision", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ data, type }),
+//     })
+//       .then((response) => {
+//         if (response.ok) {
+//           return response.json(); // Parse JSON response
+//         } else {
+//           console.error("Error in sending image.");
+//           return Promise.reject("Error in sending image.");
+//         }
+//       })
+//       .then((responseData) => {
+//         // Access responseData directly, no need for responseText
+//         document.getElementById("cooking-feedback-text").innerText =
+//           responseData.analyse;
+//         console.log(responseData);
+//         done();
+//       })
+//       .catch((error) => {
+//         console.error("Error:", error);
+//         done(error);
+//       });
+//   },
+// };
+
+// Dropzone.options.imageUpload = {
+//   paramName: "file",
+//   maxFilesize: 10,
+//   disablePreviews: true,
+//   success: function (file) {
+//     document.getElementById("upload").style.backgroundImage =
+//       "url(" + URL.createObjectURL(file) + ")";
+//     const data = file.dataURL.split(",", 2)[1];
+//     console.log("File Uploaded");
+//     console.log(file);
+//     fetch("/api/vision", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ data, type: file.type }),
+//     })
+//       .then((response) => response.text())
+//       .then((responseText) => {
+//         const responseElement = document.createElement("p");
+//         responseElement.innerText = responseText;
+//         document.body.appendChild(responseElement);
+//       });
+//   },
+// };
+
+// function askImage(imgAnalysisResponse, terminal) {
+//   terminal.echo("");
+//   if (imgAnalysisResponse) {
+//     terminal.echo(`\nGrandma:\n${imgAnalysisResponse}\n`);
+//   } else {
+//     terminal.echo(
+//       "No image analysis response available. Please check that the image size is less than 10MB"
+//     );
+//   }
+// }
+
 // ---------- HTML RELATED ---------- //
 // ---------- HTML RELATED ---------- //
 // ---------- HTML RELATED ---------- //
@@ -537,6 +606,7 @@ function sendInput() {
   // Getting user input for grandma chat
   var input = document.getElementById("user_input").value;
   // Execute the input as a terminal command
+  // term.echo(`\nYou:`)
   term.exec(input);
   // Clearing input after its sent
   document.getElementById("user_input").value = "";
@@ -556,7 +626,7 @@ let recipeText = currentRecipe.name + "<br><br>";
 // Parsing ingredients for display
 recipeText += "<b>Ingredients:</b><br>";
 ingredientsList.forEach((ingredient) => {
-  recipeText += ingredient + "<br>";
+  recipeText += "-" + ingredient + "<br>";
 });
 
 // Parsing recipe steps for display
