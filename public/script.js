@@ -556,7 +556,7 @@ let recipeText = currentRecipe.name + "<br><br>";
 // Parsing ingredients for display
 recipeText += "<b>Ingredients:</b><br>";
 ingredientsList.forEach((ingredient) => {
-  recipeText += ingredient + "<br>";
+  recipeText += "> " + ingredient + "<br>";
 });
 
 // Parsing recipe steps for display

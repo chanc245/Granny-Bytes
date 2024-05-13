@@ -5,6 +5,7 @@
 
   --brownLight1: #f8eae0;
   --brownLight2: #d0b49f;
+  --brownLight3: #bba08c;
   --brownDark1: #946e5a;
   --brownDark2: #674e41;
 
@@ -199,7 +200,9 @@ a {
 .welcomebox {
   position: absolute;
   background-color: var(--redLight2);
-  width: 250px;
+  font-size: 13px;
+  line-height: 0.6cm;
+  width: 240px;
   height: 250px;
   top: 70;
   left: 450px;
@@ -229,12 +232,35 @@ a {
     0 10px 0 0 var(--brownDark1);
 }
 
+.login-username input[type="text"] {
+  background-color: var(--bgLight);
+  color: var(--brownLight2);
+  border: none;
+  padding: 5px;
+}
+
+.login-username label {
+  color: var(--brownDark2);
+}
+
+.login-psw input[type="password"] {
+  background-color: var(--bgLight);
+  border: none;
+  padding: 5px;
+}
+
+.login-psw label {
+  color: var(--brownDark2);
+}
+
 ::placeholder {
   font-family: "Silkscreen", sans-serif;
+  color: var(--brownLight3);
+  font-size: 12px;
 }
 
 #password::placeholder {
-  color: var(--brownDark1);
+  color: var(--brownLight3);
 }
 
 #user {
