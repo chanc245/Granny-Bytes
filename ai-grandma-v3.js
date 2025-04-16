@@ -71,7 +71,7 @@ app.post("/vision", async (req, res) => {
 async function getGenResultAsString(input) {
   console.log("--Run Gemini");
 
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
   const prompt = input;
 
